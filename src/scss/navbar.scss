@@ -1,0 +1,35 @@
+@import "./colors.scss";
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 17.5vh;
+  .nav-main-cont {
+    display: flex;
+    align-items: center;
+    a {
+      font-size: 0.525rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #e5e5e5;
+      text-decoration: none;
+    }
+    .nav-logo {
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: $white-text-highlight;
+      font-size: 1rem;
+    }
+    .nav-divider {
+      font-size: 0.525rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+    }
+  }
+}

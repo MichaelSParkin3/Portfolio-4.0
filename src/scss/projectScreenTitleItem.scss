@@ -1,0 +1,13 @@
+.projectScreenTitleItem-cont {
+  display: flex;
+  padding: 1px;
+  letter-spacing: 0.8px;
+  font-size: 1.5rem;
+  .title {
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .tech {
+    margin: 0;
+  }
+}

@@ -5,6 +5,17 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Raleway"],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-transition-link`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

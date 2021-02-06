@@ -1,0 +1,34 @@
+@import "./colors.scss";
+
+.carousel-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 17.5vh;
+  width: 100vw;
+  .carousel-phrase {
+    white-space: nowrap;
+    margin-left: 1.4rem;
+    margin-right: 1.4rem;
+    color: $white-text;
+    font-size: 0.55rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .ticker {
+    width: 100%;
+  }
+}
+
+@keyframes slideshow {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -200%;
+  }
+}

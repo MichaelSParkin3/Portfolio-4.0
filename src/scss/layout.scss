@@ -1,0 +1,18 @@
+@import "./colors.scss";
+
+html {
+  font-family: Raleway;
+  color: $white-text;
+  background-color: $black-background;
+  font-size: 100%;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
