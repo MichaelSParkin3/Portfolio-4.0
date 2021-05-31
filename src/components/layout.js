@@ -11,9 +11,11 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import NavBar from "./navBar"
+import Scrollbar from "react-smooth-scrollbar"
 import "../scss/layout.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children }, props) => {
+  console.log(props);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -33,7 +35,8 @@ const Layout = ({ children }) => {
         alignItems: "center",
       }}
     >
-      <NavBar />
+      <NavBar url={props.url}/>
+
       <main
         style={{
           width: "100vw",

@@ -7,29 +7,44 @@ nav {
   position: fixed;
   top: 0;
   height: 17.5vh;
+  z-index: 999;
   .nav-main-cont {
     display: flex;
     align-items: center;
     a {
-      font-size: 0.525rem;
+      font-size: 0.65rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #e5e5e5;
+      letter-spacing: 2.5px;
+      color: $white-text;
       text-decoration: none;
     }
     .nav-logo {
       font-weight: 900;
       letter-spacing: 1px;
       color: $white-text-highlight;
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
     .nav-divider {
-      font-size: 0.525rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       font-weight: 800;
       padding-left: 1.4rem;
       padding-right: 1.4rem;
+    }
+  }
+  .nav-black {
+    a,
+    .nav-logo,
+    .nav-divider {
+      color: $black-text;
+    }
+  }
+  .nav-white {
+    a,
+    .nav-logo,
+    .nav-divider {
+      color: $white-text;
     }
   }
 }

@@ -7,6 +7,8 @@ import SEO from "../components/seo"
 import ProjectScreen from "../components/projectScreen"
 import InfiniteCarousel from "../components/infiniteCarousel"
 
+import "../scss/index.scss"
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />

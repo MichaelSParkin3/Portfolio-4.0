@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
@@ -11,70 +11,144 @@ import Plx from "react-plx"
 import Fade from "react-reveal/Zoom"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Scrollbar from "react-smooth-scrollbar"
+import { useSpring, animated as a, interpolate } from "react-spring"
+import { useInView } from "react-intersection-observer"
+import FullpageNumber from "../components/fullpageNumber"
+import ContFiftyFifty from "../components/contFiftyFifty"
+import NavBar from '../components/navBar'
 
-import "../scss/projectPage.scss"
+import "../scss/shanecoPage.scss"
+import FullImage from "../components/fullImage"
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
-// An array of parallax effects to be applied - see below for detail
-const parallaxData = [
-  {
-    start: 0,
-    end: "80vh",
-    properties: [
-      {
-        startValue: -250,
-        endValue: 250,
-        property: "translateX",
-      },
-    ],
-  },
-]
-
-const Shaneco = () => {
+const Shaneco = ({ location }) => {
+  console.log(location.pathname);
   const data = useStaticQuery(graphql`
     query {
-      screenshot1: file(relativePath: { eq: "screenshot1.png" }) {
+      screenshot1: file(relativePath: { eq: "screenshot1-test.png" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
         }
-      }
+      },
+      screenshot2: file(relativePath: { eq: "screenshot2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      screenshot4: file(relativePath: { eq: "screenshot4.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      screenshot3: file(relativePath: { eq: "screenshot3.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      components1: file(relativePath: { eq: "components1.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      components2: file(relativePath: { eq: "components2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      components3: file(relativePath: { eq: "components3.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
     }
   `)
 
   console.log(data)
 
-  return (
-    <Layout>
-      <div className="fullpage">
-        <div className="number">01</div>
-      </div>
-      <div className="text-50-50">
-        <div></div>
-        <div>
-          <h2>Shaneco.com Quizes & Components</h2>
-          <p>
-            dsf sfds sdf dsf sdfsdfdsdsf sdfsdf sdfsdfsdf fsdf sdfsdfsdf
-            sdfsdfsdf ffs sfdfsd sfsfdf dsf sfds sdf dsf sdfsdfdsdsf sdfsdf
-            sdfsdfsdf fsdf sdfsdfsdf sdfsdfsdf ffs sfdfsd sfsfdf dsf sfds sdf
-            dsf sdfsdfdsdsf sdfsdf sdfsdfsdf fsdf sdfsdfsdf sdfsdfsdf ffs sfdfsd
-            sfsfdf dsf sfds sdf dsf sdfsdfdsdsf sdfsdf sdfsdfsdf fsdf sdfsdfsdf
-            sdfsdfsdf ffs sfdfsd sfsfdf
-          </p>
-        </div>
-      </div>
+  const getLocation = () => {
+    console.log(location.pathname + ' GET LOCATRIN');
+    return location.pathname;
+  }
 
-      <div className="text-50-50">
-        <div>
-          <h2>
-            Html<br></br>Scss<br></br>Javascript
-          </h2>
-        </div>
-        <div></div>
+  // An array of parallax effects to be applied - see below for detail
+  const parallaxData = [
+    {
+      start: "self",
+      end: "100%",
+      properties: [
+        {
+          startValue: 1,
+          endValue: 3,
+          property: "scale",
+        },
+      ],
+    },
+  ]
+
+  const parallaxData1 = [
+    {
+      start: "self",
+      end: "100%",
+      duration: "1000",
+      properties: [
+        {
+          startValue: 0,
+          endValue: 300,
+          property: "translateX",
+        },
+      ],
+    },
+  ]
+
+  return (
+    <Layout url={location.pathname}>
+    
+    <div className="project-page">
+    
+      <FullpageNumber url={location} number="01" />
+      <ContFiftyFifty
+        right={
+          '<h1>ShaneCo.com Quizes & Components</h1><span className="divider"></span><p>I worked with Shaneco. and their team to re-develop their product suggestion quizes, create new re-usable components, and fix some cookie related problems they were having.</p>'
+        }
+      />
+      
+      <ContFiftyFifty left={"<h1>Html</br>Css</br>Javascript</h1>"} />
+      <ContFiftyFifty
+      rightImg={data.screenshot4.childImageSharp.fluid}
+        left={
+          '<h1>The Quizzes</h1><span className="divider"></span><p>I re-developed their suggestion quiz into a re-usable and customizable component by building upon their existing code. The quiz asks the user questions and based on their answer combinations the user is reccomended different products to buy from the Shaneco store.</p><a>Find It Here</a>'
+        }
+      />
+      <FullImage align='center' img={data.screenshot1.childImageSharp.fluid} />
+      <FullImage align='right' img={data.screenshot2.childImageSharp.fluid} />
+      <FullImage align='left' img={data.screenshot3.childImageSharp.fluid} />
+      <ContFiftyFifty
+      leftImg={data.components3.childImageSharp.fluid}
+        right={
+          '<h1>Components</h1><span className="divider"></span><p>I helped the Shaneco. team create a huge collection of re-usable front end components. These components are used all over the entire Shaneco. site. Each component is made with simple, easy to understand, interchangable CSS classes. This is so the less code savvy employees can easily understand and use the components.</p><a>Find It Here</a>'
+        }
+      />
+      <FullImage align='right' img={data.components1.childImageSharp.fluid} />
+      <FullImage align='left' img={data.components2.childImageSharp.fluid} />
+      
+      <FullpageNumber number="01" />
       </div>
-      <div className="big-img">
-        <Img fluid={data.screenshot1.childImageSharp.fluid} />
-      </div>
+      
     </Layout>
   )
 }

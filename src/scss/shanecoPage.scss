@@ -1,0 +1,122 @@
+@import "./colors.scss";
+
+.project-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1920px;
+  font-family: Raleway;
+  background-color: #fff;
+  color: $black-text;
+}
+.fullpage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  overflow: hidden;
+  .number {
+    font-size: 75rem;
+    font-weight: 400;
+    position: relative;
+    left: -360px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+}
+.cont-50-50 {
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  span {
+    border-top: 4px solid $black-text;
+    width: 20%;
+    display: block;
+  }
+  .inner-50-50 {
+    flex: 1;
+    h1 {
+      font-size: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+    p {
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 60px;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+    .inner-html {
+      width: 80%;
+      .gatsby-image-wrapper {
+        width: 100%;
+      }
+    }
+    .inner-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    a {
+      font-weight: 300;
+      font-size: 4rem;
+    }
+  }
+  .inner-50-50-left {
+    justify-content: flex-end;
+    display: flex;
+  }
+  .inner-50-50-right {
+  }
+}
+
+.double {
+  .inner-html {
+    width: 70% !important;
+  }
+  .inner-50-50-left {
+    .inner-html {
+      margin-right: 10%;
+    }
+  }
+  .inner-50-50-right {
+    .inner-html {
+      margin-left: 10%;
+    }
+  }
+}
+
+.full-image {
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  .block-1 {
+    flex: 1;
+  }
+  .block-2 {
+    flex: 8;
+  }
+  .block-3 {
+    flex: 1;
+  }
+  .gatsby-image-wrapper {
+    max-width: 1300px;
+    margin: auto;
+  }
+}
+.big-img {
+  width: 80vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+}
