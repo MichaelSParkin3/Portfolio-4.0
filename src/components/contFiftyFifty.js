@@ -36,8 +36,8 @@ const ContFiftyFifty = (props) => {
         ref={ref}
         
       >
-      <div className='inner-html inner-html-1' dangerouslySetInnerHTML={{__html: props.left}}></div>
-      <div style={doesImgExist(props.leftImg) ? {display: 'flex'} : {display: 'none'}} className={doesImgExist(props.rightImg) ? 'inner-html inner-html-2 inner-img' : 'inner-html inner-html-2 inner-img'}>
+      <div style={doesImgExist(props.leftImg) ? {display: 'none'} : {display: 'block'}} className='inner-html inner-html-1' dangerouslySetInnerHTML={{__html: props.left}}></div>
+      <div style={doesImgExist(props.leftImg) ? {display: 'flex', width: props.setImgWidth, margin: 'auto'} : {display: 'none'}} className={doesImgExist(props.rightImg) ? 'inner-html inner-html-2 inner-img' : 'inner-html inner-html-2 inner-img'}>
         <Img fluid={props.leftImg} />
       </div>
       </motion.div>
@@ -50,7 +50,7 @@ const ContFiftyFifty = (props) => {
         ref={ref}
       >
       <div className='inner-html inner-html-2' dangerouslySetInnerHTML={{__html: props.right}}></div>
-      <div style={doesImgExist(props.rightImg) ? {display: 'flex'} : {display: 'none'}} className={doesImgExist(props.rightImg) ? 'inner-html inner-html-2 inner-img' : 'inner-html inner-html-2 inner-img'}>
+      <div style={doesImgExist(props.rightImg) ? {display: 'flex', width: props.setImgWidth, margin: 'auto'} : {display: 'none'}} className={doesImgExist(props.rightImg) ? 'inner-html inner-html-2 inner-img' : 'inner-html inner-html-2 inner-img'}>
         <Img fluid={props.rightImg} />
       </div>
         

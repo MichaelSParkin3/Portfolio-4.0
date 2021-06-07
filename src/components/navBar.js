@@ -6,7 +6,7 @@ import { globalHistory } from '@reach/router'
 
 import "../scss/navbar.scss"
 
-const NavBar = (location) => {
+const NavBar = props => {
 
   const variants = {
   on: { opacity: 1, y: 0 },
@@ -15,37 +15,7 @@ const NavBar = (location) => {
 
   //console.log(props.url);
 
-  var makeWhite = false
-
   const [onTop, setOnTop] = useState(true);
-
-  console.log(location);
-
-//   if (location.url !== undefined) {
-//   if (location.url.pathname == '/shaneco') {
-//     makeWhite = true
-//     console.log('---- TRUE');
-//   } else {
-//     makeWhite = false
-//   }
-// }
-
-if (location.url !== undefined) {
-
-switch(location.url.pathname) {
-  case undefined:
-    break;
-  case '/shaneco':
-    makeWhite = true
-    break;
-    case '/':
-      makeWhite = false
-      break;
-  default:
-    makeWhite = false
-}
-
-}
 
 useEffect(() => {
   window.onscroll = function() {
@@ -58,25 +28,14 @@ useEffect(() => {
     };
 });
 
-const routeChange = () => {
-console.log('------GOO');
-}
-
-useEffect(() => {
-  return globalHistory.listen(({ action }) => {
-    if (action === 'PUSH') routeChange(false)
-  })
-}, [routeChange])
-
-
-
   return (
     <motion.nav
     animate={onTop ? "on" : "off"}
-        variants={variants}
+        variants={ props.disableAnim ? null : variants }
+        // variants={variants}
         transition={{ type: "spring", duration: 1, bounce: 0 }}
     >
-      <div className={makeWhite ? 'nav-main-cont nav-black' : 'nav-main-cont nav-white'}>
+      <div className={props.makeWhite ? 'nav-main-cont nav-white' : 'nav-main-cont nav-black'}>
         <AniLink cover direction="up" bg="#e5e5e5" to="/">
           Projects
         </AniLink>

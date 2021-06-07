@@ -215,7 +215,7 @@ const ProjectScreen = () => {
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[2]}
-            link={"404"}
+            link={"nordstrom"}
           />
           <ProjectScreenTitleWithImage
             name={"GAMER CONNECT"}

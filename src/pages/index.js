@@ -6,6 +6,7 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import ProjectScreen from "../components/projectScreen"
 import InfiniteCarousel from "../components/infiniteCarousel"
+import NavBar from "../components/navBar"
 
 import "../scss/index.scss"
 
@@ -15,6 +16,7 @@ const IndexPage = () => (
     {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div> */}
+    <NavBar disableAnim={true} makeWhite={true}/>
     <ProjectScreen />
     <InfiniteCarousel
       phraseArray={[
