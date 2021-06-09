@@ -17,6 +17,7 @@ import { useInView } from "react-intersection-observer"
 import FullpageNumber from "../components/fullpageNumber"
 import ContFiftyFifty from "../components/contFiftyFifty"
 import NavBar from "../components/navBar"
+import AnimateOnScroll from "../components/animateOnScroll"
 
 import "../scss/shanecoPage.scss"
 import FullImage from "../components/fullImage"
@@ -130,6 +131,7 @@ const Shaneco = ({ location }) => {
         <ContFiftyFifty left={"<h1>Html</br>Css</br>Javascript</h1>"} />
         <ContFiftyFifty
           rightImg={data.screenshot4.childImageSharp.fluid}
+          setImgWidth={"480px"}
           left={
             '<h1>The Quizzes</h1><span className="divider"></span><p>I re-developed their suggestion quiz into a re-usable and customizable component by building upon their existing code. The quiz asks the user questions and based on their answer combinations the user is reccomended different products to buy from the Shaneco store.</p><a href="https://www.shaneco.com/engagement-wedding/engagement-rings/style-finder?promo_name=nav&promo_id=engagement&promo_creative=stylefinder" target="_blank" class="link link--mneme">Find It Here</a> '
           }
@@ -138,10 +140,12 @@ const Shaneco = ({ location }) => {
           align="center"
           img={data.screenshot1.childImageSharp.fluid}
         />
+
         <FullImage align="right" img={data.screenshot2.childImageSharp.fluid} />
         <FullImage align="left" img={data.screenshot3.childImageSharp.fluid} />
         <ContFiftyFifty
           leftImg={data.components3.childImageSharp.fluid}
+          setImgWidth={"370px"}
           right={
             '<h1>Components</h1><span className="divider"></span><p>I helped the Shaneco. team create a huge collection of re-usable front end components. These components are used all over the entire Shaneco. site. Each component is made with simple, easy to understand, interchangable CSS classes. This is so the less code savvy employees can easily understand and use the components.</p><a href="https://www.shaneco.com/all-components" target="_blank" class="link link--mneme">Find It Here</a>'
           }
