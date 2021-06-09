@@ -35,7 +35,7 @@ const Layout = ({ children }, props) => {
         alignItems: "center",
       }}
     >
-      <NavBar url={props.url}/>
+      
 
       <main
         style={{
