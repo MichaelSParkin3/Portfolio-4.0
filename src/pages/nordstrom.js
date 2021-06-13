@@ -14,7 +14,7 @@ import Img from "gatsby-image"
 import Scrollbar from "react-smooth-scrollbar"
 import { useSpring, animated as a, interpolate } from "react-spring"
 import { useInView } from "react-intersection-observer"
-import FullpageNumber from "../components/fullpageNumber"
+import FullPageNumber from "../components/fullpageNumber"
 import ContFiftyFifty from "../components/contFiftyFifty"
 import NavBar from "../components/navBar"
 
@@ -120,7 +120,7 @@ const Shaneco = ({ location }) => {
       <div className="project-page">
         <NavBar makeWhite={false} />
 
-        <FullpageNumber url={location} number="02" />
+        <FullPageNumber url={location} number="02" />
 
         <ContFiftyFifty
           right={

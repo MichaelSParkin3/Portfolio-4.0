@@ -14,7 +14,7 @@ import Img from "gatsby-image"
 import Scrollbar from "react-smooth-scrollbar"
 import { useSpring, animated as a, interpolate } from "react-spring"
 import { useInView } from "react-intersection-observer"
-import FullpageNumber from "../components/fullpageNumber"
+import FullPageNumber from "../components/fullpageNumber"
 import ContFiftyFifty from "../components/contFiftyFifty"
 import NavBar from "../components/navBar"
 import AnimateOnScroll from "../components/animateOnScroll"
@@ -22,6 +22,7 @@ import AnimateOnScroll from "../components/animateOnScroll"
 import "../scss/shanecoPage.scss"
 import FullImage from "../components/fullImage"
 import PerfectScrollbar from "react-perfect-scrollbar"
+import ScrollToTopSpinner from "../components/scrollToTopSpinner"
 
 const Shaneco = ({ location }) => {
   console.log(location.pathname)
@@ -120,8 +121,9 @@ const Shaneco = ({ location }) => {
     <Layout url={location.pathname}>
       <div className="project-page">
         <NavBar makeWhite={false} />
+        <ScrollToTopSpinner/>
 
-        <FullpageNumber url={location} number="01" />
+        <FullPageNumber url={location} number="01" />
         <ContFiftyFifty
           right={
             '<h1>ShaneCo.com Quizes & Components</h1><span className="divider"></span><p>I worked with Shaneco. and their team to re-develop their product suggestion quizes, create new re-usable components, and fix some cookie related problems they were having.</p>'

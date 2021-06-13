@@ -1,0 +1,19 @@
+.fullpage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  overflow: hidden;
+  .number {
+    font-size: 75rem;
+    font-weight: 400;
+    position: relative;
+    left: -360px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+}

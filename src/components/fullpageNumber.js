@@ -2,12 +2,14 @@ import React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
+import "../scss/fullPageNumber.scss"
+
 const variants = {
   on: { opacity: 1, y: 0 },
   off: { opacity: 0, y: 100 },
 }
 
-const FullpageNumber = props => {
+const FullPageNumber = props => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '-100px 0px'
@@ -23,4 +25,4 @@ const FullpageNumber = props => {
     </div>
   )
 }
-export default FullpageNumber
+export default FullPageNumber

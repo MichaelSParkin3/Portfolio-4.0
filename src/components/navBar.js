@@ -9,8 +9,8 @@ import "../scss/navbar.scss"
 const NavBar = props => {
 
   const variants = {
-  on: { opacity: 1, y: 0 },
-  off: { opacity: 0, y: -50 },
+  on: { opacity: 1, y: 0, scale: 1 },
+  off: { opacity: 0, y: -50, scale: 0 },
 }
 
   //console.log(props.url);
@@ -33,7 +33,7 @@ useEffect(() => {
     animate={onTop ? "on" : "off"}
         variants={ props.disableAnim ? null : variants }
         // variants={variants}
-        transition={{ type: "spring", duration: 1, bounce: 0 }}
+        transition={{ type: "spring", duration: 1, bounce: 0.5 }}
     >
       <div className={props.makeWhite ? 'nav-main-cont nav-white' : 'nav-main-cont nav-black'}>
         <AniLink cover direction="up" bg="#e5e5e5" to="/">

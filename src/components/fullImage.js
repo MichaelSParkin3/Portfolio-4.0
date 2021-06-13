@@ -3,6 +3,8 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Img from "gatsby-image"
 
+import "../scss/fullImage.scss"
+
 const variants = {
   on: { opacity: 1, y: 0 },
   off: { opacity: 0, y: 100 },

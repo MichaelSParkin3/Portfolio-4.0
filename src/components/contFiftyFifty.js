@@ -6,28 +6,21 @@ import Img from "gatsby-image"
 import "../scss/contFiftyFifty.scss"
 
 const variants = {
-        visible: {
-          y: 0,
-          opacity: 1,
-        },
-        hidden: {
-          y: 100,
-          opacity: 0,
-        },
-    }
+  on: { opacity: 1, y: 0 },
+  off: { opacity: 0, y: 100 },
+}
+
+const leftVariants = {
+  on: { opacity: 1, y: 0 },
+  off: { opacity: 0, y: -100 },
+}
 
 const ContFiftyFifty = (props) => {
 
-  const animation = useAnimation();
-  const [ref, inView, entry] = useInView({ threshold: 0.1 });
-
-  useEffect(() => {
-      if (inView) {
-        animation.start("visible");
-      } else {
-        animation.start("hidden");
-      }
-    }, [animation, inView]);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '-100px 0px'
+  })
 
   console.log(props.url);
 
@@ -43,8 +36,8 @@ const ContFiftyFifty = (props) => {
     <div className={doesImgExist(props.rightImg) || doesImgExist(props.leftImg) ? 'double cont-50-50' : 'single cont-50-50'}>
       <motion.div
         className="inner-50-50 inner-50-50-left"
-        animate={animation}
-        variants={variants}
+        animate={ inView ? 'on' : 'off' }
+        variants={leftVariants}
         transition={{ type: "spring", duration: 3, bounce: 0 }}
         style={{ top: "100px" }}
         ref={ref}
@@ -59,7 +52,7 @@ const ContFiftyFifty = (props) => {
       </motion.div>
       <motion.div
         className="inner-50-50 inner-50-50-right"
-        animate={animation}
+        animate={ inView ? 'on' : 'off' }
         variants={variants}
         transition={{ type: "spring", duration: 3, bounce: 0 }}
         style={{ top: "100px" }}
