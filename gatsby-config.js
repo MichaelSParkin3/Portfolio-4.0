@@ -9,8 +9,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["Raleway"],
-          urls: ["/fonts/fonts.css"],
+          families: ["Raleway"]
         },
       },
     },
