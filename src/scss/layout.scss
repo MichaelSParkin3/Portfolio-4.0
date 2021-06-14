@@ -1,34 +1,7 @@
 @import "./colors.scss";
 
-@font-face {
-  font-family: "ralewaythin_italic";
-  src: url("../fonts/raleway-italic-variablefont_wght-webfont.eot");
-  src: url("../fonts/raleway-italic-variablefont_wght-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/raleway-italic-variablefont_wght-webfont.woff2")
-      format("woff2"),
-    url("../fonts/raleway-italic-variablefont_wght-webfont.woff") format("woff"),
-    url("../fonts/raleway-italic-variablefont_wght-webfont.svg#ralewaythin_italic")
-      format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "ralewaythin";
-  src: url("../fonts/raleway-variablefont_wght-webfont.eot");
-  src: url("../fonts/raleway-variablefont_wght-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/raleway-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../fonts/raleway-variablefont_wght-webfont.woff") format("woff"),
-    url("../fonts/raleway-variablefont_wght-webfont.svg#ralewaythin")
-      format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
 html {
-  font-family: "ralewaythin", Fallback, sans-serif;
+  font-family: "Raleway", Fallback, sans-serif;
   color: $white-text;
   background-color: $black-background;
   font-size: 100%;
