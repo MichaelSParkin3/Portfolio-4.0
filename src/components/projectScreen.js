@@ -64,7 +64,7 @@ const ProjectScreen = () => {
   const [positionPercent, setPositionPercent] = useState(0)
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
-  const [projectScreenContHeight, setProjectScreenContHeight] = useState(0);
+  const [projectScreenContHeight, setProjectScreenContHeight] = useState('65vh');
 
   /**
    * itemHoveredOn:
@@ -113,16 +113,36 @@ const ProjectScreen = () => {
 
   const projectScreenContRef = useRef(null)
 
+  const { innerWidth: width, innerHeight: height } = window;
+
   useEffect(() => {
     window.addEventListener("resize", updateSize)
-    setProjectScreenContHeight(projectScreenContRef.current.offsetHeight)
+    // const height = projectScreenContRef.current.offsetHeight
+    // console.log("projectScreenContRef height USEEFFECT ", height)
   })
 
   const updateSize = () => {
     console.log("RESOIZED")
-    setProjectScreenContHeight(projectScreenContRef.current.offsetHeight)
-    console.log("projectScreenContRef height ", projectScreenContHeight)
+        console.log(height+' ---- '+window.innerHeight);
+    if (height !== window.innerHeight) {
+      console.log(height+' ---- '+window.innerHeight);
+    }
+    // setProjectScreenContHeight(projectScreenContRef.current.offsetHeight)
+    // console.log("projectScreenContRef height ", projectScreenContHeight)
   }
+
+  //   const { innerWidth: width, innerHeight: height } = window;
+// useEffect(() => {
+//   window.addEventListener('handleResize', handleResize);
+// });
+//   const handleResize = () => {
+//     console.log(height+' ---- '+window.innerHeight);
+//     if (height !== window.innerHeight) {
+//       console.log(height+' ---- '+window.innerHeight);
+//     }
+//   }
+
+  //console.log(width, height);
 
   const handleEnter = () => {
     console.log("======== ENTER")
