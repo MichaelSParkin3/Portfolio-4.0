@@ -30,6 +30,7 @@ const Layout = ({ children }, props) => {
     <div
       id="layout-cont"
       style={{
+        height: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -40,10 +41,7 @@ const Layout = ({ children }, props) => {
       <main
         style={{
           width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
+          height: "100%",
         }}
       >
         {children}

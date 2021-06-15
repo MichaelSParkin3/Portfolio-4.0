@@ -5,6 +5,23 @@ html {
   color: $white-text;
   background-color: $black-background;
   font-size: 100%;
+  height: 100%;
   body {
+    height: 100%;
+    #___gatsby {
+      height: 100%;
+      #gatsby-focus-wrapper {
+        height: 100%;
+        .tl-edges {
+          height: 100%;
+          .tl-wrapper {
+            height: 100%;
+            #layout-cont {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 }
