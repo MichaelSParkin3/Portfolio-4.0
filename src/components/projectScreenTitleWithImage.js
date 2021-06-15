@@ -68,7 +68,7 @@ const ProjectScreenTitleWithImage = props => {
     
   }
 
-  console.log(props.projectScreenHeight);
+  console.log('inwithimage'+ props.projectScreenHeight);
 
   return (
     <>
@@ -107,7 +107,7 @@ const ProjectScreenTitleWithImage = props => {
         // className={
         //   props.display ? "screen-image screen-image-appear" : "screen-image"
         // }
-        style={props.display ? { display: "flex", height: props.projectScreenHeight.toString() } : { display: "none", height: props.projectScreenHeight }}
+        style={props.display ? { display: "flex", height: props.projectScreenHeight } : { display: "none", height: props.projectScreenHeight }}
       >
         <Img fluid={props.img} />
       </div>

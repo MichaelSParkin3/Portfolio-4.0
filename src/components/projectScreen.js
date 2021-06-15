@@ -64,7 +64,7 @@ const ProjectScreen = () => {
   const [positionPercent, setPositionPercent] = useState(0)
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
-  const [projectScreenContHeight, setProjectScreenContHeight] = useState('65vh');
+  const [newScreenImageHeight, setNewScreenImageHeight] = useState('65vh');
 
   /**
    * itemHoveredOn:
@@ -105,44 +105,20 @@ const ProjectScreen = () => {
     setTransitioning(previousTransitioning => false)
   }
 
-  //   const projectScreenContRef = useRef(null);
-  //  useEffect(() => {
-  //     const height = projectScreenContRef.current.offsetHeight;
-  //     console.log('projectScreenContRef height ', height);
-  //  }, [projectScreenContRef]);
-
   const projectScreenContRef = useRef(null)
-
-  const { innerWidth: width, innerHeight: height } = window;
+  var windowHeight;
 
   useEffect(() => {
     window.addEventListener("resize", updateSize)
-    // const height = projectScreenContRef.current.offsetHeight
-    // console.log("projectScreenContRef height USEEFFECT ", height)
   })
 
   const updateSize = () => {
     console.log("RESOIZED")
-        console.log(height+' ---- '+window.innerHeight);
-    if (height !== window.innerHeight) {
-      console.log(height+' ---- '+window.innerHeight);
-    }
-    // setProjectScreenContHeight(projectScreenContRef.current.offsetHeight)
-    // console.log("projectScreenContRef height ", projectScreenContHeight)
+    windowHeight = window.innerHeight;
+    setNewScreenImageHeight( windowHeight - (windowHeight * 0.35))
+
+    console.log('newHeight: '+newScreenImageHeight);
   }
-
-  //   const { innerWidth: width, innerHeight: height } = window;
-// useEffect(() => {
-//   window.addEventListener('handleResize', handleResize);
-// });
-//   const handleResize = () => {
-//     console.log(height+' ---- '+window.innerHeight);
-//     if (height !== window.innerHeight) {
-//       console.log(height+' ---- '+window.innerHeight);
-//     }
-//   }
-
-  //console.log(width, height);
 
   const handleEnter = () => {
     console.log("======== ENTER")
@@ -215,7 +191,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"RENT A BIKE"}
             tech={"React"}
-            projectScreenHeight={projectScreenContHeight}
+            projectScreenHeight={newScreenImageHeight}
             img={data.bikeScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             display={displayBoolArray[0]}
@@ -224,7 +200,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"SHANECO"}
             tech={"Html Scss Js"}
-            projectScreenHeight={projectScreenContHeight}
+            projectScreenHeight={newScreenImageHeight}
             img={data.shanecoScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             display={displayBoolArray[1]}
@@ -233,7 +209,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"NORDSTROM"}
             tech={"React Redux"}
-            projectScreenHeight={projectScreenContHeight}
+            projectScreenHeight={newScreenImageHeight}
             img={data.nordstromScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             display={displayBoolArray[2]}
@@ -242,7 +218,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"GAMER CONNECT"}
             tech={"React Node"}
-            projectScreenHeight={projectScreenContHeight}
+            projectScreenHeight={newScreenImageHeight}
             img={data.gamerScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             display={displayBoolArray[3]}
@@ -251,7 +227,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"LORI RHODES ART"}
             tech={"Squarespace"}
-            projectScreenHeight={projectScreenContHeight}
+            projectScreenHeight={newScreenImageHeight}
             img={data.artScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             display={displayBoolArray[4]}

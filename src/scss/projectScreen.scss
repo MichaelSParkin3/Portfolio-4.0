@@ -32,12 +32,11 @@
 
   .screen-image {
     width: 95vw;
-    height: 65%;
+
     position: absolute;
     overflow: hidden;
     z-index: -1;
     opacity: 0.95;
-
     .gatsby-image-wrapper {
       width: 100%;
     }
