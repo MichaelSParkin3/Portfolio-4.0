@@ -64,6 +64,7 @@ const ProjectScreen = () => {
   const [positionPercent, setPositionPercent] = useState(0)
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
+  const [projectScreenContHeight, setProjectScreenContHeight] = useState(0);
 
   /**
    * itemHoveredOn:
@@ -99,28 +100,29 @@ const ProjectScreen = () => {
     setTransitioning(previousTransitioning => true)
   }
 
-  const itemHoveredOff = titleItemRef => {
-    // var tempArray = []
-    // displayBoolArray.forEach(element => {
-    //   tempArray.push(false)
-    // })
-    // setdisplayBoolArray(PreviousDisplayBoolArray => tempArray)
-  }
-
   const titleContMouseOut = () => {
     setTitleHovered(previousBool => false)
     setTransitioning(previousTransitioning => false)
   }
 
+  //   const projectScreenContRef = useRef(null);
+  //  useEffect(() => {
+  //     const height = projectScreenContRef.current.offsetHeight;
+  //     console.log('projectScreenContRef height ', height);
+  //  }, [projectScreenContRef]);
+
+  const projectScreenContRef = useRef(null)
+
   useEffect(() => {
-    // const allEqual = arr => arr.every(v => v === arr[0])
-    // setTimeout(() => {
-    //   if (allEqual(displayBoolArray)) {
-    //     console.log("-------Tmeout")
-    //     setTitleHovered(previousBool => false)
-    //   }
-    // }, 1000)
+    window.addEventListener("resize", updateSize)
+    setProjectScreenContHeight(projectScreenContRef.current.offsetHeight)
   })
+
+  const updateSize = () => {
+    console.log("RESOIZED")
+    setProjectScreenContHeight(projectScreenContRef.current.offsetHeight)
+    console.log("projectScreenContRef height ", projectScreenContHeight)
+  }
 
   const handleEnter = () => {
     console.log("======== ENTER")
@@ -167,7 +169,7 @@ const ProjectScreen = () => {
 
   return (
     <div className={"projectScreen"}>
-      <div className="projectScreen-cont">
+      <div className="projectScreen-cont" ref={projectScreenContRef}>
         <Transition
           in={transitioning}
           onEnter={handleEnter}
@@ -193,45 +195,45 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"RENT A BIKE"}
             tech={"React"}
+            projectScreenHeight={projectScreenContHeight}
             img={data.bikeScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[0]}
             link={"404"}
           />
           <ProjectScreenTitleWithImage
             name={"SHANECO"}
             tech={"Html Scss Js"}
+            projectScreenHeight={projectScreenContHeight}
             img={data.shanecoScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[1]}
             link={"shaneco"}
           />
           <ProjectScreenTitleWithImage
             name={"NORDSTROM"}
             tech={"React Redux"}
+            projectScreenHeight={projectScreenContHeight}
             img={data.nordstromScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[2]}
             link={"nordstrom"}
           />
           <ProjectScreenTitleWithImage
             name={"GAMER CONNECT"}
             tech={"React Node"}
+            projectScreenHeight={projectScreenContHeight}
             img={data.gamerScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[3]}
             link={"404"}
           />
           <ProjectScreenTitleWithImage
             name={"LORI RHODES ART"}
             tech={"Squarespace"}
+            projectScreenHeight={projectScreenContHeight}
             img={data.artScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[4]}
             link={"404"}
           />
