@@ -41,7 +41,7 @@ useEffect(() => {
         </AniLink>
 
         <div className="nav-divider">|</div>
-        <AniLink cover className="nav-logo" direction="up" bg="#e5e5e5" to="/">
+        <AniLink cover id="nav-logo-id" className="nav-logo" direction="up" bg="#e5e5e5" to="/">
           MIII
         </AniLink>
         <div className="nav-divider">|</div>
