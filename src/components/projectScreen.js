@@ -108,17 +108,23 @@ const ProjectScreen = () => {
   const projectScreenContRef = useRef(null)
   var windowHeight;
 
-  useEffect(() => {
-    window.addEventListener("resize", updateSize)
-  })
+      useEffect(() => {
+    var projectScreenContHeight = projectScreenContRef.current.offsetHeight;
+    console.log('CONT HEIGHT '+ projectScreenContHeight);
+    setNewScreenImageHeight(projectScreenContHeight);
+  },[])
 
-  const updateSize = () => {
-    console.log("RESOIZED")
-    windowHeight = window.innerHeight;
-    setNewScreenImageHeight( windowHeight - (windowHeight * 0.35))
+  // useEffect(() => {
+  //   window.addEventListener("resize", updateSize)
+  // })
 
-    console.log('newHeight: '+newScreenImageHeight);
-  }
+  // const updateSize = () => {
+  //   console.log("RESOIZED")
+  //   windowHeight = window.innerHeight;
+  //   setNewScreenImageHeight( windowHeight - (windowHeight * 0.35))
+
+  //   console.log('newHeight: '+newScreenImageHeight);
+  // }
 
   const handleEnter = () => {
     console.log("======== ENTER")
