@@ -64,6 +64,7 @@ const ProjectScreen = () => {
   const [positionPercent, setPositionPercent] = useState(0)
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
+  const [newScreenImageHeight, setNewScreenImageHeight] = useState('65vh')
 
   /**
    * itemHoveredOn:
@@ -119,7 +120,7 @@ const ProjectScreen = () => {
     var projectScreenContHeight = projectScreenContRef.current.offsetHeight;
     console.log('CONT HEIGHT '+ projectScreenContHeight);
     setNewScreenImageHeight(projectScreenContHeight);
-  },[])
+  })
 
   // useEffect(() => {
   //   window.addEventListener("resize", updateSize)
@@ -178,7 +179,7 @@ const ProjectScreen = () => {
 
   return (
     <div className={"projectScreen"}>
-      <div className="projectScreen-cont">
+      <div className="projectScreen-cont" ref={projectScreenContRef}>
         <Transition
           in={transitioning}
           onEnter={handleEnter}
@@ -204,6 +205,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"RENT A BIKE"}
             tech={"React"}
+            projectScreenHeight={newScreenImageHeight}
             img={data.bikeScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
@@ -213,6 +215,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"SHANECO"}
             tech={"Html Scss Js"}
+            projectScreenHeight={newScreenImageHeight}
             img={data.shanecoScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
@@ -222,6 +225,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"NORDSTROM"}
             tech={"React Redux"}
+            projectScreenHeight={newScreenImageHeight}
             img={data.nordstromScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
@@ -231,6 +235,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"GAMER CONNECT"}
             tech={"React Node"}
+            projectScreenHeight={newScreenImageHeight}
             img={data.gamerScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
@@ -240,6 +245,7 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"LORI RHODES ART"}
             tech={"Squarespace"}
+            projectScreenHeight={newScreenImageHeight}
             img={data.artScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
