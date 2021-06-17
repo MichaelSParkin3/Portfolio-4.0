@@ -65,10 +65,8 @@ const ProjectScreenTitleWithImage = props => {
   }
 
   const mouseOut = () => {
-    
+    props.itemHoveredOff(titleItemRef)
   }
-
-  console.log('inwithimage'+ props.projectScreenHeight);
 
   return (
     <>
@@ -89,8 +87,9 @@ const ProjectScreenTitleWithImage = props => {
           className="title"
           cover
           direction="up"
+          bg="#e5e5e5"
           to={props.link}
-          duration={2.5}
+          duration={2}
         >
           <div className="title">
             {props.name}
@@ -106,7 +105,7 @@ const ProjectScreenTitleWithImage = props => {
         // className={
         //   props.display ? "screen-image screen-image-appear" : "screen-image"
         // }
-        style={props.display ? { display: "flex", height: props.projectScreenHeight } : { display: "none", height: props.projectScreenHeight }}
+        style={props.display ? { display: "flex" } : { display: "none" }}
       >
         <Img fluid={props.img} />
       </div>

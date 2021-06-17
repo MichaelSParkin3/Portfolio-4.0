@@ -64,7 +64,6 @@ const ProjectScreen = () => {
   const [positionPercent, setPositionPercent] = useState(0)
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
-  const [newScreenImageHeight, setNewScreenImageHeight] = useState('65vh');
 
   /**
    * itemHoveredOn:
@@ -100,25 +99,28 @@ const ProjectScreen = () => {
     setTransitioning(previousTransitioning => true)
   }
 
+  const itemHoveredOff = titleItemRef => {
+    // var tempArray = []
+    // displayBoolArray.forEach(element => {
+    //   tempArray.push(false)
+    // })
+    // setdisplayBoolArray(PreviousDisplayBoolArray => tempArray)
+  }
+
   const titleContMouseOut = () => {
     setTitleHovered(previousBool => false)
     setTransitioning(previousTransitioning => false)
   }
 
-  const projectScreenContRef = useRef(null)
-  var windowHeight;
-
   useEffect(() => {
-    window.addEventListener("resize", updateSize)
+    // const allEqual = arr => arr.every(v => v === arr[0])
+    // setTimeout(() => {
+    //   if (allEqual(displayBoolArray)) {
+    //     console.log("-------Tmeout")
+    //     setTitleHovered(previousBool => false)
+    //   }
+    // }, 1000)
   })
-
-  const updateSize = () => {
-    console.log("RESOIZED")
-    windowHeight = window.innerHeight;
-    setNewScreenImageHeight( windowHeight - (windowHeight * 0.35))
-
-    console.log('newHeight: '+newScreenImageHeight);
-  }
 
   const handleEnter = () => {
     console.log("======== ENTER")
@@ -165,7 +167,7 @@ const ProjectScreen = () => {
 
   return (
     <div className={"projectScreen"}>
-      <div className="projectScreen-cont" ref={projectScreenContRef}>
+      <div className="projectScreen-cont">
         <Transition
           in={transitioning}
           onEnter={handleEnter}
@@ -191,45 +193,45 @@ const ProjectScreen = () => {
           <ProjectScreenTitleWithImage
             name={"RENT A BIKE"}
             tech={"React"}
-            projectScreenHeight={newScreenImageHeight}
             img={data.bikeScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[0]}
             link={"404"}
           />
           <ProjectScreenTitleWithImage
             name={"SHANECO"}
             tech={"Html Scss Js"}
-            projectScreenHeight={newScreenImageHeight}
             img={data.shanecoScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[1]}
             link={"shaneco"}
           />
           <ProjectScreenTitleWithImage
             name={"NORDSTROM"}
             tech={"React Redux"}
-            projectScreenHeight={newScreenImageHeight}
             img={data.nordstromScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[2]}
             link={"nordstrom"}
           />
           <ProjectScreenTitleWithImage
             name={"GAMER CONNECT"}
             tech={"React Node"}
-            projectScreenHeight={newScreenImageHeight}
             img={data.gamerScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[3]}
             link={"404"}
           />
           <ProjectScreenTitleWithImage
             name={"LORI RHODES ART"}
             tech={"Squarespace"}
-            projectScreenHeight={newScreenImageHeight}
             img={data.artScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[4]}
             link={"404"}
           />
