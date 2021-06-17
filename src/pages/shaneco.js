@@ -121,7 +121,6 @@ const Shaneco = ({ location }) => {
     <Layout url={location.pathname}>
       <div className="project-page">
         <NavBar makeWhite={false} />
-        <ScrollToTopSpinner/>
 
         <FullPageNumber url={location} number="01" />
         <ContFiftyFifty

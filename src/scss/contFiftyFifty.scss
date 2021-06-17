@@ -137,3 +137,82 @@
     opacity: 0;
   }
 }
+
+@media (min-width: 1199.99px) {
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .cont-50-50 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-direction: column;
+    .inner-50-50 {
+      margin-left: 10%;
+      margin-right: 10%;
+      width: 80%;
+      .inner-html {
+        margin: 0;
+        width: 100%;
+      }
+    }
+    .inner-50-50-left {
+    }
+    .inner-50-50-right {
+      margin-top: 100px;
+    }
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .cont-50-50 {
+    .inner-50-50 {
+      h1 {
+        font-size: 5rem;
+      }
+      a {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .cont-50-50 {
+    .inner-50-50 {
+      h1 {
+        font-size: 4rem;
+      }
+      a {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cont-50-50 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    .inner-50-50 {
+      margin-top: 50px;
+      margin-bottom: 0px;
+      h1 {
+        font-size: 2.75rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      p {
+        font-size: 1.25rem;
+        line-height: 35px;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      a {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

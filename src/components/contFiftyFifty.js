@@ -17,7 +17,12 @@ const leftVariants = {
 
 const ContFiftyFifty = (props) => {
 
-  const [ref, inView] = useInView({
+  const [refLeft, inViewLeft] = useInView({
+    triggerOnce: true,
+    rootMargin: '-100px 0px'
+  })
+
+    const [refRight, inViewRight] = useInView({
     triggerOnce: true,
     rootMargin: '-100px 0px'
   })
@@ -36,11 +41,11 @@ const ContFiftyFifty = (props) => {
     <div className={doesImgExist(props.rightImg) || doesImgExist(props.leftImg) ? 'double cont-50-50' : 'single cont-50-50'}>
       <motion.div
         className="inner-50-50 inner-50-50-left"
-        animate={ inView ? 'on' : 'off' }
+        animate={ inViewLeft ? 'on' : 'off' }
         variants={leftVariants}
         transition={{ type: "spring", duration: 3, bounce: 0 }}
         style={{ top: "100px" }}
-        ref={ref}
+        ref={refLeft}
         
       >
       <div style={doesImgExist(props.leftImg) ? {display: 'none'} : {display: 'flex'}} className="inner-html inner-html-1">
@@ -52,11 +57,11 @@ const ContFiftyFifty = (props) => {
       </motion.div>
       <motion.div
         className="inner-50-50 inner-50-50-right"
-        animate={ inView ? 'on' : 'off' }
+        animate={ inViewRight ? 'on' : 'off' }
         variants={variants}
         transition={{ type: "spring", duration: 3, bounce: 0 }}
         style={{ top: "100px" }}
-        ref={ref}
+        ref={refRight}
       >
       <div style={doesImgExist(props.rightImg) ? {display: 'none'} : {display: 'flex'}} className="inner-html inner-html-2">
         <div dangerouslySetInnerHTML={{__html: props.right}}></div>
