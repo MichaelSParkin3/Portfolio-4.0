@@ -36,16 +36,16 @@ useEffect(() => {
         transition={{ type: "spring", duration: 1, bounce: 0.5 }}
     >
       <div className={props.makeWhite ? 'nav-main-cont nav-white' : 'nav-main-cont nav-black'}>
-        <AniLink cover direction="up" bg="#e5e5e5" to="/">
+        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={2.5}>
           Projects
         </AniLink>
 
         <div className="nav-divider">|</div>
-        <AniLink cover id="nav-logo-id" className="nav-logo" direction="up" bg="#e5e5e5" to="/">
+        <AniLink cover id="nav-logo-id" className="nav-logo" direction="up" duration={2.5} to="/">
           MIII
         </AniLink>
         <div className="nav-divider">|</div>
-        <AniLink cover direction="up" bg="#e5e5e5" to="/">
+        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={2.5}>
           Contact
         </AniLink>
       </div>

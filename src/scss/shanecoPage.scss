@@ -5,8 +5,22 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1920px;
   font-family: "Raleway";
   background-color: #fff;
   color: $black-text;
+}
+
+html {
+  body {
+    #___gatsby {
+      #gatsby-focus-wrapper {
+        .tl-edges {
+          .tl-wrapper {
+            #layout-cont {
+            }
+          }
+        }
+      }
+    }
+  }
 }
