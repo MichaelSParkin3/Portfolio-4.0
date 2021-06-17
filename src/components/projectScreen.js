@@ -112,6 +112,7 @@ const ProjectScreen = () => {
     setTransitioning(previousTransitioning => false)
   }
 
+<<<<<<< HEAD
   useEffect(() => {
     // const allEqual = arr => arr.every(v => v === arr[0])
     // setTimeout(() => {
@@ -121,6 +122,28 @@ const ProjectScreen = () => {
     //   }
     // }, 1000)
   })
+=======
+  const projectScreenContRef = useRef(null)
+  var windowHeight;
+
+      useEffect(() => {
+    var projectScreenContHeight = projectScreenContRef.current.offsetHeight;
+    console.log('CONT HEIGHT '+ projectScreenContHeight);
+    setNewScreenImageHeight(projectScreenContHeight);
+  },[])
+
+  // useEffect(() => {
+  //   window.addEventListener("resize", updateSize)
+  // })
+
+  // const updateSize = () => {
+  //   console.log("RESOIZED")
+  //   windowHeight = window.innerHeight;
+  //   setNewScreenImageHeight( windowHeight - (windowHeight * 0.35))
+
+  //   console.log('newHeight: '+newScreenImageHeight);
+  // }
+>>>>>>> ProjectimageheighequalsScreencOntHeight
 
   const handleEnter = () => {
     console.log("======== ENTER")
