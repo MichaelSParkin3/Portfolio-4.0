@@ -112,17 +112,6 @@ const ProjectScreen = () => {
     setTransitioning(previousTransitioning => false)
   }
 
-<<<<<<< HEAD
-  useEffect(() => {
-    // const allEqual = arr => arr.every(v => v === arr[0])
-    // setTimeout(() => {
-    //   if (allEqual(displayBoolArray)) {
-    //     console.log("-------Tmeout")
-    //     setTitleHovered(previousBool => false)
-    //   }
-    // }, 1000)
-  })
-=======
   const projectScreenContRef = useRef(null)
   var windowHeight;
 
@@ -143,7 +132,6 @@ const ProjectScreen = () => {
 
   //   console.log('newHeight: '+newScreenImageHeight);
   // }
->>>>>>> ProjectimageheighequalsScreencOntHeight
 
   const handleEnter = () => {
     console.log("======== ENTER")
