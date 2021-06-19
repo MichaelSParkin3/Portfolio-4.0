@@ -117,6 +117,8 @@ const Shaneco = ({ location }) => {
 
   useEffect(() => {
 
+    if (location.pathname === "/nordstrom") {  
+
   function onScroll() {
     console.log(pageRef.current.getBoundingClientRect().top);
     if (pageRef.current.getBoundingClientRect().top >= 0) {
@@ -130,9 +132,11 @@ const Shaneco = ({ location }) => {
 
   console.log('Navbar useeffect');
   window.addEventListener("scroll", onScroll, true);
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll, true);
 
-},[]);
+}
+
+},[location.pathname]);
 
 const pageRef = useRef(null);
 

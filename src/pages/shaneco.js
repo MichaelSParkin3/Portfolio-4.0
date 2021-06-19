@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState, useCallback } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
@@ -80,6 +80,33 @@ const Shaneco = ({ location }) => {
     }
   `)
 
+   const [onTop, setOnTop] = useState(true);
+   const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+
+    if (location.pathname === "/shaneco") {  
+
+  function onScroll() {
+    console.log(pageRef.current.getBoundingClientRect().top);
+    if (pageRef.current.getBoundingClientRect().top >= 0) {
+      console.log('topo');
+      setOnTop(true)
+    } else {
+      console.log('not top');
+      setOnTop(false)
+    }
+  }
+
+  console.log('Navbar useeffect');
+  window.addEventListener("scroll", onScroll, true);
+    return () => window.removeEventListener("scroll", onScroll, true);
+
+}
+},[location.pathname]);
+
+const pageRef = useRef(null);
+
   console.log(data)
 
   const getLocation = () => {
@@ -87,40 +114,10 @@ const Shaneco = ({ location }) => {
     return location.pathname
   }
 
-  // An array of parallax effects to be applied - see below for detail
-  const parallaxData = [
-    {
-      start: "self",
-      end: "100%",
-      properties: [
-        {
-          startValue: 1,
-          endValue: 3,
-          property: "scale",
-        },
-      ],
-    },
-  ]
-
-  const parallaxData1 = [
-    {
-      start: "self",
-      end: "100%",
-      duration: "1000",
-      properties: [
-        {
-          startValue: 0,
-          endValue: 300,
-          property: "translateX",
-        },
-      ],
-    },
-  ]
-
   return (
     <Layout url={location.pathname}>
-      <div className="project-page">
-        <NavBar makeWhite={false} />
+      <div className="project-page" ref={pageRef} >
+        <NavBar makeWhite={false} onTopBool={onTop} disableAnim={false}/>
 
         <FullPageNumber url={location} number="01" />
         <ContFiftyFifty

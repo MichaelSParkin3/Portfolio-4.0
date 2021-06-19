@@ -35,15 +35,9 @@ const NavBar = props => {
 //   }, true);
 // });
 
-console.log('ONTOPBOOL- '+props.onTopBool);
-
-useEffect(() => {
-  setOnTop(props.onTopBool)
-})
-
   return (
     <motion.nav
-    animate={onTop ? "on" : "off"}
+    animate={props.onTopBool ? "on" : "off"}
         variants={ props.disableAnim ? null : variants }
         //variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
