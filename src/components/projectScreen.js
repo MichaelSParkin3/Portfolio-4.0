@@ -117,9 +117,17 @@ const ProjectScreen = () => {
   var windowHeight;
 
       useEffect(() => {
-    var projectScreenContHeight = projectScreenContRef.current.offsetHeight;
+    onResize();
+
+         function onResize() {
+              var projectScreenContHeight = projectScreenContRef.current.offsetHeight;
     console.log('CONT HEIGHT '+ projectScreenContHeight);
     setNewScreenImageHeight(projectScreenContHeight);
+  }
+
+  window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+
   })
 
   // useEffect(() => {

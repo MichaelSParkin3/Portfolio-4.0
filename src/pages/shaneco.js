@@ -122,7 +122,7 @@ const pageRef = useRef(null);
         <FullPageNumber url={location} number="01" />
         <ContFiftyFifty
           right={
-            '<h1>ShaneCo.com Quizes & Components</h1><span className="divider"></span><p>I worked with Shaneco. and their team to re-develop their product suggestion quizes, create new re-usable components, and fix some cookie related problems they were having.</p>'
+            '<h1>ShaneCo Quizes & Components</h1><span className="divider"></span><p>I worked with Shaneco. and their team to re-develop their product suggestion quizes, create new re-usable components, and fix some cookie related problems they were having.</p>'
           }
         />
 
