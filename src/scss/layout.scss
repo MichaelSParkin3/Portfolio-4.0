@@ -13,7 +13,6 @@ html {
 html,
 body {
   margin: 0;
-  overflow-x: hidden;
   height: 100vh;
 }
 
@@ -27,5 +26,5 @@ a {
   background-position: center !important;
   background-color: #0f1010 !important;
   background-repeat: no-repeat !important;
-  overflow: hidden;
+  //overflow: hidden;
 }

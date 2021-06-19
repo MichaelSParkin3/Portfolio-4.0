@@ -18,15 +18,22 @@ const NavBar = props => {
   const [onTop, setOnTop] = useState(true);
 
 useEffect(() => {
-  window.onscroll = function() {
-      if(window.pageYOffset === 0 && onTop !== true) {
-        
-        setOnTop(true)
-      } else if (onTop !== false) {
-        setOnTop(false)
-      }
-    };
+
+  function onScroll() {
+    console.log(document.body.scrollTop);
+  }
+
+  console.log('Navbar useeffect');
+  window.addEventListener("scroll", onScroll, true);
+    return () => window.removeEventListener("scroll", onScroll);
+
 });
+
+// useEffect(() => {
+//   window.addEventListener("scroll", () => {
+//     console.log('scroll');
+//   }, true);
+// });
 
   return (
     <motion.nav
