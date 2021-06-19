@@ -15,19 +15,19 @@ const NavBar = props => {
 
   //console.log(props.url);
 
-  const [onTop, setOnTop] = useState(true);
+ const [onTop, setOnTop] = useState(true);
 
-useEffect(() => {
+// useEffect(() => {
 
-  function onScroll() {
-    console.log(document.body.scrollTop);
-  }
+//   function onScroll() {
+//     console.log(document.body.scrollTop);
+//   }
 
-  console.log('Navbar useeffect');
-  window.addEventListener("scroll", onScroll, true);
-    return () => window.removeEventListener("scroll", onScroll);
+//   console.log('Navbar useeffect');
+//   window.addEventListener("scroll", onScroll, true);
+//     return () => window.removeEventListener("scroll", onScroll);
 
-});
+// });
 
 // useEffect(() => {
 //   window.addEventListener("scroll", () => {
@@ -35,12 +35,18 @@ useEffect(() => {
 //   }, true);
 // });
 
+console.log('ONTOPBOOL- '+props.onTopBool);
+
+useEffect(() => {
+  setOnTop(props.onTopBool)
+})
+
   return (
     <motion.nav
     animate={onTop ? "on" : "off"}
         variants={ props.disableAnim ? null : variants }
-        // variants={variants}
-        transition={{ type: "spring", duration: 1, bounce: 0.5 }}
+        //variants={variants}
+        transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
     >
       <div className={props.makeWhite ? 'nav-main-cont nav-white' : 'nav-main-cont nav-black'}>
         <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={2.5}>

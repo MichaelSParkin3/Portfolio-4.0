@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
@@ -113,12 +113,37 @@ const Shaneco = ({ location }) => {
     }
   `)
 
+  const [onTop, setOnTop] = useState(true);
+
+  useEffect(() => {
+
+  function onScroll() {
+    console.log(pageRef.current.getBoundingClientRect().top);
+    if (pageRef.current.getBoundingClientRect().top == 0) {
+      console.log('topo');
+      setOnTop(true)
+    } else {
+      console.log('not top');
+      setOnTop(false)
+    }
+  }
+
+  console.log('Navbar useeffect');
+  window.addEventListener("scroll", onScroll, true);
+    return () => window.removeEventListener("scroll", onScroll);
+
+},[]);
+
+const pageRef = useRef(null);
+
+
+
   console.log(data)
 
   return (
     <Layout url={location.pathname}>
-      <div className="project-page">
-        <NavBar makeWhite={false} />
+      <div className="project-page" ref={pageRef}>
+        <NavBar makeWhite={false} onTopBool={onTop} disableAnim={false}/>
 
         <FullPageNumber url={location} number="02" />
 
