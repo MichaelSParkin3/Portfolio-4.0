@@ -119,7 +119,7 @@ const Shaneco = ({ location }) => {
 
   function onScroll() {
     console.log(pageRef.current.getBoundingClientRect().top);
-    if (pageRef.current.getBoundingClientRect().top == 0) {
+    if (pageRef.current.getBoundingClientRect().top >= 0) {
       console.log('topo');
       setOnTop(true)
     } else {
