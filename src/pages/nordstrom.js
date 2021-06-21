@@ -21,6 +21,7 @@ import NavBar from "../components/navBar"
 import "../scss/shanecoPage.scss"
 import FullImage from "../components/fullImage"
 import PerfectScrollbar from "react-perfect-scrollbar"
+import ScrollToTopButton from "../components/scrollToTopButton"
 
 const Shaneco = ({ location }) => {
   console.log(location.pathname)
@@ -148,6 +149,8 @@ const pageRef = useRef(null);
     <Layout url={location.pathname}>
       <div className="project-page" ref={pageRef}>
         <NavBar makeWhite={false} onTopBool={onTop} disableAnim={false}/>
+
+        <ScrollToTopButton onTopBool={onTop}/>
 
         <FullPageNumber url={location} number="02" />
 
