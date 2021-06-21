@@ -156,7 +156,7 @@ const pageRef = useRef(null);
 
         <ContFiftyFifty
           right={
-            '<h1>Mock Clothing Store</h1><span className="divider"></span><p>I saw a website design for a fitness clothing brand and decided to make the complete front end of the website with react. This helped me get more comfortable with react and redux.</p>'
+            '<h1>Mock Clothing Store</h1><span className="divider"></span><p>I saw a website design for a fitness clothing brand and decided to make the complete front end of the website with react. This helped me get more comfortable with react and redux.</p><a href="https://github.com/MichaelSParkin3/Ecommerce-React" target="_blank" class="link link--mneme">See The Code</a>'
           }
         />
 
