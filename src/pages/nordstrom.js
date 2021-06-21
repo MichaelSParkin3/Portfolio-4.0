@@ -150,9 +150,9 @@ const pageRef = useRef(null);
       <div className="project-page" ref={pageRef}>
         <NavBar makeWhite={false} onTopBool={onTop} disableAnim={false}/>
 
-        <ScrollToTopButton onTopBool={onTop}/>
+        <ScrollToTopButton onTopBool={onTop} pageRef={pageRef}/>
 
-        <FullPageNumber url={location} number="02" />
+        <FullPageNumber url={location} number="02"/>
 
         <ContFiftyFifty
           right={

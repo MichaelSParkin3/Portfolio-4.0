@@ -43,18 +43,32 @@ const NavBar = props => {
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
     >
       <div className={props.makeWhite ? 'nav-main-cont nav-white' : 'nav-main-cont nav-black'}>
+      <motion.div whileTap={{ scale: 0.7 }} whileHover={{
+    scale: 1.2,
+    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+  }}>
         <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={2.5}>
           Projects
         </AniLink>
-
+</motion.div>
         <div className="nav-divider">|</div>
-        <AniLink cover id="nav-logo-id" className="nav-logo" direction="up" duration={2.5} to="/">
+        <motion.div id="nav-logo-id" className="nav-logo" whileTap={{ scale: 0.7 }} whileHover={{
+    scale: 1.2,
+    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+  }}>
+        <AniLink cover direction="up" duration={2.5} to="/">
           MIII
         </AniLink>
+        </motion.div>
         <div className="nav-divider">|</div>
+        <motion.div whileTap={{ scale: 0.7 }} whileHover={{
+    scale: 1.2,
+    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+  }}>
         <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={2.5}>
           Contact
         </AniLink>
+        </motion.div>
       </div>
     </motion.nav>
   )

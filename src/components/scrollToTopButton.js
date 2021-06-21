@@ -4,9 +4,11 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 import { globalHistory } from '@reach/router'
 
-import upArrow from '../images/svg/upArrow.svg'
+import UpArrowInline from '../images/svg/upArrow4.inline.svg'
 
 import "../scss/scrollToTopButton.scss"
+
+console.log(UpArrowInline);
 
 const ScrollToTopButton = props => {
 
@@ -18,12 +20,7 @@ const ScrollToTopButton = props => {
     console.log(props.pageRectTop)
 
     const scrollToTop = () =>{
-    window.scrollTo({
-      top: 0, 
-      behavior: 'smooth'
-      /* you can also use 'auto' behaviour
-         in place of 'smooth' */
-    });
+    props.pageRef.current.scrollIntoView({behavior: 'smooth'});
   };
 
   return (
@@ -31,9 +28,17 @@ const ScrollToTopButton = props => {
         //variants={ props.disableAnim ? null : variants }
         variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
-        className='scrollToCont'>
+        whileHover={{
+    scale: 1.2,
+    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+  }}
+  whileTap={{ scale: 0.8 }}
+        className='scrollToCont'
+        onClick={() => {
+          scrollToTop();
+        }}>
         
-  
+    <UpArrowInline/>
     
     </motion.div>
   )
