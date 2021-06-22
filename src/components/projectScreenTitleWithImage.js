@@ -73,6 +73,11 @@ const ProjectScreenTitleWithImage = props => {
       <div
         onMouseEnter={mouseEnter}
         onMouseOut={mouseOut}
+        onClick={() => {
+          console.log('TITLE ONCLCIK')
+          mouseOut();
+          mouseEnter();
+        }}
         ref={titleItemRef}
         // data-screenimagename={props.screenImageName}
         className="projectScreenTitleItem-cont"
