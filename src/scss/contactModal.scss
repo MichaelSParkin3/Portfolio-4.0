@@ -1,0 +1,20 @@
+.navModalCont {
+  position: fixed;
+  .contactModalCont {
+    width: 60px;
+    position: fixed;
+    background-color: #000;
+    right: 70px;
+    top: 70px;
+    padding: 25px;
+    border-radius: 10%;
+    div {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      svg {
+        width: 100%;
+        height: 33%;
+      }
+    }
+  }
+}
