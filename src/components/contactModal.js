@@ -15,10 +15,15 @@ const ContactModal = props => {
 
   return (
     <div className='contactModalCont'>
+        <div className='modalTop'></div>
+        <div className='contactModal'>
+        <div><CloseInline fill="#fff"/></div>
         <div><EmailInline fill="#fff"/></div>
         <div><GithubInline fill='#fff'/></div>
         <div><LinkedinInline fill="#fff"/></div>
-        <div><CloseInline fill="#fff"/></div>
+        
+        </div>
+        <div className='modalBottom'></div>
     </div>
   )
 }
