@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { motion } from "framer-motion"
+import { motion, useCycle } from "framer-motion"
 import { globalHistory } from "@reach/router"
 
 import ContactModal from "./contactModal"
@@ -17,7 +17,7 @@ const NavBar = props => {
   //console.log(props.url);
 
   const [onTop, setOnTop] = useState(true)
-  const [navModalBool, setNavModalBool] = useState(false)
+  const [isOpen, toggleOpen] = useCycle(false, true);
 
   // useEffect(() => {
 
@@ -86,13 +86,13 @@ const NavBar = props => {
           }}
         >
           <div onClick={() => {
-            setNavModalBool(!navModalBool)
+            toggleOpen()
           }}>Contact</div>
         </motion.div>
       </div>
     </motion.nav>
     <div className="navModalCont">
-            <ContactModal navModalBool={navModalBool} />
+            <ContactModal isOpen={isOpen} />
           </div>
           </>
 
