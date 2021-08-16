@@ -210,15 +210,25 @@ const ProjectScreen = () => {
           }}
           onMouseOut={titleContMouseOut}
         >
+        <ProjectScreenTitleWithImage
+            name={"NORDSTROM MOCK"}
+            tech={"React Redux"}
+            projectScreenHeight={newScreenImageHeight}
+            img={data.nordstromScreenImage.childImageSharp.fluid}
+            itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
+            display={displayBoolArray[2]}
+            link={"nordstrom"}
+          />
           <ProjectScreenTitleWithImage
-            name={"RENT A BIKE"}
-            tech={"React"}
+            name={"LANDING PAGES"}
+            tech={"Html Scss Js"}
             projectScreenHeight={newScreenImageHeight}
             img={data.bikeScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[0]}
-            link={"404"}
+            display={displayBoolArray[3]}
+            link={"landingPages"}
           />
           <ProjectScreenTitleWithImage
             name={"SHANECO"}
@@ -230,36 +240,18 @@ const ProjectScreen = () => {
             display={displayBoolArray[1]}
             link={"shaneco"}
           />
-          <ProjectScreenTitleWithImage
-            name={"NORDSTROM"}
-            tech={"React Redux"}
-            projectScreenHeight={newScreenImageHeight}
-            img={data.nordstromScreenImage.childImageSharp.fluid}
-            itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[2]}
-            link={"nordstrom"}
-          />
-          <ProjectScreenTitleWithImage
-            name={"GAMER CONNECT"}
-            tech={"React Node"}
+        <ProjectScreenTitleWithImage
+            name={"OTHER WORK"}
+            tech={"Various"}
             projectScreenHeight={newScreenImageHeight}
             img={data.gamerScreenImage.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[3]}
-            link={"404"}
+            display={displayBoolArray[0]}
+            link={"otherWork"}
           />
-          <ProjectScreenTitleWithImage
-            name={"LORI RHODES ART"}
-            tech={"Squarespace"}
-            projectScreenHeight={newScreenImageHeight}
-            img={data.artScreenImage.childImageSharp.fluid}
-            itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[4]}
-            link={"404"}
-          />
+          
+          
         </div>
       </div>
     </div>
