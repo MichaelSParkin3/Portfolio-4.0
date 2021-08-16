@@ -21,7 +21,7 @@ import "../scss/projectScreen.scss"
 const ProjectScreen = () => {
   const data = useStaticQuery(graphql`
     query {
-      shanecoScreenImage: file(relativePath: { eq: "shanecoScreen2.png" }) {
+      shanecoScreenImage2: file(relativePath: { eq: "shanecoScreen2.png" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
@@ -234,7 +234,7 @@ const ProjectScreen = () => {
             name={"SHANECO"}
             tech={"Html Scss Js"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.shanecoScreenImage.childImageSharp.fluid}
+            img={data.shanecoScreenImage2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[1]}
