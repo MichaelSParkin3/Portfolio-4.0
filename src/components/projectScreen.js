@@ -28,28 +28,28 @@ const ProjectScreen = () => {
           }
         }
       }
-      bikeScreenImage: file(relativePath: { eq: "bikeScreen.png" }) {
+      bikeScreenImage2: file(relativePath: { eq: "bikeScreen.png" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      nordstromScreenImage: file(relativePath: { eq: "nordstromScreen.png" }) {
+      nordstromScreenImage2: file(relativePath: { eq: "nordstromScreen.png" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      gamerScreenImage: file(relativePath: { eq: "gamerScreen1.jpg" }) {
+      gamerScreenImage2: file(relativePath: { eq: "gamerScreen1.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      artScreenImage: file(relativePath: { eq: "artScreen1.jpg" }) {
+      artScreenImage2: file(relativePath: { eq: "artScreen1.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
@@ -214,20 +214,20 @@ const ProjectScreen = () => {
             name={"NORDSTROM MOCK"}
             tech={"React Redux"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.nordstromScreenImage.childImageSharp.fluid}
+            img={data.nordstromScreenImage2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[2]}
+            display={displayBoolArray[0]}
             link={"nordstrom"}
           />
           <ProjectScreenTitleWithImage
             name={"LANDING PAGES"}
             tech={"Html Scss Js"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.bikeScreenImage.childImageSharp.fluid}
+            img={data.bikeScreenImage2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[3]}
+            display={displayBoolArray[1]}
             link={"landingPages"}
           />
           <ProjectScreenTitleWithImage
@@ -237,17 +237,17 @@ const ProjectScreen = () => {
             img={data.shanecoScreenImage2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[1]}
+            display={displayBoolArray[2]}
             link={"shaneco"}
           />
         <ProjectScreenTitleWithImage
             name={"OTHER WORK"}
             tech={"Various"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.gamerScreenImage.childImageSharp.fluid}
+            img={data.gamerScreenImage2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[0]}
+            display={displayBoolArray[3]}
             link={"otherWork"}
           />
           
