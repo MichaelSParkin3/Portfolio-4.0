@@ -85,9 +85,16 @@ const Shaneco = ({ location }) => {
 
   useEffect(() => {
 
+    console.log('IN SHANECO USEEFFECT');
+
     if (location.pathname === "/shaneco") {  
 
+      console.log('IN SHANECO USEEFFECT PATHNAME=/SHANECO');
+
   function onScroll() {
+
+    console.log('IN SHANECO USEEFFECT ONSCROLL');
+
     console.log(pageRef.current.getBoundingClientRect().top);
     if (pageRef.current.getBoundingClientRect().top >= 0) {
       console.log('topo');
@@ -98,7 +105,6 @@ const Shaneco = ({ location }) => {
     }
   }
 
-  console.log('Navbar useeffect');
   window.addEventListener("scroll", onScroll, true);
     return () => window.removeEventListener("scroll", onScroll, true);
 
