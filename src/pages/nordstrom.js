@@ -118,7 +118,9 @@ const Shaneco = ({ location }) => {
 
   useEffect(() => {
 
-    if (location.pathname === "/nordstrom") {  
+    if (location.pathname !== "/nordstrom") {  
+      return () => window.removeEventListener("scroll", onScroll, true);
+    }
 
   function onScroll() {
     console.log(pageRef.current.getBoundingClientRect().top);
@@ -135,7 +137,7 @@ const Shaneco = ({ location }) => {
   window.addEventListener("scroll", onScroll, true);
     return () => window.removeEventListener("scroll", onScroll, true);
 
-}
+
 
 },[location.pathname]);
 

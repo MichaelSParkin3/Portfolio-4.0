@@ -87,7 +87,10 @@ const Shaneco = ({ location }) => {
 
     console.log('IN SHANECO USEEFFECT');
 
-    if (location.pathname === "/shaneco") {  
+    if (location.pathname !== "/shaneco") {  
+      return () => window.removeEventListener("scroll", onScroll, true);
+
+    }
 
       console.log('IN SHANECO USEEFFECT PATHNAME=/SHANECO');
 
@@ -108,7 +111,6 @@ const Shaneco = ({ location }) => {
   window.addEventListener("scroll", onScroll, true);
     return () => window.removeEventListener("scroll", onScroll, true);
 
-}
 },[location.pathname]);
 
 const pageRef = useRef(null);
