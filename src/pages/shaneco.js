@@ -77,39 +77,6 @@ const Shaneco = ({ location }) => {
     }
   `)
 
-   const [onTop, setOnTop] = useState(true);
-   const [collapsed, setCollapsed] = useState(false);
-
-  useEffect(() => {
-
-    console.log('IN SHANECO USEEFFECT');
-
-    if (location.pathname !== "/shaneco") {  
-      return () => window.removeEventListener("scroll", onScroll, true);
-
-    }
-
-      console.log('IN SHANECO USEEFFECT PATHNAME=/SHANECO');
-
-  function onScroll() {
-
-    console.log('IN SHANECO USEEFFECT ONSCROLL');
-
-    console.log(pageRef.current.getBoundingClientRect().top);
-    if (pageRef.current.getBoundingClientRect().top >= 0) {
-      console.log('topo');
-      setOnTop(true)
-    } else {
-      console.log('not top');
-      setOnTop(false)
-    }
-  }
-
-  window.addEventListener("scroll", onScroll, true);
-    return () => window.removeEventListener("scroll", onScroll, true);
-
-},[location.pathname]);
-
 const pageRef = useRef(null);
 
   console.log(data)
@@ -122,9 +89,7 @@ const pageRef = useRef(null);
   return (
     <Layout url={location.pathname}>
       <div className="project-page" ref={pageRef} >
-        <NavBar makeWhite={false} onTopBool={onTop} disableAnim={false}/>
-
-        <ScrollToTopButton onTopBool={onTop} pageRef={pageRef}/>
+        <NavBar makeWhite={false} pageRef={pageRef} disableAnim={false}/>
 
         <FullPageNumber url={location} number="01" />
         <ContFiftyFifty

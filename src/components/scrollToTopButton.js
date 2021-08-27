@@ -17,14 +17,22 @@ const ScrollToTopButton = props => {
   off: { opacity: 0, y: -50, scale: 0 },
 }
 
-    console.log(props.pageRectTop)
+    console.log(props.onTopBool)
+
+    const [onTop, setOnTop] = useState(false);
+
+    useEffect(() => {
+
+      setOnTop(props.onTopBool)
+
+    }, [props.onTopBool])
 
     const scrollToTop = () =>{
     props.pageRef.current.scrollIntoView({behavior: 'smooth'});
   };
 
   return (
-    <motion.div animate={props.onTopBool ? "off" : "on"}
+    <motion.div animate={onTop ? "off" : "on"}
         //variants={ props.disableAnim ? null : variants }
         variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
