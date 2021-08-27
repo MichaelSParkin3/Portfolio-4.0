@@ -76,7 +76,7 @@ const NavBar = props => {
     scale: 1.2,
     transition: { type: "spring", duration: 0.25, bounce: 0.5 },
   }}>
-        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={1}>
+        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={1.5}>
           Projects
         </AniLink>
 </motion.div>
@@ -85,7 +85,7 @@ const NavBar = props => {
     scale: 1.2,
     transition: { type: "spring", duration: 0.25, bounce: 0.5 },
   }}>
-        <AniLink cover direction="up" duration={2.5} to="/">
+        <AniLink cover direction="up" duration={1.5} to="/">
           MIII
         </AniLink>
         </motion.div>
@@ -94,7 +94,7 @@ const NavBar = props => {
     scale: 1.2,
     transition: { type: "spring", duration: 0.25, bounce: 0.5 },
   }}>
-        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={2.5}>
+        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={1.5}>
           Contact
         </AniLink>
         </motion.div>

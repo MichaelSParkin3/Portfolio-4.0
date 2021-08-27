@@ -94,7 +94,7 @@ const ProjectScreenTitleWithImage = props => {
           direction="up"
           bg="#e5e5e5"
           to={props.link}
-          duration={2}
+          duration={1.5}
         >
           <div className="title">
             {props.name}
