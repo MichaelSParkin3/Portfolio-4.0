@@ -4,6 +4,8 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 import { globalHistory } from '@reach/router'
 
+import ScrollToTopButton from "./scrollToTopButton";
+
 import "../scss/navbar.scss"
 
 const NavBar = props => {
@@ -14,8 +16,6 @@ const NavBar = props => {
 }
 
   //console.log(props.url);
-
- const [onTop, setOnTop] = useState(true);
 
 // useEffect(() => {
 
@@ -35,9 +35,38 @@ const NavBar = props => {
 //   }, true);
 // });
 
+  const [onTop, setOnTop] = useState(true);
+     const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+
+    // if (location.pathname !== "/nordstrom") {  
+    //   return () => window.removeEventListener("scroll", onScroll, true);
+    // }
+
+  function onScroll() {
+    console.log(props.pageRef.current.getBoundingClientRect().top);
+    if (props.pageRef.current.getBoundingClientRect().top >= 0) {
+      console.log('topo');
+      setOnTop(true)
+    } else {
+      console.log('not top');
+      setOnTop(false)
+    }
+  }
+
+  console.log('Navbar useeffect');
+  window.addEventListener("scroll", onScroll, true);
+    return () => window.removeEventListener("scroll", onScroll, true);
+
+
+
+},[]);
+
   return (
+    <>
     <motion.nav
-    animate={props.onTopBool ? "on" : "off"}
+    animate={onTop ? "on" : "off"}
         variants={ props.disableAnim ? null : variants }
         //variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
@@ -47,7 +76,7 @@ const NavBar = props => {
     scale: 1.2,
     transition: { type: "spring", duration: 0.25, bounce: 0.5 },
   }}>
-        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={2.5}>
+        <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={1}>
           Projects
         </AniLink>
 </motion.div>
@@ -71,6 +100,8 @@ const NavBar = props => {
         </motion.div>
       </div>
     </motion.nav>
+    <ScrollToTopButton onTopBool={onTop} pageRef={props.pageRef}/>
+    </>
   )
 }
 

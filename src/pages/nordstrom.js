@@ -150,9 +150,7 @@ const pageRef = useRef(null);
   return (
     <Layout url={location.pathname}>
       <div className="project-page" ref={pageRef}>
-        <NavBar makeWhite={false} onTopBool={onTop} disableAnim={false}/>
-
-        <ScrollToTopButton onTopBool={onTop} pageRef={pageRef}/>
+       <NavBar makeWhite={false} pageRef={pageRef} disableAnim={false}/>
 
         <FullPageNumber url={location} number="02"/>
 

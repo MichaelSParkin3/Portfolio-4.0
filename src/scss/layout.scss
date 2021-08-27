@@ -23,6 +23,7 @@ a {
 
 .tl-edges {
   overflow-x: hidden;
+  //@while condition {
 }
 
 .tl-cover-el {
@@ -31,4 +32,9 @@ a {
   background-color: #0f1010 !important;
   background-repeat: no-repeat !important;
   //overflow: hidden;
+}
+
+.tl-wrapper-status--entering,
+.tl-wrapper-status--exiting {
+  overflow: hidden;
 }
