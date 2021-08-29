@@ -73,6 +73,8 @@ const ProjectScreenTitleWithImage = props => {
       <div
         onMouseEnter={mouseEnter}
         onMouseOut={mouseOut}
+        onTouchStart={mouseEnter}
+        onTouchEnd={mouseOut}
         onClick={() => {
           console.log('TITLE ONCLCIK')
           mouseOut();
