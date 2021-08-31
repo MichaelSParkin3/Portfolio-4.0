@@ -8,6 +8,7 @@ import {
   TransitionGroup,
 } from "react-transition-group"
 import ProjectScreenTitleWithImage from "./projectScreenTitleWithImage"
+import { isIOS } from "react-device-detect"
 
 import "../scss/projectScreen.scss"
 
@@ -65,7 +66,7 @@ const ProjectScreen = () => {
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
   const [newScreenImageHeight, setNewScreenImageHeight] = useState('65vh')
-  const [onIOS, setOnIOS] = useState(iOS());
+  const [onIOS, setOnIOS] = useState(isIOS);
 
   /**
    * itemHoveredOn:
@@ -185,19 +186,6 @@ const ProjectScreen = () => {
   }
 
   console.log(titleHovered)
-
-    function iOS() {
-  return [
-    'iPad Simulator',
-    'iPhone Simulator',
-    'iPod Simulator',
-    'iPad',
-    'iPhone',
-    'iPod'
-  ].includes(navigator.platform)
-  // iPad on iOS 13 detection
-  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-}
 
   return (
     <div className={"projectScreen"}>
