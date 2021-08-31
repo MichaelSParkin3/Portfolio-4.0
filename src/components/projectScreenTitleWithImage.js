@@ -66,6 +66,7 @@ const ProjectScreenTitleWithImage = props => {
 
   const mouseOut = () => {
     props.itemHoveredOff(titleItemRef)
+    setTitleHovered(previousBool => false);
   }
 
   return (
@@ -77,9 +78,10 @@ const ProjectScreenTitleWithImage = props => {
         onTouchEnd={mouseOut}
         onClick={() => {
           console.log('TITLE ONCLCIK')
-          mouseOut();
-          mouseEnter();
+          // mouseOut();
+          // mouseEnter();
         }}
+        style={titleHovered && props.onIOS ? { color: '#fff' } : {  }}
         ref={titleItemRef}
         // data-screenimagename={props.screenImageName}
         className="projectScreenTitleItem-cont"

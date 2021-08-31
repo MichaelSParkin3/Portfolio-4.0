@@ -65,6 +65,7 @@ const ProjectScreen = () => {
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
   const [newScreenImageHeight, setNewScreenImageHeight] = useState('65vh')
+  const [onIOS, setOnIOS] = useState(iOS());
 
   /**
    * itemHoveredOn:
@@ -185,6 +186,19 @@ const ProjectScreen = () => {
 
   console.log(titleHovered)
 
+    function iOS() {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+
   return (
     <div className={"projectScreen"}>
       <div className="projectScreen-cont" ref={projectScreenContRef}>
@@ -220,6 +234,7 @@ const ProjectScreen = () => {
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[0]}
             link={"nordstrom"}
+            onIOS={onIOS}
           />
           <ProjectScreenTitleWithImage
             name={"LANDING PAGES"}
@@ -230,6 +245,7 @@ const ProjectScreen = () => {
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[1]}
             link={"landingPages"}
+            onIOS={onIOS}
           />
           <ProjectScreenTitleWithImage
             name={"SHANECO"}
@@ -240,6 +256,7 @@ const ProjectScreen = () => {
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[2]}
             link={"shaneco"}
+            onIOS={onIOS}
           />
         <ProjectScreenTitleWithImage
             name={"OTHER WORK"}
@@ -250,6 +267,7 @@ const ProjectScreen = () => {
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[3]}
             link={"otherWork"}
+            onIOS={onIOS}
           />
           
           
