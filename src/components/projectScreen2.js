@@ -18,7 +18,7 @@ import "../scss/projectScreen.scss"
  * is displayed.
  */
 
-const ProjectScreen = () => {
+const ProjectScreen2 = () => {
   const data = useStaticQuery(graphql`
     query {
       shanecoScreenImage2: file(relativePath: { eq: "shanecoScreen2.png" }) {
@@ -209,7 +209,6 @@ const ProjectScreen = () => {
             backgroundPosition: "50% " + positionPercent + "%",
           }}
           onMouseOut={titleContMouseOut}
-          onTouchCancel={titleContMouseOut}
         >
         <ProjectScreenTitleWithImage
             name={"NORDSTROM MOCK"}
@@ -259,4 +258,4 @@ const ProjectScreen = () => {
   )
 }
 
-export default ProjectScreen
+export default ProjectScreen2

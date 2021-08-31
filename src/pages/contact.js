@@ -15,6 +15,7 @@ import FullPageNumber from "../components/fullpageNumber"
 import ContFiftyFifty from "../components/contFiftyFifty"
 import NavBar from "../components/navBar"
 import AnimateOnScroll from "../components/animateOnScroll"
+import ProjectScreen2 from "../components/projectScreen2"
 
 import "../scss/shanecoPage.scss"
 import FullImage from "../components/fullImage"
@@ -30,9 +31,7 @@ const pageRef = useRef(null);
       <div ref={pageRef} >
         <NavBar makeWhite={true} pageRef={pageRef} disableAnim={false}/>
 
-            <div>
-
-            </div>
+           <ProjectScreen2 />
 
       </div>
     </Layout>
