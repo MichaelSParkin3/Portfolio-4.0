@@ -15,7 +15,7 @@ import FullPageNumber from "../components/fullpageNumber"
 import ContFiftyFifty from "../components/contFiftyFifty"
 import NavBar from "../components/navBar"
 
-import "../scss/shanecoPage.scss"
+import "../scss/projectPage.scss"
 import FullImage from "../components/fullImage"
 import PerfectScrollbar from "react-perfect-scrollbar"
 import ScrollToTopButton from "../components/scrollToTopButton"

@@ -8,6 +8,10 @@
   font-family: "Raleway";
   background-color: #fff;
   color: $black-text;
+  &-black {
+    background-color: $black-background;
+    color: $white-text;
+  }
 }
 
 html {
