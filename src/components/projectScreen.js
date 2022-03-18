@@ -166,7 +166,7 @@ const ProjectScreen = () => {
     })
     anime({
       targets: ".mobileAlert",
-      bottom: "1.5rem",
+      bottom: "1rem",
       duration: 1000,
       delay: 0,
       easing: "easeInOutCirc",
@@ -281,7 +281,7 @@ const ProjectScreen = () => {
           
         </div>
       </div>
-      <div className={'mobileAlert'} style={onIOS ? { display: 'flex' } : { display: 'flex' }}>
+      <div className={'mobileAlert'} style={onIOS ? { display: 'flex' } : { display: 'none' }}>
       Tap twice to open a project!
       </div>
     </div>
