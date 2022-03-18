@@ -1,5 +1,16 @@
 @import "./colors.scss";
 
+.contact-page-content {
+  .cont-50-50 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    span {
+    }
+    .inner-50-50 {
+    }
+  }
+}
+
 .cont-50-50 {
   width: 100%;
   display: flex;
@@ -162,6 +173,28 @@
       margin-top: 100px;
     }
   }
+
+  .contact-page-content {
+    .cont-50-50 {
+      span {
+      }
+      .inner-50-50 {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        .inner-html {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+      .inner-50-50-left {
+      }
+      .inner-50-50-right {
+        margin-bottom: 17.5vh;
+      }
+    }
+  }
 }
 
 // Medium devices (tablets, less than 992px)
@@ -212,6 +245,22 @@
       }
       a {
         font-size: 1.5rem;
+      }
+    }
+  }
+
+  .contact-page-content {
+    .cont-50-50 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      span {
+      }
+      .inner-50-50 {
+        margin-top: 0px;
+      }
+      .inner-50-50-left {
+      }
+      .inner-50-50-right {
       }
     }
   }
