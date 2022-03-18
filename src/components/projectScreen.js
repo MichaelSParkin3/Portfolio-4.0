@@ -68,6 +68,8 @@ const ProjectScreen = () => {
   const [newScreenImageHeight, setNewScreenImageHeight] = useState('65vh')
   const [onIOS, setOnIOS] = useState(isIOS);
 
+  console.log('IOSOOOS--- '+isIOS);
+
   /**
    * itemHoveredOn:
    * Sets display of all project images to none.
@@ -281,7 +283,7 @@ const ProjectScreen = () => {
           
         </div>
       </div>
-      <div className={'mobileAlert'} style={onIOS ? { display: 'flex' } : { display: 'none' }}>
+      <div className={'mobileAlert'} style={isIOS ? { display: 'flex' } : { display: 'none' }}>
       Tap twice to open a project!
       </div>
     </div>
