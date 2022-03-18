@@ -164,6 +164,16 @@ const ProjectScreen = () => {
       easing: "easeInOutCirc",
       complete: () => {},
     })
+    anime({
+      targets: ".mobileAlert",
+      bottom: "1.5rem",
+      duration: 1000,
+      delay: 0,
+      easing: "easeInOutCirc",
+      complete: () => {
+        console.log("ENTER COMPLETE====")
+      },
+    })
   }
 
   const handleExit = () => {
@@ -182,6 +192,16 @@ const ProjectScreen = () => {
       delay: 0,
       easing: "easeInOutCirc",
       complete: () => {},
+    })
+    anime({
+      targets: ".mobileAlert",
+      bottom: "-1.5rem",
+      duration: 1000,
+      delay: 0,
+      easing: "easeInOutElastic",
+      complete: () => {
+        
+      },
     })
   }
 
@@ -260,6 +280,9 @@ const ProjectScreen = () => {
           
           
         </div>
+      </div>
+      <div className={'mobileAlert'} style={onIOS ? { display: 'flex' } : { display: 'flex' }}>
+      Tap twice to open a project!
       </div>
     </div>
   )
