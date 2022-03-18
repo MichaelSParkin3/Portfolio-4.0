@@ -69,6 +69,7 @@ const ProjectScreen = () => {
   const [onIOS, setOnIOS] = useState(isIOS);
 
   console.log('IOSOOOS--- '+isIOS);
+  console.log('IOSOOOS2--- '+onIOS);
 
   /**
    * itemHoveredOn:
