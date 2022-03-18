@@ -102,6 +102,7 @@ const ProjectScreen = () => {
     setTitleHovered(previousBool => true)
     setPositionPercent(previousPercent => percentage)
     setTransitioning(previousTransitioning => true)
+    setOnIOS(previousBool => isIOS)
   }
 
   const itemHoveredOff = titleItemRef => {
@@ -283,7 +284,7 @@ const ProjectScreen = () => {
           
         </div>
       </div>
-      <div className={'mobileAlert'} style={isIOS ? { display: 'flex' } : { display: 'none' }}>
+      <div className={'mobileAlert'} style={onIOS ? { display: 'flex' } : { display: 'none' }}>
       Tap twice to open a project!
       </div>
     </div>
