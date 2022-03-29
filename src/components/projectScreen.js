@@ -99,9 +99,6 @@ const ProjectScreen = () => {
       }
     }
 
-    console.log('IOSOOOSIHO1--- '+isIOS);
-      setOnIOS(previousBool => isIOS)
-  console.log('IOSOOOSIHO2--- '+onIOS);
     setdisplayBoolArray(PreviousDisplayBoolArray => tempArray)
     setTitleHovered(previousBool => true)
     setPositionPercent(previousPercent => percentage)
@@ -125,6 +122,7 @@ const ProjectScreen = () => {
   var windowHeight;
 
       useEffect(() => {
+
     onResize();
 
          function onResize() {
@@ -136,7 +134,15 @@ const ProjectScreen = () => {
   window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
 
+    
+
   })
+
+  useEffect(() => {
+  console.log('IOSOOOSIHO1--- '+isIOS);
+      setOnIOS(previousBool => isIOS)
+  console.log('IOSOOOSIHO2--- '+onIOS);
+}, []);
 
   // useEffect(() => {
   //   window.addEventListener("resize", updateSize)
