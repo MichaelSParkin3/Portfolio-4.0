@@ -8,6 +8,7 @@ import {
   TransitionGroup,
 } from "react-transition-group"
 import ProjectScreenTitleWithImage from "./projectScreenTitleWithImage"
+import ProjectScreenMobileAlert from "./projectScreenMobileAlert"
 import { isIOS } from "react-device-detect"
 
 import "../scss/projectScreen.scss"
@@ -293,9 +294,7 @@ const ProjectScreen = () => {
           
         </div>
       </div>
-      <div className={'mobileAlert'} style={onIOS ? { display: 'flex' } : { display: 'none' }}>
-      Tap twice to open a project!
-      </div>
+      <ProjectScreenMobileAlert isIOS={onIOS}/>
     </div>
   )
 }
