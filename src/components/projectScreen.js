@@ -99,11 +99,13 @@ const ProjectScreen = () => {
       }
     }
 
+    console.log('IOSOOOSIHO1--- '+isIOS);
+      setOnIOS(previousBool => isIOS)
+  console.log('IOSOOOSIHO2--- '+onIOS);
     setdisplayBoolArray(PreviousDisplayBoolArray => tempArray)
     setTitleHovered(previousBool => true)
     setPositionPercent(previousPercent => percentage)
     setTransitioning(previousTransitioning => true)
-    setOnIOS(previousBool => isIOS)
   }
 
   const itemHoveredOff = titleItemRef => {
