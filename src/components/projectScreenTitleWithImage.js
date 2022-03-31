@@ -1,5 +1,6 @@
 import React, { ref, useRef, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { isIOS } from "react-device-detect"
 
 import Img from "gatsby-image"
 
@@ -67,7 +68,7 @@ const ProjectScreenTitleWithImage = props => {
   const mouseOut = () => {
     props.itemHoveredOff(titleItemRef)
     setTitleHovered(previousBool => false);
-    console.log(props.onIOS && titleHovered)
+    console.log(isIOS && titleHovered)
   }
 
   return (
@@ -82,7 +83,7 @@ const ProjectScreenTitleWithImage = props => {
           // mouseOut();
           // mouseEnter();
         }}
-        style={props.onIOS && titleHovered ? { color: '#fff' } : {  }}
+        style={isIOS && titleHovered ? { color: '#fff' } : {  }}
         ref={titleItemRef}
         // data-screenimagename={props.screenImageName}
         className="projectScreenTitleItem-cont"
