@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { globalHistory } from '@reach/router'
 
 import ScrollToTopButton from "./scrollToTopButton";
+import ContactPopUp from "./contactPopUp";
 
 import "../scss/navbar.scss"
 
@@ -26,8 +27,10 @@ const NavBar = props => {
 
   /**
    * onTop: True initally and true if page is scrolled to top. Otherwise it is false.
-   */
+   * contactIsOpen : 
+  */
   const [onTop, setOnTop] = useState(true);
+  const [contactIsOpen, setContactIsOpen] = useState(false);
 
   useEffect(() => {
 
@@ -101,6 +104,7 @@ const NavBar = props => {
       </div>
     </motion.nav>
     <ScrollToTopButton onTopBool={onTop} pageRef={props.pageRef}/>
+    <ContactPopUp contactIsOpen={contactIsOpen}/>
     </>
   )
 }

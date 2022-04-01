@@ -21,6 +21,11 @@ import "../scss/projectScreen.scss"
  */
 
 const ProjectScreen = () => {
+
+/**
+ * Image data to run through GatsbyImage
+ */
+
   const data = useStaticQuery(graphql`
     query {
       shanecoScreenImage2: file(relativePath: { eq: "shanecoScreen2.png" }) {
@@ -60,6 +65,16 @@ const ProjectScreen = () => {
       }
     }
   `)
+
+  /**
+   * titleContRef : Reference to the container of the projectScreenTitleWithImage components.
+   * titleHovered : Initially false, when a cursor hovers over a title turns true in itemHoveredOn function.
+   * positionPercent : 
+   * displayBoolArray : 
+   * transitioning : 
+   * newScreenImageHeight : 
+   * onIOS : 
+   */
 
   const titleContRef = useRef()
   const [titleHovered, setTitleHovered] = useState(false)
