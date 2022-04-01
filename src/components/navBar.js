@@ -8,6 +8,15 @@ import ScrollToTopButton from "./scrollToTopButton";
 
 import "../scss/navbar.scss"
 
+/**
+ * Navbar:
+ * This component helps the user navigate the website from any page.
+ * @param {object} props
+ * * props.pageRef : Reference to current page. Used to get width and height of page.
+ * * props.disableAnim : Bool if true then disables the Navbar's anime when page is scrolled down.
+ * * props.makeWhite : Bool if ture makes text of navbar white if false then black.
+ */
+
 const NavBar = props => {
 
   const variants = {
@@ -15,43 +24,34 @@ const NavBar = props => {
   off: { opacity: 0, y: -50, scale: 0 },
 }
 
-  //console.log(props.url);
-
-// useEffect(() => {
-
-//   function onScroll() {
-//     console.log(document.body.scrollTop);
-//   }
-
-//   console.log('Navbar useeffect');
-//   window.addEventListener("scroll", onScroll, true);
-//     return () => window.removeEventListener("scroll", onScroll);
-
-// });
-
-// useEffect(() => {
-//   window.addEventListener("scroll", () => {
-//     console.log('scroll');
-//   }, true);
-// });
-
+  /**
+   * onTop: True initally and true if page is scrolled to top. Otherwise it is false.
+   */
   const [onTop, setOnTop] = useState(true);
-     const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
 
-    // if (location.pathname !== "/nordstrom") {  
-    //   return () => window.removeEventListener("scroll", onScroll, true);
-    // }
+    /**
+   * onScroll:
+   * If the page is not at scrolled to the top then change the onTop state so 
+   * the navbar can hide itself and the scrollToTopArrow can appear. If the page
+   * is at the top then update the onTop state to true and hide the scrollToTopArrow
+   * and make the navbar appear.
+   */
 
   function onScroll() {
+    console.log(props.pageRef);
     console.log(props.pageRef.current.getBoundingClientRect().top);
     if (props.pageRef.current.getBoundingClientRect().top >= 0) {
       console.log('topo');
+      
       setOnTop(true)
+      
     } else {
       console.log('not top');
+      if (onTop !== false) {
       setOnTop(false)
+      }
     }
   }
 

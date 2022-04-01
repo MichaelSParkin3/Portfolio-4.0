@@ -18,10 +18,22 @@
 }
 
 @media (min-width: 1199.99px) {
+  .fullpage {
+    .number {
+      font-size: 55rem;
+      left: -260px;
+    }
+  }
 }
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
+  .fullpage {
+    .number {
+      font-size: 55rem;
+      left: -260px;
+    }
+  }
 }
 
 // Medium devices (tablets, less than 992px)

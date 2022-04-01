@@ -294,7 +294,14 @@ ul li:nth-of-type(5) a::after {
 }
 
 // Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {
+@media (max-width: 1600.98px) {
+  .contact-page {
+    .contact-page-content {
+      h1 {
+        font-size: 80px;
+      }
+    }
+  }
 }
 
 // Medium devices (tablets, less than 992px)
