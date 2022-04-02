@@ -1,0 +1,33 @@
+@import "./colors.scss";
+
+.contactPopUp {
+  position: absolute;
+  width: 100vw;
+  height: 140vh;
+  top: -20vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .contactTopSlider {
+    width: 100vw;
+    height: 70vh;
+    position: absolute;
+    z-index: 998;
+    background-color: #fb203b;
+    top: 0;
+  }
+  .contactBottomSlider {
+    width: 100vw;
+    height: 70vh;
+    position: absolute;
+    z-index: 998;
+    background-color: #fb203b;
+    bottom: 0;
+  }
+  h1 {
+    z-index: 998;
+    color: $white-text;
+  }
+}

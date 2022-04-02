@@ -66,6 +66,11 @@ const NavBar = props => {
 
 },[]);
 
+  function onContactClick () {
+    setContactIsOpen(previousContactIsOpen => !previousContactIsOpen)
+    console.log('ON CONTACT CLICK');
+  }
+
   return (
     <>
     <motion.nav
@@ -97,9 +102,9 @@ const NavBar = props => {
     scale: 1.2,
     transition: { type: "spring", duration: 0.25, bounce: 0.5 },
   }}>
-        <AniLink cover direction="up" bg="#e5e5e5" to="/contact" duration={1.5}>
+        <a onClick={onContactClick}>
           Contact
-        </AniLink>
+        </a>
         </motion.div>
       </div>
     </motion.nav>
