@@ -3,9 +3,13 @@ import React, { useEffect, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 import { globalHistory } from '@reach/router'
+import { useStaticQuery, graphql } from "gatsby"
 
 import ScrollToTopButton from "./scrollToTopButton";
 import ContactPopUp from "./contactPopUp";
+
+import Github from '../images/svg/github.svg'
+import { FaGithub, FaEnvelope, FaLinkedin, FaPhone } from 'react-icons/fa';
 
 import "../scss/navbar.scss"
 
@@ -19,6 +23,39 @@ import "../scss/navbar.scss"
  */
 
 const NavBar = props => {
+
+  const data = useStaticQuery(graphql`
+    query {
+      contactImage: file(relativePath: { eq: "contact1.JPG" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      github: file(relativePath: { eq: "github2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      linkedin: file(relativePath: { eq: "linkedin2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      email: file(relativePath: { eq: "email2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
   const variants = {
   on: { opacity: 1, y: 0, scale: 1 },
@@ -79,7 +116,7 @@ const NavBar = props => {
         //variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
     >
-      <div className={props.makeWhite ? 'nav-main-cont nav-white' : 'nav-main-cont nav-black'}>
+      <div className={props.makeWhite && !contactIsOpen ? 'nav-main-cont nav-white' : 'nav-main-cont nav-black'}>
       <motion.div whileTap={{ scale: 0.7 }} whileHover={{
     scale: 1.2,
     transition: { type: "spring", duration: 0.25, bounce: 0.5 },
@@ -109,7 +146,7 @@ const NavBar = props => {
       </div>
     </motion.nav>
     <ScrollToTopButton onTopBool={onTop} pageRef={props.pageRef}/>
-    <ContactPopUp contactIsOpen={contactIsOpen}/>
+    <ContactPopUp items={[{content: '0000', key: '0', icon: <FaGithub/>}, {'content': '1111', key: '1', icon: <FaEnvelope/>}, {content: '2222', key: '2', icon: <FaLinkedin/>}, {content: '3333', key: '3', icon: <FaPhone/>}]} img={data.contactImage.childImageSharp.fluid} contactIsOpen={contactIsOpen}/>
     </>
   )
 }
