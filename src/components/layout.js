@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
+import React, {useRef} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -26,6 +26,10 @@ const Layout = ({ children }, props) => {
     }
   `)
 
+  const pageRef = useRef(null);
+
+  
+
   return (
     <div
       id="layout-cont"
@@ -35,10 +39,13 @@ const Layout = ({ children }, props) => {
         justifyContent: "center",
         alignItems: "center",
       }}
+      ref={pageRef}
     >
-      
+
+     <NavBar makeWhite={false} pageRef={pageRef} disableAnim={false}/>
 
       <main
+      
         style={{
           width: "100vw",
           height: "100%",

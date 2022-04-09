@@ -79,19 +79,9 @@ const LandingPages = ({ location }) => {
     }
   `)
 
-const pageRef = useRef(null);
-
-  console.log(data)
-
-  const getLocation = () => {
-    console.log(location.pathname + " GET LOCATRIN")
-    return location.pathname
-  }
-
   return (
     <Layout url={location.pathname}>
-      <div className="project-page" ref={pageRef} >
-        <NavBar makeWhite={false} pageRef={pageRef} disableAnim={false}/>
+      <div className="project-page"  >
 
         <FullPageNumber url={location} number="02" />
         <ContFiftyFifty

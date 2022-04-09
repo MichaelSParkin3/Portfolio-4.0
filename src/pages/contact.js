@@ -46,8 +46,8 @@ const Contact = ({ location }) => {
         rel="stylesheet"
         href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       ></link>
-      <div ref={pageRef}>
-        <NavBar makeWhite={true} pageRef={pageRef} disableAnim={false} />
+      <div>
+        
         <div className="project-page-black contact-page">
           <div className="contact-page-cont">
             <div className="contact-page-content">

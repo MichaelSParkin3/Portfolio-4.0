@@ -111,34 +111,7 @@ const Shaneco = ({ location }) => {
     }
   `)
 
-  const [onTop, setOnTop] = useState(true);
-
-  useEffect(() => {
-
-    if (location.pathname !== "/nordstrom") {  
-      return () => window.removeEventListener("scroll", onScroll, true);
-    }
-
-  function onScroll() {
-    console.log(pageRef.current.getBoundingClientRect().top);
-    if (pageRef.current.getBoundingClientRect().top >= 0) {
-      console.log('topo');
-      setOnTop(true)
-    } else {
-      console.log('not top');
-      setOnTop(false)
-    }
-  }
-
-  console.log('Navbar useeffect');
-  window.addEventListener("scroll", onScroll, true);
-    return () => window.removeEventListener("scroll", onScroll, true);
-
-
-
-},[location.pathname]);
-
-const pageRef = useRef(null);
+  
 
 
 
@@ -146,8 +119,7 @@ const pageRef = useRef(null);
 
   return (
     <Layout url={location.pathname}>
-      <div className="project-page" ref={pageRef}>
-       <NavBar makeWhite={false} pageRef={pageRef} disableAnim={false}/>
+      <div className="project-page" >
 
         <FullPageNumber url={location} number="02"/>
 

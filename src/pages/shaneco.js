@@ -83,8 +83,8 @@ const pageRef = useRef(null);
 
   return (
     <Layout url={location.pathname}>
-      <div className="project-page" ref={pageRef} >
-        <NavBar makeWhite={false} pageRef={pageRef} disableAnim={false}/>
+      <div className="project-page"  >
+        
 
         <FullPageNumber url={location} number="01" />
         <ContFiftyFifty
