@@ -29,7 +29,7 @@ const Layout = ({ children }, {location}, props) => {
   const pageRef = useRef(null);
 
   const url = typeof window !== 'undefined' ? window.location.href : '';
-  var splitUrl = ' '
+  var splitUrl = ''
   var makeWhite = true;
 
   console.log(url);

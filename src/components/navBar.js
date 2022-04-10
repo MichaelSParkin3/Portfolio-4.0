@@ -169,7 +169,7 @@ const NavBar = props => {
       >
         <div
           className={
-            (props.path == '') && !contactIsOpen
+            (props.path == '' || props.path == null) && !contactIsOpen
               ? "nav-main-cont nav-white"
               : "nav-main-cont nav-black"
           }
