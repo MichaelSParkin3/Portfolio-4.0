@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, {useRef} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -14,7 +14,7 @@ import NavBar from "./navBar"
 import Scrollbar from "react-smooth-scrollbar"
 import "../scss/layout.scss"
 
-const Layout = ({ children }, props) => {
+const Layout = ({ children }, {location}, props) => {
   console.log(props);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -28,7 +28,15 @@ const Layout = ({ children }, props) => {
 
   const pageRef = useRef(null);
 
-  
+  const url = typeof window !== 'undefined' ? window.location.href : '';
+  var splitUrl = ' '
+  var makeWhite = true;
+
+  console.log(url);
+
+  splitUrl = url.split('/')[3];
+
+  console.log(splitUrl);
 
   return (
     <div
@@ -42,7 +50,7 @@ const Layout = ({ children }, props) => {
       ref={pageRef}
     >
 
-     <NavBar makeWhite={false} pageRef={pageRef} disableAnim={false}/>
+     <NavBar makeWhite={true} path={splitUrl} pageRef={pageRef} disableAnim={false}/>
 
       <main
       

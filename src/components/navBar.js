@@ -155,6 +155,10 @@ const NavBar = props => {
     console.log("ON CONTACT CLICK")
   }
 
+  console.log('This is props.makewhite '+ props.makeWhite);
+
+  console.log('This is props.path '+ props.path+ (props.path == ''));
+
   return (
     <>
       <motion.nav
@@ -165,7 +169,7 @@ const NavBar = props => {
       >
         <div
           className={
-            makeWhite && !contactIsOpen
+            (props.path == '') && !contactIsOpen
               ? "nav-main-cont nav-white"
               : "nav-main-cont nav-black"
           }
