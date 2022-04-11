@@ -54,6 +54,14 @@ const ContactPopUp = props => {
     closedCardItem: { display: "none", opacity: 0, y: 25 },
   }
 
+  useEffect(() => {
+
+    console.log(props.contactIsOpen);
+
+  });
+
+  console.log(props.contactIsOpen);
+
     return (
       <motion.div
         transition={{ duration: 1.5, delay: 3.5 }}
@@ -61,7 +69,7 @@ const ContactPopUp = props => {
         variants={variants3}
         className={"iconTextContainer"}
       >
-        {isOpen && content}
+        {props.contactIsOpen && content}
         <div className={"textCont"}>
           <h2>TEST</h2>
         </div>

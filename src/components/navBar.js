@@ -169,7 +169,7 @@ const NavBar = props => {
       >
         <div
           className={
-            (props.path == '' || props.path == null) && !contactIsOpen
+            (props.path == '' || props.path == null) && !props.contactIsOpen
               ? "nav-main-cont nav-white"
               : "nav-main-cont nav-black"
           }
@@ -207,12 +207,12 @@ const NavBar = props => {
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
           >
-            <a onClick={onContactClick}>Contact</a>
+            <a onClick={props.OpenContact}>Contact</a>
           </motion.div>
         </div>
       </motion.nav>
       <ScrollToTopButton onTopBool={onTop} pageRef={props.pageRef} />
-      <ContactPopUp
+      {/* <ContactPopUp
         items={[
           { content: "0000", key: "0", icon: <FaGithub /> },
           { content: "1111", key: "1", icon: <FaEnvelope /> },
@@ -221,7 +221,7 @@ const NavBar = props => {
         ]}
         img={data.contactImage.childImageSharp.fluid}
         contactIsOpen={contactIsOpen}
-      />
+      /> */}
     </>
   )
 }

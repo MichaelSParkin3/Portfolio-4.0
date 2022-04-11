@@ -12,6 +12,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import NavBar from "./navBar"
 import Scrollbar from "react-smooth-scrollbar"
+import ContactPopUp from "./contactPopUp"
+
+import { FaGithub, FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa"
+
 import "../scss/layout.scss"
 
 const Layout = ({ children }, {location}, props) => {
@@ -23,20 +27,31 @@ const Layout = ({ children }, {location}, props) => {
           title
         }
       }
-    }
+    },
   `)
+
+  const [isContactOpen, setIsContactOpen] = useState(false)
 
   const pageRef = useRef(null);
 
   const url = typeof window !== 'undefined' ? window.location.href : '';
   var splitUrl = ''
   var makeWhite = true;
+  var contactIsOpen = false;
+  var popUpKey = 0;
 
   console.log(url);
 
   splitUrl = url.split('/')[3];
 
   console.log(splitUrl);
+
+  function OpenContact() {
+    console.log('before contactisopen '+contactIsOpen);
+    setIsContactOpen(!isContactOpen)
+    console.log('after contactisopen '+contactIsOpen);
+    popUpKey = popUpKey + 1;
+  }
 
   return (
     <div
@@ -50,7 +65,19 @@ const Layout = ({ children }, {location}, props) => {
       ref={pageRef}
     >
 
-     <NavBar makeWhite={true} path={splitUrl} pageRef={pageRef} disableAnim={false}/>
+     <NavBar makeWhite={true} path={splitUrl} pageRef={pageRef} disableAnim={false} OpenContact={OpenContact} contactIsOpen={isContactOpen}/>
+
+     <ContactPopUp
+     key={'1'}
+     
+      items={[
+          { content: "0000", key: "0", icon: <FaGithub /> },
+          { content: "1111", key: "1", icon: <FaEnvelope /> },
+          { content: "2222", key: "2", icon: <FaLinkedin /> },
+          { content: "3333", key: "3", icon: <FaPhone /> },
+        ]}
+        
+        contactIsOpen={isContactOpen} />
 
       <main
       
