@@ -1,7 +1,12 @@
 import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion"
+import {
+  motion,
+  AnimateSharedLayout,
+  AnimatePresence,
+  useAnimation,
+} from "framer-motion"
 import { globalHistory } from "@reach/router"
 
 import Img from "gatsby-image"
@@ -23,64 +28,166 @@ const ContactPopUp = props => {
     openedCard: { width: "75vw" },
     closedCard: { width: 0 },
     openedCardItem: {
-      display: "flex", opacity: 1, y: 0,
+      display: "flex",
+      opacity: 1,
+      y: 0,
       transition: {
-        duration: 1, delay: 3.5
+        duration: 1,
+        delay: 3.5,
       },
     },
-    closedCardItem: { opacity: 0, y: 25,
+    closedCardItem: {
+      opacity: 0,
+      y: 25,
       transition: {
-        duration: 1, delay: 0
+        duration: 1,
+        delay: 0,
       },
     },
     openedCardUl: {
-      display: "flex", opacity: 1,
+      display: "flex",
+      opacity: 1,
       transition: {
-        duration: 1, delay: 3.5
+        duration: 1,
+        delay: 3.5,
       },
     },
-    closedCardUl: { opacity: 0,
+    closedCardUl: {
+      opacity: 0,
       transition: {
-        duration: 1, delay: 0
-      }, },
+        duration: 1,
+        delay: 0,
+      },
+    },
+
+    rest: {
+      scale: 0,
+      transition: {
+        duration: 2,
+        type: "tween",
+        ease: "easeIn",
+      },
+    },
+    hover: {
+      visibility: "visible",
+      transition: {
+        duration: 0.4,
+        type: "tween",
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const variants2 = {
+    rest: {
+      scale: 0,
+      transition: {
+        duration: 2,
+        type: "tween",
+        ease: "easeIn",
+      },
+    },
+    hover: {
+      scale: 1.5,
+      transition: {
+        duration: 0.4,
+        type: "tween",
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const variants3 = {
+    hover: {
+      x: -50,
+      scale: [1.1, 1],
+      opacity: 100,
+    },
+    initial: {
+      x: 0,
+      scale: 1,
+      opacity: 0,
+    },
+  }
+
+  const variants4 = {
+    hover: {
+      scale: 1,
+    },
+    initial: {
+      scale: [1.1, 1],
+      transition: {repeat: Infinity, duration: 0.5}
+    },
+    rest: {
+      scale: [1.1, 1],
+      transition: {repeat: Infinity, duration: 0.5}
+    },
+  }
+
+  // Imperative
+  const controls = useAnimation()
+  function handleMouseEnterControls() {
+    console.log("Handle mouse enter")
+    controls.start("hover")
+  }
+
+  function handleMouseLeaveControls() {
+    console.log("Handle mouse leave")
+    controls.start("initial")
   }
 
   console.log("props.contactisopen " + props.contactIsOpen)
 
-  function Item({ content, icon }) {
-    const [isOpen, setIsOpen] = useState(false)
-    const variants3 = {
-    openedCardItem: { display: "flex", opacity: 1, y: 0 },
-    closedCardItem: { display: "none", opacity: 0, y: 25 },
-  }
-
-  useEffect(() => {
-
-    console.log(props.contactIsOpen);
-
-  });
-
-  console.log(props.contactIsOpen);
+  function Item({ content, icon, theKey, key }) {
+    console.log("key " + key)
 
     return (
       <motion.div
         transition={{ duration: 1.5, delay: 3.5 }}
         animate={props.contactIsOpen ? "openedCardItem" : "closedCardItem"}
-        variants={variants3}
+        variants={variants}
         className={"iconTextContainer"}
       >
-        {props.contactIsOpen && content}
-        <div className={"textCont"}>
-          <h2>TEST</h2>
+        <motion.div
+          transition={{ delay: 0.1 * theKey }}
+          variants={variants3}
+          animate={controls}
+          key={key}
+          className="paraInvisIconCont"
+        >
+        <div className="pCont">
+          <motion.p>{content}</motion.p>
         </div>
-        <a className={"iconAnchor"}>{icon}</a>
+          
+          <motion.a style={{ visibility: "hidden" }} className={"iconAnchor"}>
+            {icon}
+          </motion.a>
+        </motion.div>
+        <motion.a
+          animate={{ scale: [1.1, 1, 1.1] }}
+  transition={{ repeat: Infinity, duration: 2 }}
+          className={"iconAnchor"}
+          whileHover={{
+    scale: 1.2,
+    transition: { duration: 0.2 },
+  }}
+        >
+          {icon}
+        </motion.a>
       </motion.div>
     )
   }
 
   const generatedItems = props.items.map(item => {
-    console.log(item)
-    return <Item key={item.key} content={item.content} icon={item.icon}></Item>
+    console.log("key " + item.key)
+    return (
+      <Item
+        key={item.key}
+        theKey={item.key}
+        content={item.content}
+        icon={item.icon}
+      ></Item>
+    )
   })
 
   return (
@@ -109,7 +216,9 @@ const ContactPopUp = props => {
           }}
           animate={props.contactIsOpen ? "openedCard" : "closedCard"}
           variants={variants}
-          style={props.contactIsOpen ? {display: 'flex'} : {display: 'none'}}
+          style={
+            props.contactIsOpen ? { display: "flex" } : { display: "none" }
+          }
         >
           <motion.h1
             transition={{
@@ -124,11 +233,15 @@ const ContactPopUp = props => {
             MIII
           </motion.h1>
           <AnimateSharedLayout>
-            <motion.ul key={'ulText'} variants={variants} animate={props.contactIsOpen ? "openedCardUl" : "closedCardUl"} id={"ulText"} className={"ulText"}>
+            <motion.ul
+              key={"ulIcon"}
+              onMouseEnter={handleMouseEnterControls}
+              onMouseLeave={handleMouseLeaveControls}
+              variants={variants}
+              animate={props.contactIsOpen ? "openedCardUl" : "closedCardUl"}
+            >
               {generatedItems}
             </motion.ul>
-            <motion.ul key={'ulIcon'} 
-        variants={variants} animate={props.contactIsOpen ? "openedCardUl" : "closedCardUl"}>{generatedItems}</motion.ul>
           </AnimateSharedLayout>
         </motion.div>
       </AnimatePresence>

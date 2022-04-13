@@ -75,16 +75,26 @@
           bottom: 0px;
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          justify-content: space-evenly;
+          align-items: flex-end;
           .iconTextContainer {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20%;
-            margin-bottom: 20%;
-            .textCont {
+            .paraInvisIconCont {
+              display: flex;
               position: absolute;
+              right: 0;
+              opacity: 0;
+              z-index: 99;
+            }
+            .pCont {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            p {
+              white-space: nowrap;
               margin: 0 auto;
               opacity: 100;
               background-color: #fff;
@@ -93,7 +103,6 @@
               padding-right: 20px;
               padding-top: 3px;
               padding-bottom: 3px;
-              visibility: hidden;
               box-shadow: 0 1px 1px rgb(0 0 0 / 12%),
               0 2px 2px rgb(0 0 0 / 12%),
               0 4px 4px rgb(0 0 0 / 12%),
