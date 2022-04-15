@@ -71,10 +71,10 @@ const Layout = ({ children }, {location}, props) => {
      key={'1'}
      
       items={[
-          { content: "Check out my github", key: "0", icon: <FaGithub /> },
-          { content: "Send me an email", key: "1", icon: <FaEnvelope /> },
-          { content: "Connect with me", key: "2", icon: <FaLinkedin /> },
-          { content: "The best way to contact me, text me", key: "3", icon: <FaPhone /> },
+          { content: "Check out my github", link: "https://github.com/MichaelSParkin3", key: "0", icon: <FaGithub /> },
+          { content: "Send me an email", link: "https://github.com/MichaelSParkin3", key: "1", icon: <FaEnvelope /> },
+          { content: "Connect with me", link: "https://github.com/MichaelSParkin3", key: "2", icon: <FaLinkedin /> },
+          { content: "My BEST contact, TEXT ME", link: "https://github.com/MichaelSParkin3", key: "3", icon: <FaPhone /> },
         ]}
         
         contactIsOpen={isContactOpen} />

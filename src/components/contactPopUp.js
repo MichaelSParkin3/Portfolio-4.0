@@ -33,7 +33,7 @@ const ContactPopUp = props => {
       y: 0,
       transition: {
         duration: 1,
-        delay: 3.5,
+        delay: 0.75,
       },
     },
     closedCardItem: {
@@ -49,7 +49,7 @@ const ContactPopUp = props => {
       opacity: 1,
       transition: {
         duration: 1,
-        delay: 3.5,
+        delay: 2,
       },
     },
     closedCardUl: {
@@ -78,49 +78,20 @@ const ContactPopUp = props => {
     },
   }
 
-  const variants2 = {
-    rest: {
-      scale: 0,
-      transition: {
-        duration: 2,
-        type: "tween",
-        ease: "easeIn",
-      },
-    },
+  const paraInvisIconContVariants = {
     hover: {
-      scale: 1.5,
-      transition: {
-        duration: 0.4,
-        type: "tween",
-        ease: "easeOut",
-      },
-    },
-  }
-
-  const variants3 = {
-    hover: {
-      x: -50,
+      x: -25,
       scale: [1.1, 1],
       opacity: 100,
+      type: "spring",
+      stiffness: 2000,
     },
     initial: {
       x: 0,
       scale: 1,
       opacity: 0,
-    },
-  }
-
-  const variants4 = {
-    hover: {
-      scale: 1,
-    },
-    initial: {
-      scale: [1.1, 1],
-      transition: {repeat: Infinity, duration: 0.5}
-    },
-    rest: {
-      scale: [1.1, 1],
-      transition: {repeat: Infinity, duration: 0.5}
+      type: "spring",
+      stiffness: 2000,
     },
   }
 
@@ -138,39 +109,40 @@ const ContactPopUp = props => {
 
   console.log("props.contactisopen " + props.contactIsOpen)
 
-  function Item({ content, icon, theKey, key }) {
+  function Item({ content, icon, theKey, key, link }) {
     console.log("key " + key)
 
     return (
       <motion.div
-        transition={{ duration: 1.5, delay: 3.5 }}
         animate={props.contactIsOpen ? "openedCardItem" : "closedCardItem"}
         variants={variants}
         className={"iconTextContainer"}
       >
         <motion.div
           transition={{ delay: 0.1 * theKey }}
-          variants={variants3}
+          variants={paraInvisIconContVariants}
           animate={controls}
           key={key}
           className="paraInvisIconCont"
         >
-        <div className="pCont">
-          <motion.p>{content}</motion.p>
-        </div>
-          
+          <div className="pCont">
+            <motion.p>{content}</motion.p>
+          </div>
+
           <motion.a style={{ visibility: "hidden" }} className={"iconAnchor"}>
             {icon}
           </motion.a>
         </motion.div>
         <motion.a
           animate={{ scale: [1.1, 1, 1.1] }}
-  transition={{ repeat: Infinity, duration: 2 }}
+          transition={{ repeat: Infinity, duration: 2 }}
           className={"iconAnchor"}
           whileHover={{
-    scale: 1.2,
-    transition: { duration: 0.2 },
-  }}
+            scale: 1.2,
+            transition: { duration: 0.2 },
+          }}
+          href={link}
+          target="_blank" rel="noopener noreferrer"
         >
           {icon}
         </motion.a>
@@ -186,6 +158,7 @@ const ContactPopUp = props => {
         theKey={item.key}
         content={item.content}
         icon={item.icon}
+        link={item.link}
       ></Item>
     )
   })
@@ -212,7 +185,7 @@ const ContactPopUp = props => {
             type: "spring",
             stiffness: 100,
             duration: 0.5,
-            delay: 1.5,
+            delay: 0.5,
           }}
           animate={props.contactIsOpen ? "openedCard" : "closedCard"}
           variants={variants}
@@ -225,7 +198,7 @@ const ContactPopUp = props => {
               type: "spring",
               stiffness: 200,
               duration: 1.5,
-              delay: 2.5,
+              delay: 0.25,
             }}
             animate={props.contactIsOpen ? "openedCardItem" : "closedCardItem"}
             variants={variants}
