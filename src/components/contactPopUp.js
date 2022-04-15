@@ -164,7 +164,7 @@ const ContactPopUp = props => {
   })
 
   return (
-    <div className={"contactPopUp"}>
+    <div className={"contactPopUp"} style={props.contactIsOpen ? { pointerEvents: 'auto' } : { pointerEvents: 'none' }}>
       <motion.div
         className={"contactTopSlider"}
         transition={{ type: "spring", stiffness: 40, duration: 1 }}
