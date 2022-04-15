@@ -1,7 +1,8 @@
 @import "./colors.scss";
 
 .contactPopUp {
-  position: absolute;
+  position: fixed;
+  z-index: 1;
   width: 100vw;
   height: 140vh;
   top: -20vh;
