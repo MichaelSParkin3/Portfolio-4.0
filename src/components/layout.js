@@ -72,9 +72,9 @@ const Layout = ({ children }, {location}, props) => {
      
       items={[
           { content: "Check out my github", link: "https://github.com/MichaelSParkin3", key: "0", icon: <FaGithub /> },
-          { content: "Send me an email", link: "https://github.com/MichaelSParkin3", key: "1", icon: <FaEnvelope /> },
-          { content: "Connect with me", link: "https://github.com/MichaelSParkin3", key: "2", icon: <FaLinkedin /> },
-          { content: "My BEST contact, TEXT ME", link: "https://github.com/MichaelSParkin3", key: "3", icon: <FaPhone /> },
+          { content: "Send me an email", link: "mailto:MichaelSParkin3@gmail.com", key: "1", icon: <FaEnvelope /> },
+          { content: "Connect with me", link: "https://www.linkedin.com/in/michael-parkin-702396133/", key: "2", icon: <FaLinkedin /> },
+          { content: "My BEST contact, TEXT ME", link: "sms:1-323-393-0360", key: "3", icon: <FaPhone /> },
         ]}
         
         contactIsOpen={isContactOpen} />
