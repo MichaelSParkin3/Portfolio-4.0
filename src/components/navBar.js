@@ -149,7 +149,7 @@ const NavBar = props => {
       console.log('NEW URL ++++ '+url+' '+urlPath);
     }
   })
-},[makeWhite])
+},[makeWhite, disableAnim])
 
 
 
