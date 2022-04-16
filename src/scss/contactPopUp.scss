@@ -30,7 +30,7 @@
 
   .contactCard {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
     position: relative;
     width: 75vw;
@@ -191,7 +191,7 @@
           h1 {}
       
           ul {
-      
+              height: calc(100% - 8rem);
             .iconTextContainer {
               .iconAnchor {}
       
