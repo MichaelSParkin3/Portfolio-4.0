@@ -8,6 +8,7 @@ import {
   useAnimation,
 } from "framer-motion"
 import { globalHistory } from "@reach/router"
+import { isMobile } from "react-device-detect"
 
 import Img from "gatsby-image"
 
@@ -141,7 +142,7 @@ const ContactPopUp = props => {
             scale: 1.2,
             transition: { duration: 0.2 },
           }}
-          href={link}
+          href={((link.includes('sms') || link.includes('tel')) && isMobile ? link : null)}
           target="_blank" rel="noopener noreferrer"
         >
           {icon}
