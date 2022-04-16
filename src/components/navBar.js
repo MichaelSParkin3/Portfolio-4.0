@@ -62,6 +62,7 @@ const NavBar = props => {
    */
   const [onTop, setOnTop] = useState(true)
   const [makeWhite, setMakeWhite] = useState(true)
+  const [disableAnim, setDisableAnim] = useState(false)
   const [contactIsOpen, setContactIsOpen] = useState(false)
 
   const variants = {
@@ -135,10 +136,12 @@ const NavBar = props => {
         //if (makeWhite != true)
         console.log('Makewhite true setting');
           setMakeWhite(makeWhite => ({ ...true }))
+          setDisableAnim(disableAnim => ({ ...true }))
       } else {
         //if (makeWhite != false)
         console.log('Makewhite false setting');
           setMakeWhite(makeWhite => ({ ...false }))
+          setDisableAnim(disableAnim => ({ ...false }))
           console.log('makeWhite after false set '+ makeWhite);
       }
       }
@@ -146,7 +149,7 @@ const NavBar = props => {
       console.log('NEW URL ++++ '+url+' '+urlPath);
     }
   })
-},[makeWhite])
+},[makeWhite, disableAnim])
 
 
 
@@ -163,7 +166,7 @@ const NavBar = props => {
     <>
       <motion.nav
         animate={onTop ? "on" : "off"}
-        variants={props.disableAnim ? null : variants}
+        variants={props.disableAnim || disableAnim ? null : variants}
         //variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
       >
