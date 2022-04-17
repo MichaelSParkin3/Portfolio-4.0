@@ -61,9 +61,7 @@ const NavBar = props => {
    * contactIsOpen :
    */
   const [onTop, setOnTop] = useState(true)
-  const [makeWhite, setMakeWhite] = useState(true)
   const [disableAnim, setDisableAnim] = useState(false)
-  const [contactIsOpen, setContactIsOpen] = useState(false)
 
   const variants = {
     on: { opacity: 1, y: 0, scale: 1 },
@@ -74,26 +72,8 @@ const NavBar = props => {
   var urlPath;
   var pageRef = props.pageRef
 
-  // const [offset, setOffset] = useState(0)
-
-  // useEffect(() => {
-  //   if (typeof window !== `undefined`) {
-  //     window.onscroll = () => {
-  //       setOffset(window.pageYOffset)
-  //     }
-  //   }
-  // }, [])
-
-  // console.log(document.body)
-
-  // console.log('NAVBAR pageref');
-  // console.log(pageRef);
-  // console.log(props.pageRef.current);
 
   useEffect(() => {
-    // console.log('NAVBAR pageref');
-    // console.log(pageRef);
-    // console.log(props.pageRef.current);
 
     /**
      * onScroll:
@@ -125,42 +105,46 @@ const NavBar = props => {
   }, [])
 
 
-  useEffect(() => {
-    console.log('In navbar useeffect');
-  return globalHistory.listen(({ action }) => {
-    if (action === 'PUSH') {
-      let url = typeof window !== 'undefined' ? window.location.href : '';
-      if (url !== '') {
-      urlPath = url.split('/')[3];
-      if (urlPath == '') {
-        //if (makeWhite != true)
-        console.log('Makewhite true setting');
-          setMakeWhite(makeWhite => ({ ...true }))
-          setDisableAnim(disableAnim => ({ ...true }))
-      } else {
-        //if (makeWhite != false)
-        console.log('Makewhite false setting');
-          setMakeWhite(makeWhite => ({ ...false }))
-          setDisableAnim(disableAnim => ({ ...false }))
-          console.log('makeWhite after false set '+ makeWhite);
-      }
-      }
-      console.log('makeWhite '+ makeWhite);
-      console.log('NEW URL ++++ '+url+' '+urlPath);
-    }
-  })
-},[makeWhite, disableAnim])
+//   useEffect(() => {
+//     console.log('In navbar useeffect');
+//   return globalHistory.listen(({ action }) => {
+//     if (action === 'PUSH') {
+//       let url = typeof window !== 'undefined' ? window.location.href : '';
+//       if (url !== '') {
+//       urlPath = url.split('/')[3];
+//       if (urlPath == '') {
+//         //if (makeWhite != true)
+//         console.log('Makewhite true setting');
+//           setMakeWhite(makeWhite => ({ ...true }))
+//           setDisableAnim(disableAnim => ({ ...true }))
+//       } else {
+//         //if (makeWhite != false)
+//         console.log('Makewhite false setting');
+//           setMakeWhite(makeWhite => ({ ...false }))
+//           setDisableAnim(disableAnim => ({ ...false }))
+//           console.log('makeWhite after false set '+ makeWhite);
+//       }
+//       }
+//       console.log('makeWhite '+ makeWhite);
+//       console.log('NEW URL ++++ '+url+' '+urlPath);
+//     }
+//   })
+// },[makeWhite, disableAnim])
 
 
+//   useEffect(() => {
+//     if ((props.path == '' || props.path == null) && !props.contactIsOpen) {
+//       console.log('Makewhite true setting');
+//       setMakeWhite(makeWhite => ({ ...true }))
+//       setDisableAnim(disableAnim => ({ ...true }))
+//     } else {
+//       console.log('Makewhite false setting');
+//       setMakeWhite(makeWhite => ({ ...false }))
+//       setDisableAnim(disableAnim => ({ ...false }))
+//     }
+// },[])
 
-  function onContactClick() {
-    setContactIsOpen(previousContactIsOpen => !previousContactIsOpen)
-    console.log("ON CONTACT CLICK")
-  }
 
-  console.log('This is props.makewhite '+ props.makeWhite);
-
-  console.log('This is props.path '+ props.path+ (props.path == ''));
 
   return (
     <>
@@ -172,7 +156,7 @@ const NavBar = props => {
       >
         <div
           className={
-            (props.path == '' || props.path == null) && !props.contactIsOpen
+            (props.makeWhite)
               ? "nav-main-cont nav-white"
               : "nav-main-cont nav-black"
           }
@@ -215,16 +199,6 @@ const NavBar = props => {
         </div>
       </motion.nav>
       <ScrollToTopButton onTopBool={onTop} pageRef={props.pageRef} />
-      {/* <ContactPopUp
-        items={[
-          { content: "0000", key: "0", icon: <FaGithub /> },
-          { content: "1111", key: "1", icon: <FaEnvelope /> },
-          { content: "2222", key: "2", icon: <FaLinkedin /> },
-          { content: "3333", key: "3", icon: <FaPhone /> },
-        ]}
-        img={data.contactImage.childImageSharp.fluid}
-        contactIsOpen={contactIsOpen}
-      /> */}
     </>
   )
 }

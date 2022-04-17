@@ -31,12 +31,12 @@ const Layout = ({ children }, {location}, props) => {
   `)
 
   const [isContactOpen, setIsContactOpen] = useState(false)
+  const [makeWhite, setMakeWhite] = useState(false)
 
   const pageRef = useRef(null);
 
   const url = typeof window !== 'undefined' ? window.location.href : '';
   var splitUrl = ''
-  var makeWhite = true;
   var contactIsOpen = false;
   var popUpKey = 0;
 
@@ -44,7 +44,7 @@ const Layout = ({ children }, {location}, props) => {
 
   splitUrl = url.split('/')[3];
 
-  console.log(splitUrl);
+  console.log('splitUrl '+splitUrl);
 
   function OpenContact() {
     console.log('before contactisopen '+contactIsOpen);
@@ -52,6 +52,22 @@ const Layout = ({ children }, {location}, props) => {
     console.log('after contactisopen '+contactIsOpen);
     popUpKey = popUpKey + 1;
   }
+
+  function adjustColor() {
+    if ((splitUrl == '' || splitUrl == null) && !isContactOpen) {
+      console.log('adjustColor return true '+ splitUrl);
+      setMakeWhite(true)
+    } else {
+      console.log('adjustColor return false '+ splitUrl);
+      setMakeWhite(false)
+    }
+  }
+
+  useEffect(()=>{
+
+    adjustColor();
+
+  },[url, isContactOpen]) 
 
   return (
     <div
@@ -65,7 +81,7 @@ const Layout = ({ children }, {location}, props) => {
       ref={pageRef}
     >
 
-     <NavBar makeWhite={true} path={splitUrl} pageRef={pageRef} disableAnim={false} OpenContact={OpenContact} contactIsOpen={isContactOpen}/>
+     <NavBar makeWhite={makeWhite} path={splitUrl} pageRef={pageRef} disableAnim={false} OpenContact={OpenContact} contactIsOpen={isContactOpen}/>
 
      <ContactPopUp
      key={'1'}
