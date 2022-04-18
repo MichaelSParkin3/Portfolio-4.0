@@ -69,15 +69,18 @@ const Layout = ({ children }, {location}, props) => {
 
   },[url, isContactOpen]) 
 
+  // useEffect(() => {
+  //   if (isContactOpen) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = 'unset';
+  //   }
+  // }, [isContactOpen]);
+
   return (
     <div
       id="layout-cont"
-      style={{
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={isContactOpen ? {overflow:'hidden'} : {overflow:'visible'}}
       ref={pageRef}
     >
 

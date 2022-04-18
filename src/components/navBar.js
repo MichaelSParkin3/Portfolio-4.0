@@ -104,54 +104,11 @@ const NavBar = props => {
     return () => window.removeEventListener("scroll", onScroll, true)
   }, [])
 
-
-//   useEffect(() => {
-//     console.log('In navbar useeffect');
-//   return globalHistory.listen(({ action }) => {
-//     if (action === 'PUSH') {
-//       let url = typeof window !== 'undefined' ? window.location.href : '';
-//       if (url !== '') {
-//       urlPath = url.split('/')[3];
-//       if (urlPath == '') {
-//         //if (makeWhite != true)
-//         console.log('Makewhite true setting');
-//           setMakeWhite(makeWhite => ({ ...true }))
-//           setDisableAnim(disableAnim => ({ ...true }))
-//       } else {
-//         //if (makeWhite != false)
-//         console.log('Makewhite false setting');
-//           setMakeWhite(makeWhite => ({ ...false }))
-//           setDisableAnim(disableAnim => ({ ...false }))
-//           console.log('makeWhite after false set '+ makeWhite);
-//       }
-//       }
-//       console.log('makeWhite '+ makeWhite);
-//       console.log('NEW URL ++++ '+url+' '+urlPath);
-//     }
-//   })
-// },[makeWhite, disableAnim])
-
-
-//   useEffect(() => {
-//     if ((props.path == '' || props.path == null) && !props.contactIsOpen) {
-//       console.log('Makewhite true setting');
-//       setMakeWhite(makeWhite => ({ ...true }))
-//       setDisableAnim(disableAnim => ({ ...true }))
-//     } else {
-//       console.log('Makewhite false setting');
-//       setMakeWhite(makeWhite => ({ ...false }))
-//       setDisableAnim(disableAnim => ({ ...false }))
-//     }
-// },[])
-
-
-
   return (
     <>
       <motion.nav
         animate={onTop ? "on" : "off"}
         variants={props.disableAnim || disableAnim ? null : variants}
-        //variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
       >
         <div
