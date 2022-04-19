@@ -13,6 +13,7 @@ import Header from "./header"
 import NavBar from "./navBar"
 import Scrollbar from "react-smooth-scrollbar"
 import ContactPopUp from "./contactPopUp"
+import { isMobile } from "react-device-detect"
 
 import { FaGithub, FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa"
 
@@ -80,7 +81,7 @@ const Layout = ({ children }, {location}, props) => {
   return (
     <div
       id="layout-cont"
-      style={isContactOpen ? {overflow:'hidden'} : {overflow:'visible'}}
+      style={isContactOpen || ((splitUrl == '' || splitUrl == null) && isMobile) ? {overflowY:'hidden'} : {overflowY:'visible'}}
       ref={pageRef}
     >
 

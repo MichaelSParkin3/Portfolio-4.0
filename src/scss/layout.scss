@@ -15,9 +15,12 @@ body {
   margin: 0;
   height: 100vh;
 }
-
+html {
 body {
-  //overflow-y: visible!important;
+  //overflow-y: visible;
+  overflow-y: visible;
+  overflow-x: hidden;
+}
 }
 
 a {
@@ -25,10 +28,12 @@ a {
   text-decoration: none;
 }
 
+html {
+  body {
 .tl-edges {
-  overflow-x: hidden;
+  overflow-x: visible;
   //@while condition {
-}
+} }}
 
 .tl-cover-el {
   background: url(../images/MIII3.png) !important;
