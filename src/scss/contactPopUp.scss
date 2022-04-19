@@ -204,3 +204,25 @@
       }
 
 }
+
+@media (max-height: 500px) {
+  .contactPopUp {
+    .contactCard {
+      h1 {}
+  
+      ul {
+        
+  
+        .iconTextContainer {
+          .iconAnchor {
+            font-size: 3rem;
+          }
+  
+          p {
+            
+          }
+        }
+      }
+    }
+  }
+}
