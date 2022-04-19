@@ -68,12 +68,10 @@ const NavBar = props => {
   }
 
   var url = typeof window !== "undefined" ? window.location.href : ""
-  var urlPath;
+  var urlPath
   var pageRef = props.pageRef
 
-
   useEffect(() => {
-
     /**
      * onScroll:
      * If the page is not at scrolled to the top then change the onTop state so
@@ -106,13 +104,13 @@ const NavBar = props => {
   return (
     <>
       <motion.nav
-        animate={onTop ? "on" : "off"}
+        animate={onTop || props.isContactOpen ? "on" : "off"}
         variants={props.disableAnim || props.isContactOpen ? null : variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
       >
         <div
           className={
-            (props.makeWhite)
+            props.makeWhite
               ? "nav-main-cont nav-white"
               : "nav-main-cont nav-black"
           }
@@ -154,7 +152,11 @@ const NavBar = props => {
           </motion.div>
         </div>
       </motion.nav>
-      <ScrollToTopButton disableAnim={props.disableAnim} onTopBool={onTop} pageRef={props.pageRef} />
+      <ScrollToTopButton
+        disableAnim={props.disableAnim}
+        onTopBool={onTop}
+        pageRef={props.pageRef}
+      />
     </>
   )
 }
