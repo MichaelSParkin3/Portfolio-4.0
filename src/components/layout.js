@@ -33,6 +33,8 @@ const Layout = ({ children }, {location}, props) => {
 
   const [isContactOpen, setIsContactOpen] = useState(false)
   const [makeWhite, setMakeWhite] = useState(false)
+  const [disableAnim, setDisableAnim] = useState(false)
+  
 
   const pageRef = useRef(null);
 
@@ -54,29 +56,24 @@ const Layout = ({ children }, {location}, props) => {
     popUpKey = popUpKey + 1;
   }
 
-  function adjustColor() {
+  function adjustColorAnim() {
     if ((splitUrl == '' || splitUrl == null) && !isContactOpen) {
-      console.log('adjustColor return true '+ splitUrl);
+      console.log('adjustColorAnim return true '+ splitUrl);
       setMakeWhite(true)
+      setDisableAnim(true)
     } else {
-      console.log('adjustColor return false '+ splitUrl);
+      console.log('adjustColorAnim return false '+ splitUrl);
       setMakeWhite(false)
+      setDisableAnim(false)
     }
   }
 
   useEffect(()=>{
 
-    adjustColor();
+    adjustColorAnim();
 
   },[url, isContactOpen]) 
 
-  // useEffect(() => {
-  //   if (isContactOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'unset';
-  //   }
-  // }, [isContactOpen]);
 
   console.log('ismobile '+isMobile)
 
@@ -87,7 +84,7 @@ const Layout = ({ children }, {location}, props) => {
       ref={pageRef}
     >
 
-     <NavBar makeWhite={makeWhite} path={splitUrl} pageRef={pageRef} disableAnim={false} OpenContact={OpenContact} contactIsOpen={isContactOpen}/>
+     <NavBar makeWhite={makeWhite} path={splitUrl} pageRef={pageRef} disableAnim={disableAnim} OpenContact={OpenContact} contactIsOpen={isContactOpen}/>
 
      <ContactPopUp
      key={'1'}

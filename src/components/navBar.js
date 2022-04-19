@@ -155,7 +155,7 @@ const NavBar = props => {
           </motion.div>
         </div>
       </motion.nav>
-      <ScrollToTopButton onTopBool={onTop} pageRef={props.pageRef} />
+      <ScrollToTopButton disableAnim={props.disableAnim} onTopBool={onTop} pageRef={props.pageRef} />
     </>
   )
 }
