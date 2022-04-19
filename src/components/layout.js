@@ -78,10 +78,12 @@ const Layout = ({ children }, {location}, props) => {
   //   }
   // }, [isContactOpen]);
 
+  console.log('ismobile '+isMobile)
+
   return (
     <div
       id="layout-cont"
-      style={isContactOpen || ((splitUrl == '' || splitUrl == null) && isMobile) ? {overflowY:'hidden'} : {overflowY:'visible'}}
+      style={(isContactOpen || isMobile) ? {overflowY:'hidden'} : {overflowY:'visible'}}
       ref={pageRef}
     >
 
