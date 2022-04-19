@@ -33,7 +33,7 @@ const ScrollToTopButton = props => {
 
   return (
     <motion.div animate={onTop ? "off" : "on"}
-        variants={ props.disableAnim ? null : variants }
+        variants={ props.disableAnim || props.isContactOpen ? null : variants }
         //variants={variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
         whileHover={{

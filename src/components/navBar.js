@@ -104,8 +104,8 @@ const NavBar = props => {
   return (
     <>
       <motion.nav
-        animate={onTop || props.isContactOpen ? "on" : "off"}
-        variants={props.disableAnim || props.isContactOpen ? null : variants}
+        animate={onTop ? "on" : "off"}
+        variants={props.contactIsOpen ? null : variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
       >
         <div
@@ -154,6 +154,7 @@ const NavBar = props => {
       </motion.nav>
       <ScrollToTopButton
         disableAnim={props.disableAnim}
+        isContactOpen={props.contactIsOpen}
         onTopBool={onTop}
         pageRef={props.pageRef}
       />
