@@ -105,7 +105,7 @@ const NavBar = props => {
     <>
       <motion.nav
         animate={onTop ? "on" : "off"}
-        variants={props.contactIsOpen ? null : variants}
+        variants={props.disableAnim || props.contactIsOpen ? null : variants}
         transition={{ type: "spring", duration: 0.75, bounce: 0.5 }}
       >
         <div
