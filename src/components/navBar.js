@@ -124,7 +124,7 @@ const NavBar = props => {
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
           >
-            <AniLink cover direction="up" bg="#e5e5e5" to="/" duration={1.5}>
+            <AniLink onClick={props.CloseContact} cover direction="up" bg="#e5e5e5" to="/" duration={1.5}>
               Projects
             </AniLink>
           </motion.div>
@@ -138,7 +138,7 @@ const NavBar = props => {
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
           >
-            <AniLink cover direction="up" duration={1.5} to="/">
+            <AniLink onClick={props.CloseContact} cover direction="up" duration={1.5} to="/">
               MIII
             </AniLink>
           </motion.div>
@@ -150,7 +150,7 @@ const NavBar = props => {
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
           >
-            <a onClick={props.OpenContact}>Contact</a>
+            <a onClick={props.ToggleContact}>Contact</a>
           </motion.div>
         </div>
       </motion.nav>

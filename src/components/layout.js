@@ -49,11 +49,15 @@ const Layout = ({ children }, {location}, props) => {
 
   console.log('splitUrl '+splitUrl);
 
-  function OpenContact() {
+  function ToggleContact() {
     console.log('before contactisopen '+contactIsOpen);
     setIsContactOpen(!isContactOpen)
     console.log('after contactisopen '+contactIsOpen);
     popUpKey = popUpKey + 1;
+  }
+
+  function CloseContact() {
+    setIsContactOpen(false)
   }
 
   function adjustColorAnim() {
@@ -98,7 +102,7 @@ const Layout = ({ children }, {location}, props) => {
       ref={pageRef}
     >
 
-     <NavBar makeWhite={makeWhite} path={splitUrl} pageRef={pageRef} disableAnim={disableAnim} OpenContact={OpenContact} contactIsOpen={isContactOpen}/>
+     <NavBar makeWhite={makeWhite} path={splitUrl} pageRef={pageRef} disableAnim={disableAnim} CloseContact={CloseContact} ToggleContact={ToggleContact} contactIsOpen={isContactOpen}/>
 
      <ContactPopUp
      key={'1'}
