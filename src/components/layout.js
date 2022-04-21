@@ -80,7 +80,7 @@ const Layout = ({ children }, {location}, props) => {
   return (
     <div
       id="layout-cont"
-      style={(isContactOpen || isMobile) ? {overflowY:'hidden'} : {overflowY:'visible'}}
+      style={(isContactOpen) ? {overflowY:'hidden'} : {overflowY:'visible'}}
       ref={pageRef}
     >
 
