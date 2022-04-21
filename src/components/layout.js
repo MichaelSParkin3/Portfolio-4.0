@@ -13,7 +13,7 @@ import Header from "./header"
 import NavBar from "./navBar"
 import Scrollbar from "react-smooth-scrollbar"
 import ContactPopUp from "./contactPopUp"
-import { isMobile } from "react-device-detect"
+import { isIOS, isMobile, isAndroid } from 'react-device-detect';
 
 import { FaGithub, FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa"
 
@@ -77,6 +77,20 @@ const Layout = ({ children }, {location}, props) => {
 
   console.log('ismobile '+isMobile)
 
+    function GetPhoneHref() {
+
+    console.log('GetPhoneHref')
+
+    if (isIOS) {
+      window.open("sms:1-323-393-0360", "_blank");
+    } else if (isAndroid) {
+      window.open("intent://vnd.android.cursor.dir/raw_contact/#Intent;action=android.intent.action.INSERT;S.email=hello@world.com;S.phone=+1-212-555-1234end;", "_blank");
+    } else {
+      alert('Since you are not on android or IOS text me at: 1-323-393-0360')
+    }
+
+  }
+
   return (
     <div
       id="layout-cont"
@@ -93,7 +107,7 @@ const Layout = ({ children }, {location}, props) => {
           { content: "Check out my github", link: "https://github.com/MichaelSParkin3", key: "0", icon: <FaGithub /> },
           { content: "Send me an email", link: "mailto:MichaelSParkin3@gmail.com", key: "1", icon: <FaEnvelope /> },
           { content: "Connect with me", link: "https://www.linkedin.com/in/michael-parkin-702396133/", key: "2", icon: <FaLinkedin /> },
-          { content: "My BEST contact, TEXT ME", link: "sms:1-323-393-0360", key: "3", icon: <FaPhone /> },
+          { content: "My BEST contact, TEXT ME", link: "sms:1-323-393-0360", key: "3", icon: <FaPhone />, clickInit: GetPhoneHref },
         ]}
         
         contactIsOpen={isContactOpen} />

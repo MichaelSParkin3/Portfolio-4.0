@@ -4,6 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 import { globalHistory } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
+import { isIOS, isMobile, isAndroid } from 'react-device-detect';
 
 import ScrollToTopButton from "./scrollToTopButton"
 import ContactPopUp from "./contactPopUp"
@@ -100,6 +101,7 @@ const NavBar = props => {
     window.addEventListener("scroll", onScroll, true)
     return () => window.removeEventListener("scroll", onScroll, true)
   }, [])
+
 
   return (
     <>
