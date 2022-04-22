@@ -293,6 +293,7 @@ const ProjectScreen = () => {
             display={displayBoolArray[2]}
             link={"shaneco"}
             onIOS={onIOS}
+            highlight={true}
           />
         <ProjectScreenTitleWithImage
             name={"OTHER WORK"}

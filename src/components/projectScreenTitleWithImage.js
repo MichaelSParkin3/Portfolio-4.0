@@ -1,6 +1,7 @@
 import React, { ref, useRef, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { isIOS } from "react-device-detect"
+import { motion } from "framer-motion"
 
 import Img from "gatsby-image"
 
@@ -42,6 +43,11 @@ const ProjectScreenTitleWithImage = props => {
       }
     }
 
+    const variants = {
+      on: { opacity: 1, y: 0, scale: 1 },
+      off: { opacity: 0, y: -50, scale: 0 },
+    }
+
     console.log(titleItemOnly)
 
     for (let index = 0; index < titleItemOnly.length; index++) {
@@ -67,7 +73,7 @@ const ProjectScreenTitleWithImage = props => {
 
   const mouseOut = () => {
     props.itemHoveredOff(titleItemRef)
-    setTitleHovered(previousBool => false);
+    setTitleHovered(previousBool => false)
     console.log(isIOS && titleHovered)
   }
 
@@ -79,11 +85,11 @@ const ProjectScreenTitleWithImage = props => {
         onTouchStart={mouseEnter}
         onTouchEnd={mouseOut}
         onClick={() => {
-          console.log('TITLE ONCLCIK')
+          console.log("TITLE ONCLCIK")
           // mouseOut();
           // mouseEnter();
         }}
-        style={isIOS && titleHovered ? { color: '#fff' } : {  }}
+        style={isIOS && titleHovered ? { color: "#fff" } : {}}
         ref={titleItemRef}
         // data-screenimagename={props.screenImageName}
         className="projectScreenTitleItem-cont"
@@ -103,10 +109,28 @@ const ProjectScreenTitleWithImage = props => {
           duration={1.5}
         >
           <div className="title">
+            <motion.span
+              className="highlight-arrow-leftside"
+              animate={{
+                opacity: [0, 1, 0],
+                x: [0, 10, 0],
+              }}
+              style={props.highlight ? {display: 'block'} : {display: 'none'}}
+              transition={{ repeat: Infinity, type: 'spring' }}
+            >
+              {">"}
+            </motion.span>
             {props.name}
+            <motion.span animate={{
+                opacity: [0, 1, 0],
+                x: [0, -10, 0],
+              }}
+              className="highlight-arrow-rightside"
+              style={props.highlight ? {display: 'block'} : {display: 'none'}}
+              transition={{ repeat: Infinity, type: 'spring' }}>{"<"}</motion.span>
             <div className="title-tech">
-            {", "}
-            {props.tech}
+              {", "}
+              {props.tech}
             </div>
           </div>
         </AniLink>
@@ -116,7 +140,11 @@ const ProjectScreenTitleWithImage = props => {
         // className={
         //   props.display ? "screen-image screen-image-appear" : "screen-image"
         // }
-        style={props.display ? { display: "flex", height: props.projectScreenHeight } : { display: "none", height: props.projectScreenHeight }}
+        style={
+          props.display
+            ? { display: "flex", height: props.projectScreenHeight }
+            : { display: "none", height: props.projectScreenHeight }
+        }
       >
         <Img fluid={props.img} />
       </div>
