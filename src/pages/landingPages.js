@@ -112,7 +112,7 @@ const LandingPages = ({ location }) => {
 
           <ContFiftyFifty
           left={
-            '<h1>Bike Rental Mock</h1><span className="divider"></span><p>Bike rental company landing page made with react for fun. Has cute hover animations.</p><a href="https://michaelsparkin3.github.io/Coffee-Landing-Page/" target="_blank" class="link link--mneme">Find It Here</a> '
+            '<h1>Bike Rental Mock</h1><span className="divider"></span><p>Bike rental company landing page made with react for fun. Has cute hover animations.</p><a href="https://rent-a-bike-react.herokuapp.com/landing" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
         <FullImage
