@@ -64,3 +64,12 @@
     }
   }
 }
+
+@media (max-height: 450px) {
+  .fullpage {
+    .number {
+      font-size: 25rem;
+      left: -110px;
+    }
+  }
+}

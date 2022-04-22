@@ -105,6 +105,7 @@ const NavBar = props => {
 
   return (
     <>
+    <motion.div className="scroll-down" style={props.disableAnim || props.contactIsOpen ? {display: 'none'} : {display: 'block'}}></motion.div>
       <motion.nav
         animate={onTop ? "on" : "off"}
         variants={props.disableAnim || props.contactIsOpen ? null : variants}
