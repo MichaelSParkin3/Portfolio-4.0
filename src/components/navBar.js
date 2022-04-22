@@ -102,6 +102,29 @@ const NavBar = props => {
     return () => window.removeEventListener("scroll", onScroll, true)
   }, [])
 
+  const handleStyleScrollDown = (condition) => {
+    if (condition) {
+     if (props.disableAnim || props.contactIsOpen) {
+        return {
+          display: 'none',
+        }
+     } else {
+       return {
+
+        }
+     }
+    } else {
+      if (props.disableAnim || props.contactIsOpen) {
+        return {
+          display: 'none',
+        }
+     } else {
+      return {
+
+        }
+     }
+    }
+};
 
   return (
     <>
