@@ -27,7 +27,6 @@ const ProjectScreenTitleWithImage = props => {
    * Send titleItemOnly array, new percent, and ref of currently hovered titleItem to projectScreen component.
    */
   const mouseEnter = () => {
-    console.log(titleItemRef)
     var titleItemIndex
     var titleItemOnly = []
 
@@ -48,25 +47,19 @@ const ProjectScreenTitleWithImage = props => {
       off: { opacity: 0, y: -50, scale: 0 },
     }
 
-    console.log(titleItemOnly)
-
     for (let index = 0; index < titleItemOnly.length; index++) {
       const element = titleItemOnly[index]
 
       if (element == titleItemRef.current) {
         titleItemIndex = index
-        console.log(index)
+
         break
       }
     }
 
     const newPercent = (100 / (titleItemOnly.length - 1)) * titleItemIndex
 
-    console.log(newPercent)
-
     setTitleHovered(previousBool => true)
-
-    console.log("ITEMREF", titleItemRef)
 
     props.itemHoveredOn(newPercent, titleItemRef, titleItemOnly)
   }
@@ -74,7 +67,6 @@ const ProjectScreenTitleWithImage = props => {
   const mouseOut = () => {
     props.itemHoveredOff(titleItemRef)
     setTitleHovered(previousBool => false)
-    console.log(isIOS && titleHovered)
   }
 
   return (
@@ -85,7 +77,6 @@ const ProjectScreenTitleWithImage = props => {
         onTouchStart={mouseEnter}
         onTouchEnd={mouseOut}
         onClick={() => {
-          console.log("TITLE ONCLCIK")
           // mouseOut();
           // mouseEnter();
         }}
@@ -115,19 +106,27 @@ const ProjectScreenTitleWithImage = props => {
                 opacity: [0, 1, 0],
                 x: [0, 10, 0],
               }}
-              style={props.highlight ? {display: 'block'} : {display: 'none'}}
-              transition={{ repeat: Infinity, type: 'spring' }}
+              style={
+                props.highlight ? { display: "block" } : { display: "none" }
+              }
+              transition={{ repeat: Infinity, type: "spring" }}
             >
               {">"}
             </motion.span>
             {props.name}
-            <motion.span animate={{
+            <motion.span
+              animate={{
                 opacity: [0, 1, 0],
                 x: [0, -10, 0],
               }}
               className="highlight-arrow-rightside"
-              style={props.highlight ? {display: 'block'} : {display: 'none'}}
-              transition={{ repeat: Infinity, type: 'spring' }}>{"<"}</motion.span>
+              style={
+                props.highlight ? { display: "block" } : { display: "none" }
+              }
+              transition={{ repeat: Infinity, type: "spring" }}
+            >
+              {"<"}
+            </motion.span>
             <div className="title-tech">
               {", "}
               {props.tech}

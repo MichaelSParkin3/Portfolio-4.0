@@ -6,27 +6,31 @@ import Img from "gatsby-image"
 import "../scss/scrollToTopSpinner.scss"
 
 const ScrollToTopSpinner = props => {
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const handleScroll = () => {
+    const position = window.pageYOffset
 
-const [scrollPosition, setScrollPosition] = useState(0);
-const handleScroll = () => {
-    const position = window.pageYOffset;
-    console.log(position);
-    setScrollPosition(position);
-};
+    setScrollPosition(position)
+  }
 
-useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
     return () => {
-        window.removeEventListener('scroll', handleScroll);
-    };
-}, []);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
-    <motion.div animate={{
-rotate: scrollPosition
-    }} className="spinner">
-    <h2 id="demo3">This text makes a complete rotation no matter how long it is. </h2>
+    <motion.div
+      animate={{
+        rotate: scrollPosition,
+      }}
+      className="spinner"
+    >
+      <h2 id="demo3">
+        This text makes a complete rotation no matter how long it is.{" "}
+      </h2>
     </motion.div>
   )
 }

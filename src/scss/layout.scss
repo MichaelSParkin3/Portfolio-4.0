@@ -16,11 +16,11 @@ body {
   height: 100vh;
 }
 html {
-body {
-  //overflow-y: visible;
-  overflow-y: visible;
-  overflow-x: hidden;
-}
+  body {
+    //overflow-y: visible;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
 }
 
 a {
@@ -30,9 +30,11 @@ a {
 
 html {
   body {
-.tl-edges {
-  overflow-x: visible;
-} }}
+    .tl-edges {
+      overflow-x: visible;
+    }
+  }
+}
 
 .tl-cover-el {
   background: url(../images/MIII3.png) !important;
@@ -49,14 +51,14 @@ html {
 }
 
 #layout-cont {
-    -webkit-user-select: none;
-    /* Safari */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* IE10+/Edge */
-    user-select: none;
-    /* Standard */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
 }
 
 // .tl-wrapper-status--entering,

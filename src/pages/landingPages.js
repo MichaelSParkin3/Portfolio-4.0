@@ -22,7 +22,6 @@ import PerfectScrollbar from "react-perfect-scrollbar"
 import ScrollToTopButton from "../components/scrollToTopButton"
 
 const LandingPages = ({ location }) => {
-  console.log(location.pathname)
   const data = useStaticQuery(graphql`
     query {
       coffee3: file(relativePath: { eq: "coffee3.png" }) {
@@ -75,14 +74,12 @@ const LandingPages = ({ location }) => {
           }
         }
       }
-
     }
   `)
 
   return (
     <Layout url={location.pathname}>
-      <div className="project-page"  >
-
+      <div className="project-page">
         <FullPageNumber url={location} number="02" />
         <ContFiftyFifty
           right={
@@ -98,10 +95,7 @@ const LandingPages = ({ location }) => {
             '<h1>Coffee Company Mock</h1><span className="divider"></span><p>I created a mock landing page for a coffee company. It is optimized for mobile and has a review slider and some other features.</p><a href="https://michaelsparkin3.github.io/Coffee-Landing-Page/" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
-        <FullImage
-          align="center"
-          img={data.coffee1.childImageSharp.fluid}
-        />
+        <FullImage align="center" img={data.coffee1.childImageSharp.fluid} />
 
         <FullImage align="right" img={data.coffee2.childImageSharp.fluid} />
         <ContFiftyFifty
@@ -110,18 +104,14 @@ const LandingPages = ({ location }) => {
           rightImg={data.coffee6.childImageSharp.fluid}
         />
 
-          <ContFiftyFifty
+        <ContFiftyFifty
           left={
             '<h1>Bike Rental Mock</h1><span className="divider"></span><p>Bike rental company landing page made with react for fun. Has cute hover animations.</p><a href="https://rent-a-bike-react.herokuapp.com/landing" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
-        <FullImage
-          align="center"
-          img={data.bike1.childImageSharp.fluid}
-        />
+        <FullImage align="center" img={data.bike1.childImageSharp.fluid} />
 
         <FullImage align="right" img={data.bike2.childImageSharp.fluid} />
-
       </div>
     </Layout>
   )

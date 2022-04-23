@@ -22,7 +22,6 @@ import PerfectScrollbar from "react-perfect-scrollbar"
 import ScrollToTopButton from "../components/scrollToTopButton"
 
 const Shaneco = ({ location }) => {
-  console.log(location.pathname)
   const data = useStaticQuery(graphql`
     query {
       screenshot1: file(relativePath: { eq: "screenshot1-test.png" }) {
@@ -77,15 +76,11 @@ const Shaneco = ({ location }) => {
     }
   `)
 
-const pageRef = useRef(null);
-
-  console.log(data)
+  const pageRef = useRef(null)
 
   return (
     <Layout url={location.pathname}>
-      <div className="project-page"  >
-        
-
+      <div className="project-page">
         <FullPageNumber url={location} number="01" />
         <ContFiftyFifty
           right={

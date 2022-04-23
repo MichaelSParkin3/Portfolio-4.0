@@ -25,7 +25,6 @@ import PerfectScrollbar from "react-perfect-scrollbar"
 import ScrollToTopButton from "../components/scrollToTopButton"
 
 const Contact = ({ location }) => {
-
   const data = useStaticQuery(graphql`
     query {
       contact1: file(relativePath: { eq: "contact1.JPG" }) {
@@ -47,17 +46,16 @@ const Contact = ({ location }) => {
         href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       ></link>
       <div>
-        
         <div className="project-page-black contact-page">
           <div className="contact-page-cont">
             <div className="contact-page-content">
-             <ContFiftyFifty
-          rightImg={data.contact1.childImageSharp.fluid}
-          setImgWidth={'400px'}
-          left={
-            '<h1>Get In Touch</h1><span className="divider"></span><p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Email Me ✉️</a></p><p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Github 💻</a></p><p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">LinkedIn 👋</a></p>'
-          }
-        />
+              <ContFiftyFifty
+                rightImg={data.contact1.childImageSharp.fluid}
+                setImgWidth={"400px"}
+                left={
+                  '<h1>Get In Touch</h1><span className="divider"></span><p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Email Me ✉️</a></p><p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Github 💻</a></p><p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">LinkedIn 👋</a></p>'
+                }
+              />
             </div>
           </div>
         </div>

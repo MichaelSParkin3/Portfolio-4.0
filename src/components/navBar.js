@@ -1,16 +1,9 @@
-import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
-import { globalHistory } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
-import { isIOS, isMobile, isAndroid } from 'react-device-detect';
 
 import ScrollToTopButton from "./scrollToTopButton"
-import ContactPopUp from "./contactPopUp"
-
-import Github from "../images/svg/github.svg"
-import { FaGithub, FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa"
 
 import "../scss/navbar.scss"
 
@@ -21,6 +14,9 @@ import "../scss/navbar.scss"
  * * props.pageRef : Reference to current page. Used to get width and height of page.
  * * props.disableAnim : Bool if true then disables the Navbar's anime when page is scrolled down.
  * * props.makeWhite : Bool if ture makes text of navbar white if false then black.
+ * * props.toggleContact : Function that makes the contactpopup the opposite of it's current state Open VS Closed
+ * * props.contactIsOpen : Bool if true then the contactpopup is open if false then it's closed
+ * * props.closeContact : Function that closes contactpopup only closes
  */
 
 const NavBar = props => {
@@ -59,7 +55,6 @@ const NavBar = props => {
 
   /**
    * onTop: True initally and true if page is scrolled to top. Otherwise it is false.
-   * contactIsOpen :
    */
   const [onTop, setOnTop] = useState(true)
 
@@ -68,8 +63,6 @@ const NavBar = props => {
     off: { opacity: 0, y: -50, scale: 0 },
   }
 
-  var url = typeof window !== "undefined" ? window.location.href : ""
-  var urlPath
   var pageRef = props.pageRef
 
   useEffect(() => {
@@ -83,52 +76,30 @@ const NavBar = props => {
 
     function onScroll() {
       let yOffset = pageRef.current.getBoundingClientRect().top
-      console.log("offset " + yOffset)
 
       if (yOffset >= 0) {
-        console.log("topo")
-
         setOnTop(true)
       } else {
-        console.log("not top")
         if (onTop !== false) {
           setOnTop(false)
         }
       }
     }
 
-    console.log("Navbar useeffect")
     window.addEventListener("scroll", onScroll, true)
     return () => window.removeEventListener("scroll", onScroll, true)
   }, [])
 
-  const handleStyleScrollDown = (condition) => {
-    if (condition) {
-     if (props.disableAnim || props.contactIsOpen) {
-        return {
-          display: 'none',
-        }
-     } else {
-       return {
-
-        }
-     }
-    } else {
-      if (props.disableAnim || props.contactIsOpen) {
-        return {
-          display: 'none',
-        }
-     } else {
-      return {
-
-        }
-     }
-    }
-};
-
   return (
     <>
-    <motion.div className="scroll-down" style={props.disableAnim || props.contactIsOpen ? {display: 'none'} : {display: 'block'}}></motion.div>
+      <motion.div
+        className="scroll-down"
+        style={
+          props.disableAnim || props.contactIsOpen
+            ? { display: "none" }
+            : { display: "block" }
+        }
+      ></motion.div>
       <motion.nav
         animate={onTop ? "on" : "off"}
         variants={props.disableAnim || props.contactIsOpen ? null : variants}
@@ -148,7 +119,14 @@ const NavBar = props => {
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
           >
-            <AniLink onClick={props.CloseContact} cover direction="up" bg="#e5e5e5" to="/" duration={1.5}>
+            <AniLink
+              onClick={props.CloseContact}
+              cover
+              direction="up"
+              bg="#e5e5e5"
+              to="/"
+              duration={1.5}
+            >
               Projects
             </AniLink>
           </motion.div>
@@ -162,7 +140,13 @@ const NavBar = props => {
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
           >
-            <AniLink onClick={props.CloseContact} cover direction="up" duration={1.5} to="/">
+            <AniLink
+              onClick={props.CloseContact}
+              cover
+              direction="up"
+              duration={1.5}
+              to="/"
+            >
               MIII
             </AniLink>
           </motion.div>

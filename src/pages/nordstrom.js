@@ -21,7 +21,6 @@ import PerfectScrollbar from "react-perfect-scrollbar"
 import ScrollToTopButton from "../components/scrollToTopButton"
 
 const Shaneco = ({ location }) => {
-  console.log(location.pathname)
   const data = useStaticQuery(graphql`
     query {
       nordstrom1: file(relativePath: { eq: "nordstrom1.png" }) {
@@ -111,17 +110,10 @@ const Shaneco = ({ location }) => {
     }
   `)
 
-  
-
-
-
-  console.log(data)
-
   return (
     <Layout url={location.pathname}>
-      <div className="project-page" >
-
-        <FullPageNumber url={location} number="02"/>
+      <div className="project-page">
+        <FullPageNumber url={location} number="02" />
 
         <ContFiftyFifty
           right={
@@ -131,81 +123,59 @@ const Shaneco = ({ location }) => {
 
         <ContFiftyFifty left={"<h1>React</br>Redux</br>Sass</h1>"} />
 
-        <FullImage
-          align="center"
-          img={data.nordstrom1.childImageSharp.fluid}
-        />
+        <FullImage align="center" img={data.nordstrom1.childImageSharp.fluid} />
 
         <ContFiftyFifty
           rightImg={data.nordstrom2.childImageSharp.fluid}
-          setImgWidth={'370px'}
+          setImgWidth={"370px"}
           left={
             '<h1>Home Page</h1><span className="divider"></span><p>The above photo is the original design for the home page. The photos below are from the website I created myself. I tried to make it pretty much the same but sadly I did not have access to the photos or the font. Click the link below to go and interact with my site.</p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
 
-        <FullImage
-          align="left"
-          img={data.nordstrom3.childImageSharp.fluid}
-        />
+        <FullImage align="left" img={data.nordstrom3.childImageSharp.fluid} />
 
-        <FullImage
-          align="right"
-          img={data.nordstrom4.childImageSharp.fluid}
-        />
-        
-          <ContFiftyFifty
+        <FullImage align="right" img={data.nordstrom4.childImageSharp.fluid} />
+
+        <ContFiftyFifty
           leftImg={data.nordstrom6.childImageSharp.fluid}
-          setImgWidth={'370px'}
+          setImgWidth={"370px"}
           right={
             '<h1>Search By Category</h1><span className="divider"></span><p>This page allows you to either look through all of the gym wear or to filter through the gym wear by type and/or color. I am happy with how it turned out. It works pretty well and it looks good in my opinion.</p><a href="https://ecommerce-react-app.herokuapp.com/products" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
 
-        <FullImage
-          align="left"
-          img={data.nordstrom5.childImageSharp.fluid}
-        />
+        <FullImage align="left" img={data.nordstrom5.childImageSharp.fluid} />
 
         <ContFiftyFifty
           rightImg={data.nordstrom8.childImageSharp.fluid}
-          setImgWidth={'370px'}
+          setImgWidth={"370px"}
           left={
             '<h1>Search Bar</h1><span className="divider"></span><p>If you click the cute little magnifying glass icon then you will open up the search bar. Here you can search up any of the products by name. Click the link below and try it yourself to see the cool little slide in animation.</p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
 
-        <FullImage
-          align="right"
-          img={data.nordstrom7.childImageSharp.fluid}
-        />
+        <FullImage align="right" img={data.nordstrom7.childImageSharp.fluid} />
 
         <ContFiftyFifty
           leftImg={data.nordstrom10.childImageSharp.fluid}
-          setImgWidth={'370px'}
+          setImgWidth={"370px"}
           right={
             '<h1>Product Page</h1><span className="divider"></span><p>This page is made to display all the information about the product and allow you to add the product to your cart. If you mouse over the photo then you can zoom in. Also you can adjust the quantity and size before adding the product to your cart.</p><a href="https://ecommerce-react-app.herokuapp.com/products" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
 
-        <FullImage
-          align="left"
-          img={data.nordstrom9.childImageSharp.fluid}
-        />
+        <FullImage align="left" img={data.nordstrom9.childImageSharp.fluid} />
 
         <ContFiftyFifty
           rightImg={data.nordstrom11.childImageSharp.fluid}
-          setImgWidth={'370px'}
+          setImgWidth={"370px"}
           left={
             '<h1>Shopping Cart</h1><span className="divider"></span><p>This page displays all the items added to your shopping cart and adds up the price to show you your total. You can also click the red X to remove an item from your cart.</p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
 
-        <FullImage
-          align="right"
-          img={data.nordstrom12.childImageSharp.fluid}
-        />
-
+        <FullImage align="right" img={data.nordstrom12.childImageSharp.fluid} />
       </div>
     </Layout>
   )

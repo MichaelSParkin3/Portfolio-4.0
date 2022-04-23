@@ -12,14 +12,18 @@ const variants = {
 const FullPageNumber = props => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-100px 0px'
+    rootMargin: "-100px 0px",
   })
-  console.log(props.url);
+
   return (
     <div className="fullpage">
-      <motion.div animate={ inView ? 'on' : 'off' }
-      variants={variants}
-  transition={{ type: "spring", duration: 3, bounce: 0 }} ref={ref} className="number">
+      <motion.div
+        animate={inView ? "on" : "off"}
+        variants={variants}
+        transition={{ type: "spring", duration: 3, bounce: 0 }}
+        ref={ref}
+        className="number"
+      >
         {props.number}
       </motion.div>
     </div>

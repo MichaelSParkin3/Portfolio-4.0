@@ -99,103 +99,94 @@ const ContactPopUp = props => {
   // Imperative
   const controls = useAnimation()
   function handleMouseEnterControls() {
-    console.log("Handle mouse enter")
     controls.start("hover")
   }
 
   function handleMouseLeaveControls() {
-    console.log("Handle mouse leave")
     controls.start("initial")
   }
 
-  console.log("props.contactisopen " + props.contactIsOpen)
-
   function Item({ content, icon, theKey, key, link, clickInit }) {
-    console.log("key " + key)
-
     if (clickInit != null) {
-
-      console.log('clickInit !== null');
-
       return (
-      <motion.div
-        animate={props.contactIsOpen ? "openedCardItem" : "closedCardItem"}
-        variants={variants}
-        className={"iconTextContainer"}
-      >
         <motion.div
-          transition={{ delay: 0.1 * theKey }}
-          variants={paraInvisIconContVariants}
-          animate={controls}
-          key={key}
-          className="paraInvisIconCont"
+          animate={props.contactIsOpen ? "openedCardItem" : "closedCardItem"}
+          variants={variants}
+          className={"iconTextContainer"}
         >
-          <div className="pCont">
-            <motion.p>{content}</motion.p>
-          </div>
+          <motion.div
+            transition={{ delay: 0.1 * theKey }}
+            variants={paraInvisIconContVariants}
+            animate={controls}
+            key={key}
+            className="paraInvisIconCont"
+          >
+            <div className="pCont">
+              <motion.p>{content}</motion.p>
+            </div>
 
-          <motion.a style={{ visibility: "hidden" }} className={"iconAnchor"}>
+            <motion.a style={{ visibility: "hidden" }} className={"iconAnchor"}>
+              {icon}
+            </motion.a>
+          </motion.div>
+          <motion.a
+            animate={{ scale: [1.1, 1, 1.1] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className={"iconAnchor"}
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.2 },
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={clickInit}
+          >
             {icon}
           </motion.a>
         </motion.div>
-        <motion.a
-          animate={{ scale: [1.1, 1, 1.1] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className={"iconAnchor"}
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.2 },
-          }}
-          target="_blank" rel="noopener noreferrer"
-          onClick={clickInit}
-        >
-          {icon}
-        </motion.a>
-      </motion.div>
-    )
+      )
     } else {
       return (
-      <motion.div
-        animate={props.contactIsOpen ? "openedCardItem" : "closedCardItem"}
-        variants={variants}
-        className={"iconTextContainer"}
-      >
         <motion.div
-          transition={{ delay: 0.1 * theKey }}
-          variants={paraInvisIconContVariants}
-          animate={controls}
-          key={key}
-          className="paraInvisIconCont"
+          animate={props.contactIsOpen ? "openedCardItem" : "closedCardItem"}
+          variants={variants}
+          className={"iconTextContainer"}
         >
-          <div className="pCont">
-            <motion.p>{content}</motion.p>
-          </div>
+          <motion.div
+            transition={{ delay: 0.1 * theKey }}
+            variants={paraInvisIconContVariants}
+            animate={controls}
+            key={key}
+            className="paraInvisIconCont"
+          >
+            <div className="pCont">
+              <motion.p>{content}</motion.p>
+            </div>
 
-          <motion.a style={{ visibility: "hidden" }} className={"iconAnchor"}>
+            <motion.a style={{ visibility: "hidden" }} className={"iconAnchor"}>
+              {icon}
+            </motion.a>
+          </motion.div>
+          <motion.a
+            animate={{ scale: [1.1, 1, 1.1] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className={"iconAnchor"}
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.2 },
+            }}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {icon}
           </motion.a>
         </motion.div>
-        <motion.a
-          animate={{ scale: [1.1, 1, 1.1] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className={"iconAnchor"}
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.2 },
-          }}
-          href={link}
-          target="_blank" rel="noopener noreferrer"
-        >
-          {icon}
-        </motion.a>
-      </motion.div>
-    )
+      )
     }
-    
   }
 
   const generatedItems = props.items.map(item => {
-    console.log("key " + item.key)
     return (
       <Item
         key={item.key}
@@ -209,7 +200,14 @@ const ContactPopUp = props => {
   })
 
   return (
-    <div className={"contactPopUp"} style={props.contactIsOpen ? { pointerEvents: 'auto' } : { pointerEvents: 'none' }}>
+    <div
+      className={"contactPopUp"}
+      style={
+        props.contactIsOpen
+          ? { pointerEvents: "auto" }
+          : { pointerEvents: "none" }
+      }
+    >
       <motion.div
         className={"contactTopSlider"}
         transition={{ type: "spring", stiffness: 40, duration: 1 }}

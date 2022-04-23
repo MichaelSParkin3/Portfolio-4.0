@@ -1,40 +1,40 @@
-import * as React from "react";
-import { render } from "react-dom";
-import { motion } from "framer-motion";
-import { Flex, Text } from "rebass";
+import * as React from "react"
+import { render } from "react-dom"
+import { motion } from "framer-motion"
+import { Flex, Text } from "rebass"
 
-import _throttle from "lodash.throttle";
+import _throttle from "lodash.throttle"
 
-import "./styles.css";
+import "./styles.css"
 
-const handleScroll = cb => _throttle(cb, 100);
+const handleScroll = cb => _throttle(cb, 100)
 const applyParallax = (scroll, y, amount) => {
   if (scroll > y) {
-    const value = (scroll - y) * amount;
-    return value;
+    const value = (scroll - y) * amount
+    return value
   }
 
-  return 0;
-};
+  return 0
+}
 
 const ParallaxItem = props => {
-  const { scroll, ...rest } = props;
+  const { scroll, ...rest } = props
 
-  let speed = props.speed || -0.02;
+  let speed = props.speed || -0.02
 
-  const [y, setY] = React.useState();
-  const el = React.useRef();
+  const [y, setY] = React.useState()
+  const el = React.useRef()
 
   React.useEffect(() => {
     if (el) {
       window.addEventListener(
         "scroll",
         handleScroll(() => {
-          setY(el.current.getBoundingClientRect().top);
+          setY(el.current.getBoundingClientRect().top)
         })
-      );
+      )
     }
-  }, []);
+  }, [])
 
   return (
     <motion.div
@@ -42,32 +42,32 @@ const ParallaxItem = props => {
       initial={{ opacity: 1 }}
       animate={{
         opacity: scroll > y ? 1 : 0,
-        y: applyParallax(scroll, y, speed)
+        y: applyParallax(scroll, y, speed),
       }}
       transition={{ duration: 0.5 }}
       {...rest}
     />
-  );
-};
+  )
+}
 
 const AnimateOnScroll = props => {
-  const [scroll, setScroll] = React.useState(window.innerHeight || 0);
+  const [scroll, setScroll] = React.useState(window.innerHeight || 0)
 
   React.useEffect(() => {
     window.addEventListener(
       "scroll",
       handleScroll(() => {
-        setScroll(window.pageYOffset + window.innerHeight);
+        setScroll(window.pageYOffset + window.innerHeight)
       })
-    );
-  }, []);
+    )
+  }, [])
 
   const styles = {
     fontSize: 40,
     padding: 16,
     borderRadius: 16,
-    boxShadow: "0 10px 20px rgba(0,0,0,0.2)"
-  };
+    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+  }
 
   return (
     <div>
@@ -166,7 +166,7 @@ const AnimateOnScroll = props => {
         It's really that simple!
       </Text>
     </div>
-  );
-};
+  )
+}
 
 export default AnimateOnScroll

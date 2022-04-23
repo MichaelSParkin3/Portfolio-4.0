@@ -21,10 +21,9 @@ import "../scss/projectScreen.scss"
  */
 
 const ProjectScreen = () => {
-
-/**
- * Image data to run through GatsbyImage
- */
+  /**
+   * Image data to run through GatsbyImage
+   */
 
   const data = useStaticQuery(graphql`
     query {
@@ -69,11 +68,11 @@ const ProjectScreen = () => {
   /**
    * titleContRef : Reference to the container of the projectScreenTitleWithImage components.
    * titleHovered : Initially false, when a cursor hovers over a title turns true in itemHoveredOn function.
-   * positionPercent : 
-   * displayBoolArray : 
-   * transitioning : 
-   * newScreenImageHeight : 
-   * onIOS : 
+   * positionPercent :
+   * displayBoolArray :
+   * transitioning :
+   * newScreenImageHeight :
+   * onIOS :
    */
 
   const titleContRef = useRef()
@@ -81,11 +80,8 @@ const ProjectScreen = () => {
   const [positionPercent, setPositionPercent] = useState(0)
   const [displayBoolArray, setdisplayBoolArray] = useState([false, false])
   const [transitioning, setTransitioning] = useState(false)
-  const [newScreenImageHeight, setNewScreenImageHeight] = useState('65vh')
-  const [onIOS, setOnIOS] = useState(isIOS);
-
-  console.log('IOSOOOS--- '+isIOS);
-  console.log('IOSOOOS2--- '+onIOS);
+  const [newScreenImageHeight, setNewScreenImageHeight] = useState("65vh")
+  const [onIOS, setOnIOS] = useState(isIOS)
 
   /**
    * itemHoveredOn:
@@ -97,9 +93,6 @@ const ProjectScreen = () => {
    * @param {array} titleItemOnly : Array of titleItemNodes without the screen-images.
    */
   const itemHoveredOn = (percentage, titleItemRef, titleItemOnly) => {
-    console.log("ItemRef", titleItemRef)
-    console.log("ItemOnly", titleItemOnly)
-
     var tempArray = []
 
     displayBoolArray.forEach(element => {
@@ -135,54 +128,45 @@ const ProjectScreen = () => {
   }
 
   const projectScreenContRef = useRef(null)
-  var windowHeight;
+  var windowHeight
 
-      useEffect(() => {
+  useEffect(() => {
+    onResize()
 
-    onResize();
+    function onResize() {
+      var projectScreenContHeight = projectScreenContRef.current.offsetHeight
 
-         function onResize() {
-              var projectScreenContHeight = projectScreenContRef.current.offsetHeight;
-    console.log('CONT HEIGHT '+ projectScreenContHeight);
-    setNewScreenImageHeight(projectScreenContHeight);
-  }
+      setNewScreenImageHeight(projectScreenContHeight)
+    }
 
-  window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-
-    
-
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
   })
 
   useEffect(() => {
-  console.log('IOSOOOSIHO1--- '+isIOS);
-      setOnIOS(previousBool => isIOS)
-  console.log('IOSOOOSIHO2--- '+onIOS);
-}, []);
+    setOnIOS(previousBool => isIOS)
+  }, [])
 
   // useEffect(() => {
   //   window.addEventListener("resize", updateSize)
   // })
 
   // const updateSize = () => {
-  //   console.log("RESOIZED")
+  //
   //   windowHeight = window.innerHeight;
   //   setNewScreenImageHeight( windowHeight - (windowHeight * 0.35))
 
-  //   console.log('newHeight: '+newScreenImageHeight);
+  //
   // }
 
   const handleEnter = () => {
-    console.log("======== ENTER")
     anime({
       targets: ".img-cover-1",
       width: "0%",
       duration: 1000,
       delay: 0,
       easing: "easeInOutCirc",
-      complete: () => {
-        console.log("ENTER COMPLETE====")
-      },
+      complete: () => {},
     })
     anime({
       targets: ".img-cover-2",
@@ -198,9 +182,7 @@ const ProjectScreen = () => {
       duration: 1000,
       delay: 0,
       easing: "easeInOutCirc",
-      complete: () => {
-        console.log("ENTER COMPLETE====")
-      },
+      complete: () => {},
     })
   }
 
@@ -227,13 +209,9 @@ const ProjectScreen = () => {
       duration: 1000,
       delay: 0,
       easing: "easeInOutElastic",
-      complete: () => {
-        
-      },
+      complete: () => {},
     })
   }
-
-  console.log(titleHovered)
 
   return (
     <div className={"projectScreen"}>
@@ -261,7 +239,7 @@ const ProjectScreen = () => {
           onMouseOut={titleContMouseOut}
           onTouchCancel={titleContMouseOut}
         >
-        <ProjectScreenTitleWithImage
+          <ProjectScreenTitleWithImage
             name={"NORDSTROM MOCK"}
             tech={"React Redux"}
             projectScreenHeight={newScreenImageHeight}
@@ -295,7 +273,7 @@ const ProjectScreen = () => {
             onIOS={onIOS}
             highlight={true}
           />
-        <ProjectScreenTitleWithImage
+          <ProjectScreenTitleWithImage
             name={"OTHER WORK"}
             tech={"Various"}
             projectScreenHeight={newScreenImageHeight}
@@ -306,11 +284,9 @@ const ProjectScreen = () => {
             link={"otherWork"}
             onIOS={onIOS}
           />
-          
-          
         </div>
       </div>
-      <ProjectScreenMobileAlert isIOS={onIOS}/>
+      <ProjectScreenMobileAlert isIOS={onIOS} />
     </div>
   )
 }
