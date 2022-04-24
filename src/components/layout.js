@@ -112,8 +112,7 @@ const Layout = ({ children }) => {
       window.open("sms:1-323-393-0360", "_blank")
     } else if (isAndroid) {
       window.open(
-        "intent://vnd.android.cursor.dir/raw_contact/#Intent;action=android.intent.action.INSERT;S.email=hello@world.com;S.phone=+1-212-555-1234end;",
-        "_blank"
+        window.open("tel:3233930360", "_blank")
       )
     } else {
       alert("Since you are not on android or IOS text me at: 1-323-393-0360")
