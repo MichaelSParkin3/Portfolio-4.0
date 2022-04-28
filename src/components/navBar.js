@@ -75,6 +75,9 @@ const NavBar = props => {
      */
 
     function onScroll() {
+
+      if (pageRef.current != undefined && pageRef.current != null) {
+
       let yOffset = pageRef.current.getBoundingClientRect().top
 
       if (yOffset >= 0) {
@@ -85,10 +88,14 @@ const NavBar = props => {
         }
       }
     }
+    }
 
-    window.addEventListener("scroll", onScroll, true)
+        window.addEventListener("scroll", onScroll, true)
     return () => window.removeEventListener("scroll", onScroll, true)
-  }, [])
+
+  
+  }, [props.url])
+
 
   return (
     <>
