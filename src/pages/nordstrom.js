@@ -113,7 +113,7 @@ const Shaneco = ({ location }) => {
   return (
     <Layout url={location.pathname}>
       <div className="project-page">
-        <FullPageNumber url={location} number="02" />
+        <FullPageNumber url={location} number="01" />
 
         <ContFiftyFifty
           right={

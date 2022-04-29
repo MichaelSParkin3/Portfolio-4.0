@@ -12,6 +12,7 @@ import { isMobile } from "react-device-detect"
 
 import Img from "gatsby-image"
 
+import "../scss/contactPage.scss"
 import "../scss/contactPopUp.scss"
 
 const items = [

@@ -144,7 +144,7 @@ const Layout = ({ children }) => {
             icon: <FaGithub />,
           },
           {
-            content: "Send me an email",
+            content: "MichaelSParkin3@gmail.com",
             link: "mailto:MichaelSParkin3@gmail.com",
             key: "1",
             icon: <FaEnvelope />,
