@@ -30,12 +30,16 @@ const ProjectScreenTitleWithImage = props => {
     var titleItemIndex
     var titleItemOnly = []
 
+    console.log(titleItemRef)
+
     for (
       let index = 0;
       index < titleItemRef.current.parentNode.childNodes.length;
       index++
     ) {
       const element = titleItemRef.current.parentNode.childNodes[index]
+
+      console.log(element);
 
       if (element.className !== "screen-image fade-in") {
         titleItemOnly.push(titleItemRef.current.parentNode.childNodes[index])
@@ -65,6 +69,7 @@ const ProjectScreenTitleWithImage = props => {
   }
 
   const mouseOut = () => {
+    console.log("mouse out")
     props.itemHoveredOff(titleItemRef)
     setTitleHovered(previousBool => false)
   }
@@ -72,25 +77,17 @@ const ProjectScreenTitleWithImage = props => {
   return (
     <>
       <div
-        onMouseEnter={mouseEnter}
-        onMouseOut={mouseOut}
-        onTouchStart={mouseEnter}
-        onTouchEnd={mouseOut}
-        onClick={() => {
-          // mouseOut();
-          // mouseEnter();
-        }}
         style={isIOS && titleHovered ? { color: "#fff" } : {}}
         ref={titleItemRef}
-        // data-screenimagename={props.screenImageName}
         className="projectScreenTitleItem-cont"
       >
-        {/* <h2 className="title">
-          {props.name}
-          {","}
-          &nbsp;
-        </h2>
-        <h2 className="tech">{props.tech}</h2> */}
+        <div
+          onMouseEnter={mouseEnter}
+          onMouseOut={mouseOut}
+          onTouchStart={mouseEnter}
+          onTouchEnd={mouseOut}
+          className="cover"
+        ></div>
         <AniLink
           className="title"
           cover
@@ -136,9 +133,6 @@ const ProjectScreenTitleWithImage = props => {
       </div>
       <div
         className="screen-image fade-in"
-        // className={
-        //   props.display ? "screen-image screen-image-appear" : "screen-image"
-        // }
         style={
           props.display
             ? { display: "flex", height: props.projectScreenHeight }
