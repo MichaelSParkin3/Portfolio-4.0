@@ -33,6 +33,10 @@ const ProjectScreenTitleWithImage = props => {
    */
 
   useEffect(() => {
+    setCoverDimensions([titleItemRef.current.clientWidth,titleItemRef.current.clientHeight])
+  },[])
+
+  useEffect(() => {
 
     function handleResize() {
       console.log(titleItemRef.current.clientWidth)
