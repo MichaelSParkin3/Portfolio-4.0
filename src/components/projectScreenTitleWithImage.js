@@ -33,9 +33,22 @@ const ProjectScreenTitleWithImage = props => {
    */
 
   useEffect(() => {
-    console.log(titleItemRef.current.clientWidth)
+
+    function handleResize() {
+      console.log(titleItemRef.current.clientWidth)
     setCoverDimensions([titleItemRef.current.clientWidth,titleItemRef.current.clientHeight])
-  },[])
+    
+}
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    
+}
+
+
+  })
 
   /**
    * mouseEnter:
@@ -98,7 +111,7 @@ const ProjectScreenTitleWithImage = props => {
         ref={titleItemRef}
         className="projectScreenTitleItem-cont"
       >
-      <div className="cover" style={{height: coverDimensions[1], width: coverDimensions[0]}}></div>
+      <div className="cover" style={isIOS ? {height: coverDimensions[1], width: coverDimensions[0], display: 'none'} : {height: coverDimensions[1], width: coverDimensions[0]}}></div>
         <AniLink
           className="title"
           cover
