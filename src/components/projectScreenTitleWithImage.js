@@ -1,6 +1,6 @@
 import React, { ref, useEffect, useRef, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { isIOS } from "react-device-detect"
+import { isIOS, isMobile } from "react-device-detect"
 import { motion } from "framer-motion"
 
 import Img from "gatsby-image"
@@ -111,7 +111,7 @@ const ProjectScreenTitleWithImage = props => {
         ref={titleItemRef}
         className="projectScreenTitleItem-cont"
       >
-      <div className="cover" style={isIOS ? {height: coverDimensions[1], width: coverDimensions[0], display: 'none'} : {height: coverDimensions[1], width: coverDimensions[0]}}></div>
+      <div className="cover" style={isMobile ? {height: coverDimensions[1], width: coverDimensions[0], display: 'none'} : {height: coverDimensions[1], width: coverDimensions[0]}}></div>
         <AniLink
           className="title"
           cover
