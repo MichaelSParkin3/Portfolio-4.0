@@ -1,4 +1,4 @@
-import React, { ref, useRef, useState } from "react"
+import React, { ref, useEffect, useRef, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { isIOS } from "react-device-detect"
 import { motion } from "framer-motion"
@@ -16,8 +16,26 @@ import Img from "gatsby-image"
  * * props.display : Bool used to hide or show project image.
  */
 const ProjectScreenTitleWithImage = props => {
+
+  /**
+   * titleItemRef : Reference to the projectScreenTitleItem-cont.
+   * titleHovered : Initially false but true when projectScreenTitleItem-cont is hovered over.
+   * coverDimensions : The dimensions of projectScreenTitleItem-cont to be copied over to cover div.
+   */
+
   const titleItemRef = useRef()
   const [titleHovered, setTitleHovered] = useState(false)
+  const [coverDimensions, setCoverDimensions] = useState([])
+
+  /**
+   * useEffect :
+   * Set the cover dimensions to match projectScreenTitleItem-cont on initial render.
+   */
+
+  useEffect(() => {
+    console.log(titleItemRef.current.clientWidth)
+    setCoverDimensions([titleItemRef.current.clientWidth,titleItemRef.current.clientHeight])
+  },[])
 
   /**
    * mouseEnter:
@@ -76,21 +94,11 @@ const ProjectScreenTitleWithImage = props => {
         onMouseOut={mouseOut}
         onTouchStart={mouseEnter}
         onTouchEnd={mouseOut}
-        onClick={() => {
-          // mouseOut();
-          // mouseEnter();
-        }}
         style={isIOS && titleHovered ? { color: "#fff" } : {}}
         ref={titleItemRef}
-        // data-screenimagename={props.screenImageName}
         className="projectScreenTitleItem-cont"
       >
-        {/* <h2 className="title">
-          {props.name}
-          {","}
-          &nbsp;
-        </h2>
-        <h2 className="tech">{props.tech}</h2> */}
+      <div className="cover" style={{height: coverDimensions[1], width: coverDimensions[0]}}></div>
         <AniLink
           className="title"
           cover
@@ -100,7 +108,7 @@ const ProjectScreenTitleWithImage = props => {
           duration={1.5}
         >
           <div className="title">
-            <motion.span
+            <motion.div
               className="highlight-arrow-leftside"
               animate={{
                 opacity: [0, 1, 0],
@@ -112,9 +120,9 @@ const ProjectScreenTitleWithImage = props => {
               transition={{ repeat: Infinity, type: "spring" }}
             >
               {">"}
-            </motion.span>
+            </motion.div>
             {props.name}
-            <motion.span
+            <motion.div
               animate={{
                 opacity: [0, 1, 0],
                 x: [0, -10, 0],
@@ -126,7 +134,7 @@ const ProjectScreenTitleWithImage = props => {
               transition={{ repeat: Infinity, type: "spring" }}
             >
               {"<"}
-            </motion.span>
+            </motion.div>
             <div className="title-tech">
               {", "}
               {props.tech}
