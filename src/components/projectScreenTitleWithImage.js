@@ -107,15 +107,14 @@ const ProjectScreenTitleWithImage = props => {
   return (
     <>
       <div
-        onMouseEnter={mouseEnter}
-        onMouseOut={mouseOut}
-        onTouchStart={mouseEnter}
-        onTouchEnd={mouseOut}
         style={isIOS && titleHovered ? { color: "#fff" } : {}}
         ref={titleItemRef}
         className="projectScreenTitleItem-cont"
       >
-      <div className="cover" style={isMobile ? {height: coverDimensions[1], width: coverDimensions[0], display: 'none'} : {height: coverDimensions[1], width: coverDimensions[0]}}></div>
+      <div onMouseEnter={mouseEnter}
+        onMouseOut={mouseOut}
+        onTouchStart={mouseEnter}
+        onTouchEnd={mouseOut} className="cover" style={isMobile ? {height: coverDimensions[1], width: coverDimensions[0], display: 'none'} : {height: coverDimensions[1], width: coverDimensions[0]}}>
         <AniLink
           className="title"
           cover
@@ -123,7 +122,8 @@ const ProjectScreenTitleWithImage = props => {
           bg="#e5e5e5"
           to={props.link}
           duration={1.5}
-        >
+        ></AniLink>
+      </div>
           <div className="title">
             <motion.div
               className="highlight-arrow-leftside"
@@ -157,7 +157,6 @@ const ProjectScreenTitleWithImage = props => {
               {props.tech}
             </div>
           </div>
-        </AniLink>
       </div>
       <div
         className="screen-image fade-in"
