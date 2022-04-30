@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "Michael S Parkin III Developer Portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A collection of projects and work by Michael S Parkin 3",
+  "version": "1.1.0",
+  "author": "Michael S Parkin III <MichaelSParkin3@gmail.com>",
   "dependencies": {
     "animejs": "^3.2.1",
     "circletype": "^2.3.0",
