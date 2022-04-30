@@ -112,8 +112,7 @@ return () => window.removeEventListener("resize", handleTabletChange);
         onTouchStart={mouseEnter}
         onTouchEnd={mouseOut}
         onClick={() => {
-          // mouseOut();
-          // mouseEnter();
+          console.log('titleItemclickedon--')
         }}
         style={isIOS && titleHovered ? { color: "#fff" } : {}}
         ref={titleItemRef}
@@ -133,6 +132,9 @@ return () => window.removeEventListener("resize", handleTabletChange);
           bg="#e5e5e5"
           to={props.link}
           duration={1.5}
+          onClick={()=>{
+            console.log('anilink clicked on')
+          }}
         >
           <div className="title">
             <motion.span
