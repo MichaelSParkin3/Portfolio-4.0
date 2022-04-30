@@ -1,6 +1,6 @@
-import React, { ref, useEffect, useRef, useState } from "react"
+import React, { ref, useRef, useState, useEffect } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { isIOS, isMobile } from "react-device-detect"
+import { isIOS } from "react-device-detect"
 import { motion } from "framer-motion"
 
 import Img from "gatsby-image"
@@ -16,43 +16,9 @@ import Img from "gatsby-image"
  * * props.display : Bool used to hide or show project image.
  */
 const ProjectScreenTitleWithImage = props => {
-
-  /**
-   * titleItemRef : Reference to the projectScreenTitleItem-cont.
-   * titleHovered : Initially false but true when projectScreenTitleItem-cont is hovered over.
-   * coverDimensions : The dimensions of projectScreenTitleItem-cont to be copied over to cover div.
-   */
-
   const titleItemRef = useRef()
   const [titleHovered, setTitleHovered] = useState(false)
-  const [coverDimensions, setCoverDimensions] = useState([])
-
-  /**
-   * useEffect :
-   * Set the cover dimensions to match projectScreenTitleItem-cont on initial render.
-   */
-
-  useEffect(() => {
-    setCoverDimensions([titleItemRef.current.clientWidth,titleItemRef.current.clientHeight])
-  },[])
-
-  useEffect(() => {
-
-    function handleResize() {
-      console.log(titleItemRef.current.clientWidth)
-    setCoverDimensions([titleItemRef.current.clientWidth,titleItemRef.current.clientHeight])
-    
-}
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    
-}
-
-
-  })
+  const [showTech, setShowTech] = useState(false)
 
   /**
    * mouseEnter:
@@ -104,17 +70,62 @@ const ProjectScreenTitleWithImage = props => {
     setTitleHovered(previousBool => false)
   }
 
+  /**
+   * useEffect + handleSizeChange:
+   * On render set a resize listener to check if the window is below a certain width and hide or show
+   * project tech props accordingly.
+   */
+
+   useEffect(()=>{
+
+    console.log('useEffect')
+
+  // Create a condition that targets viewports less than 768px wide
+const mediaQuery = window.matchMedia('(max-width: 767.98px)');
+
+function handleTabletChange(e) {
+  console.log('in handlechange')
+  // Check if the media query is true
+  if (mediaQuery.matches) {
+    // Then log the following message to the console
+    console.log('Media Query Matched!')
+    setShowTech(previousBool => false)
+  } else {
+    setShowTech(previousBool => true)
+  }
+}
+
+// Initial check
+handleTabletChange(mediaQuery);
+
+// Register event listener
+window.addEventListener("resize", handleTabletChange);
+return () => window.removeEventListener("resize", handleTabletChange);
+
+});
+
   return (
     <>
       <div
-        style={isIOS && titleHovered ? { color: "#fff" } : {}}
-        ref={titleItemRef}
-        className="projectScreenTitleItem-cont"
-      >
-      <div onMouseEnter={mouseEnter}
+        onMouseEnter={mouseEnter}
         onMouseOut={mouseOut}
         onTouchStart={mouseEnter}
-        onTouchEnd={mouseOut} className="cover" style={isMobile ? {height: coverDimensions[1], width: coverDimensions[0], display: 'none'} : {height: coverDimensions[1], width: coverDimensions[0]}}>
+        onTouchEnd={mouseOut}
+        onClick={() => {
+          // mouseOut();
+          // mouseEnter();
+        }}
+        style={isIOS && titleHovered ? { color: "#fff" } : {}}
+        ref={titleItemRef}
+        // data-screenimagename={props.screenImageName}
+        className="projectScreenTitleItem-cont"
+      >
+        {/* <h2 className="title">
+          {props.name}
+          {","}
+          &nbsp;
+        </h2>
+        <h2 className="tech">{props.tech}</h2> */}
         <AniLink
           className="title"
           cover
@@ -122,10 +133,9 @@ const ProjectScreenTitleWithImage = props => {
           bg="#e5e5e5"
           to={props.link}
           duration={1.5}
-        ></AniLink>
-      </div>
+        >
           <div className="title">
-            <motion.div
+            <motion.span
               className="highlight-arrow-leftside"
               animate={{
                 opacity: [0, 1, 0],
@@ -137,9 +147,9 @@ const ProjectScreenTitleWithImage = props => {
               transition={{ repeat: Infinity, type: "spring" }}
             >
               {">"}
-            </motion.div>
+            </motion.span>
             {props.name}
-            <motion.div
+            <motion.span
               animate={{
                 opacity: [0, 1, 0],
                 x: [0, -10, 0],
@@ -151,12 +161,10 @@ const ProjectScreenTitleWithImage = props => {
               transition={{ repeat: Infinity, type: "spring" }}
             >
               {"<"}
-            </motion.div>
-            <div className="title-tech">
-              {", "}
-              {props.tech}
-            </div>
+            </motion.span>
+            {showTech ? (', '+props.tech) : ('')}
           </div>
+        </AniLink>
       </div>
       <div
         className="screen-image fade-in"
