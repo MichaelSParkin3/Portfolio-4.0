@@ -1,4 +1,4 @@
-import React, { ref, useRef, useState } from "react"
+import React, { ref, useRef, useState, useEffect } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { isIOS } from "react-device-detect"
 import { motion } from "framer-motion"
@@ -18,6 +18,7 @@ import Img from "gatsby-image"
 const ProjectScreenTitleWithImage = props => {
   const titleItemRef = useRef()
   const [titleHovered, setTitleHovered] = useState(false)
+  const [showTech, setShowTech] = useState(false)
 
   /**
    * mouseEnter:
@@ -68,6 +69,40 @@ const ProjectScreenTitleWithImage = props => {
     props.itemHoveredOff(titleItemRef)
     setTitleHovered(previousBool => false)
   }
+
+  /**
+   * useEffect + handleSizeChange:
+   * On render set a resize listener to check if the window is below a certain width and hide or show
+   * project tech props accordingly.
+   */
+
+   useEffect(()=>{
+
+    console.log('useEffect')
+
+  // Create a condition that targets viewports less than 768px wide
+const mediaQuery = window.matchMedia('(max-width: 767.98px)');
+
+function handleTabletChange(e) {
+  console.log('in handlechange')
+  // Check if the media query is true
+  if (mediaQuery.matches) {
+    // Then log the following message to the console
+    console.log('Media Query Matched!')
+    setShowTech(previousBool => false)
+  } else {
+    setShowTech(previousBool => true)
+  }
+}
+
+// Initial check
+handleTabletChange(mediaQuery);
+
+// Register event listener
+window.addEventListener("resize", handleTabletChange);
+return () => window.removeEventListener("resize", handleTabletChange);
+
+});
 
   return (
     <>
@@ -127,10 +162,7 @@ const ProjectScreenTitleWithImage = props => {
             >
               {"<"}
             </motion.span>
-            <div className="title-tech">
-              {", "}
-              {props.tech}
-            </div>
+            {showTech ? (', '+props.tech) : ('')}
           </div>
         </AniLink>
       </div>

@@ -81,10 +81,12 @@
         display: flex;
         .highlight-arrow-leftside {
           margin-right: 10px;
+          pointer-events: none;
         }
 
         .highlight-arrow-rightside {
           margin-left: 10px;
+          pointer-events: none;
         }
         .title-tech {
         }
