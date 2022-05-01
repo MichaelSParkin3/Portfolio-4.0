@@ -65,11 +65,11 @@
   }
 }
 
-@media (max-height: 450px) {
+@media (max-width: 450px) {
   .fullpage {
     .number {
-      font-size: 25rem;
-      left: -110px;
+      font-size: 20rem;
+      left: -95px;
     }
   }
 }
