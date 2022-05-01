@@ -176,7 +176,7 @@
           }
 
           p {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
           }
         }
       }
@@ -191,13 +191,13 @@
       }
 
       ul {
-        height: calc(100% - 8rem);
+        height: calc(100% - 6rem);
         .iconTextContainer {
           .iconAnchor {
           }
 
           p {
-            font-size: 0.5rem;
+            font-size: 0.8rem;
           }
         }
       }
@@ -218,7 +218,7 @@
           }
 
           p {
-            font-size: 0.4rem;
+            font-size: 0.65rem;
           }
         }
       }
@@ -242,7 +242,7 @@
           .pCont {
             margin-right: 0px;
           p {
-            font-size: 0.3rem;
+            font-size: 0.6rem;
             padding-left: 0.5rem;
             padding-right: 0.5rem;
           }
@@ -272,6 +272,58 @@
               font-size: 0.3rem;
               padding-left: 0.5rem;
               padding-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 500px) {
+  .contactPopUp {
+    .contactCard {
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      ul {
+
+        .iconTextContainer {
+          .iconAnchor {
+            font-size: 2rem;
+          }
+
+          .pCont {
+
+
+            p {
+              font-size: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 400px) {
+  .contactPopUp {
+    .contactCard {
+      h1 {
+      }
+
+      ul {
+
+        .iconTextContainer {
+          .iconAnchor {
+            font-size: 1.25rem;
+          }
+
+          .pCont {
+
+
+            p {
             }
           }
         }

@@ -64,7 +64,7 @@ const OtherWork = ({ location }) => {
         <ContFiftyFifty
           leftImg={data.verb3.childImageSharp.fluid}
           setImgWidth={"500px"}
-          right={'<p><-- Mobile Landscape</p>'}
+          right={'<p>Mobile Landscape</p>'}
         />
         <FullImage
           align="center"
