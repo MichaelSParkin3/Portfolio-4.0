@@ -205,20 +205,46 @@
   }
 }
 
-@media (max-height: 500px) {
+@media (max-width: 450px) {
   .contactPopUp {
     .contactCard {
-      h1 {
-      }
+      h1 {}
 
       ul {
+
         .iconTextContainer {
           .iconAnchor {
-            font-size: 3rem;
+            font-size: 2.5rem;
           }
 
           p {
+            font-size: 0.4rem;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 395px) {
+  .contactPopUp {
+    .contactCard {
+      h1 {}
+
+      ul {
+
+        .iconTextContainer {
+          .iconAnchor {
+            font-size: 2rem;
+          }
+          .pCont {
+            margin-right: 0px;
+          p {
+            font-size: 0.3rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+        }
         }
       }
     }
