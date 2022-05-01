@@ -121,3 +121,38 @@ Scroll Down Arrow SCSS
     opacity: 0;
   }
 }
+
+@media (max-width: 355px) {
+  nav {
+    .nav-main-cont {
+      a {
+        font-size: 0.4rem;
+      }
+
+      .nav-logo {
+        a {
+          font-size: 1.25rem;
+        }
+      }
+
+      .nav-divider {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    .nav-black {
+      a,
+      .nav-logo,
+      .nav-divider {
+      }
+    }
+
+    .nav-white {
+      a,
+      .nav-logo,
+      .nav-divider {
+      }
+    }
+  }
+}

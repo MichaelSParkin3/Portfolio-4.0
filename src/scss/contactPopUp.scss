@@ -229,7 +229,9 @@
 @media (max-width: 395px) {
   .contactPopUp {
     .contactCard {
-      h1 {}
+      h1 {
+        font-size: 3.5rem;
+      }
 
       ul {
 
@@ -245,6 +247,33 @@
             padding-right: 0.5rem;
           }
         }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 281px) {
+  .contactPopUp {
+    .contactCard {
+      h1 {}
+
+      ul {
+
+        .iconTextContainer {
+          .iconAnchor {
+            font-size: 2rem;
+          }
+
+          .pCont {
+            margin-right: 0px;
+
+            p {
+              font-size: 0.3rem;
+              padding-left: 0.5rem;
+              padding-right: 0.5rem;
+            }
+          }
         }
       }
     }
