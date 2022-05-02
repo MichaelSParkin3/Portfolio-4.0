@@ -156,3 +156,10 @@ Scroll Down Arrow SCSS
     }
   }
 }
+
+@media (max-height: 650px) and (orientation: landscape) {
+  .scroll-down {
+    bottom: 15vh;
+  }
+}
+
