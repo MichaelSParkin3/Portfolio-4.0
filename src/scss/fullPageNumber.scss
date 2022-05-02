@@ -73,3 +73,48 @@
     }
   }
 }
+
+@media (max-height: 820px) and (orientation: landscape) {
+  .fullpage {
+    .number {
+      font-size: 40rem;
+      left: -210px;
+    }
+  }
+}
+
+@media (max-height: 650px) and (orientation: landscape) {
+  .fullpage {
+    .number {
+      font-size: 30rem;
+      left: -140px;
+    }
+  }
+}
+
+@media (max-height: 490px) and (orientation: landscape) {
+  .fullpage {
+    .number {
+      font-size: 25rem;
+      left: -120px;
+    }
+  }
+}
+
+@media (max-height: 410px) and (orientation: landscape) {
+  .fullpage {
+    .number {
+      font-size: 20rem;
+      left: -90px;
+    }
+  }
+}
+
+@media (max-height: 325px) and (orientation: landscape) {
+  .fullpage {
+    .number {
+      font-size: 15rem;
+      left: -70px;
+    }
+  }
+}
