@@ -151,7 +151,7 @@ const Shaneco = ({ location }) => {
           rightImg={data.nordstrom8.childImageSharp.fluid}
           setImgWidth={"370px"}
           left={
-            '<h1>Search Bar</h1><span className="divider"></span><p>If you click the cute little magnifying glass icon then you will open up the search bar. Here you can search up any of the products by name. Click the link below and try it yourself to see the cool little slide in animation.</p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Find It Here</a> '
+            '<h1>Search Bar</h1><span className="divider"></span><p>If you click the cute little magnifying glass icon then you will open up the search bar. Here you can search up any of the products by name. Click the link below and try it yourself to see the cool little slide in animation.</p> '
           }
         />
 
@@ -161,7 +161,7 @@ const Shaneco = ({ location }) => {
           leftImg={data.nordstrom10.childImageSharp.fluid}
           setImgWidth={"370px"}
           right={
-            '<h1>Product Page</h1><span className="divider"></span><p>This page is made to display all the information about the product and allow you to add the product to your cart. If you mouse over the photo then you can zoom in. Also you can adjust the quantity and size before adding the product to your cart.</p><a href="https://ecommerce-react-app.herokuapp.com/products" target="_blank" class="link link--mneme">Find It Here</a> '
+            '<h1>Product Page</h1><span className="divider"></span><p>This page is made to display all the information about the product and allow you to add the product to your cart. If you mouse over the photo then you can zoom in. Also you can adjust the quantity and size before adding the product to your cart.</p> '
           }
         />
 
@@ -171,7 +171,7 @@ const Shaneco = ({ location }) => {
           rightImg={data.nordstrom11.childImageSharp.fluid}
           setImgWidth={"370px"}
           left={
-            '<h1>Shopping Cart</h1><span className="divider"></span><p>This page displays all the items added to your shopping cart and adds up the price to show you your total. You can also click the red X to remove an item from your cart.</p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Find It Here</a> '
+            '<h1>Shopping Cart</h1><span className="divider"></span><p>This page displays all the items added to your shopping cart and adds up the price to show you your total. You can also click the red X to remove an item from your cart.</p> '
           }
         />
 
