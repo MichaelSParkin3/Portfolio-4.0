@@ -62,6 +62,13 @@ const ProjectScreen = () => {
           }
         }
       }
+      verbScreen2: file(relativePath: { eq: "verbScreen4.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
@@ -274,14 +281,14 @@ const ProjectScreen = () => {
             highlight={true}
           />
           <ProjectScreenTitleWithImage
-            name={"OTHER WORK"}
-            tech={"Various"}
+            name={"VERB LABS"}
+            tech={"Html Scss Js"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.gamerScreenImage2.childImageSharp.fluid}
+            img={data.verbScreen2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[3]}
-            link={"otherWork"}
+            link={"verbLabs"}
             onIOS={onIOS}
           />
         </div>
