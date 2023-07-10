@@ -269,6 +269,18 @@ const ProjectScreen = () => {
             onIOS={onIOS}
           />
           <ProjectScreenTitleWithImage
+            name={"GAMESTAR"}
+            tech={"Html Scss Js"}
+            projectScreenHeight={newScreenImageHeight}
+            img={data.shanecoScreenImage2.childImageSharp.fluid}
+            itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
+            display={displayBoolArray[2]}
+            link={"gamestar"}
+            onIOS={onIOS}
+            highlight={true}
+          />
+          <ProjectScreenTitleWithImage
             name={"SHANECO"}
             tech={"Html Scss Js"}
             projectScreenHeight={newScreenImageHeight}

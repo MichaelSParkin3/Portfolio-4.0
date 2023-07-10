@@ -18,10 +18,10 @@ import { FaGithub, FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa"
 import "../scss/layout.scss"
 
 /**
- * 
+ *
  * @param {object} children
  * * children : Children is the current page component eg. index, nordstrom, 404, shaneco
- * 
+ *
  */
 
 const Layout = ({ children }) => {
@@ -109,13 +109,11 @@ const Layout = ({ children }) => {
 
   function GetPhoneHref() {
     if (isIOS) {
-      window.open("sms:1-323-393-0360", "_blank")
+      window.open("sms:1-831-205-1786", "_blank")
     } else if (isAndroid) {
-      window.open(
-        window.open("tel:3233930360", "_blank")
-      )
+      window.open(window.open("tel:8312051786", "_blank"))
     } else {
-      alert("Since you are not on android or IOS text me at: 1-323-393-0360")
+      alert("Since you are not on android or IOS text me at: 1-831-205-1786")
     }
   }
 
