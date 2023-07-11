@@ -46,7 +46,21 @@ const FullImage = props => {
         ref={ref}
         className="block-2"
       >
-        <Img fluid={props.img} />
+        {props.img ? <Img fluid={props.img} /> : <></>}
+
+        {props.video ? (
+          <video
+            loop="true"
+            autoplay="autoplay"
+            muted
+            width="100%"
+            height="auto"
+          >
+            <source src={props.video} type="video/mp4" />
+          </video>
+        ) : (
+          <></>
+        )}
       </motion.div>
       <div className="block-3" style={{ flex: getFlexValue(3) }}></div>
     </div>

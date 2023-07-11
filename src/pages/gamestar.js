@@ -21,6 +21,8 @@ import FullImage from "../components/fullImage"
 import PerfectScrollbar from "react-perfect-scrollbar"
 import ScrollToTopButton from "../components/scrollToTopButton"
 
+import marketVideo from "../images/videos/gamestarMarket1.mp4"
+
 const Gamestar = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -84,11 +86,11 @@ const Gamestar = ({ location }) => {
         <FullPageNumber url={location} number="03" />
         <ContFiftyFifty
           right={
-            '<h1>ShaneCo Quizes & Components</h1><span className="divider"></span><p>I worked with Shaneco. and their team to re-develop their product suggestion quizes, create new re-usable components, and fix some cookie related problems they were having.</p>'
+            '<h1>GameStar Exchange</h1><span className="divider"></span><p>I worked with the GameStar Exchange dev team as their only front end developer to update their mobile site and to create their entire desktop site.</p>'
           }
         />
 
-        <ContFiftyFifty left={"<h1>Html</br>Css</br>Javascript</h1>"} />
+        <ContFiftyFifty left={"<h1>NextJs</br>React</br>Figma</h1>"} />
         <ContFiftyFifty
           rightImg={data.screenshot4.childImageSharp.fluid}
           setImgWidth={"480px"}
@@ -96,6 +98,7 @@ const Gamestar = ({ location }) => {
             '<h1>The Quizzes</h1><span className="divider"></span><p>I re-developed their suggestion quiz into a re-usable and customizable component by building upon their existing code. The quiz asks the user questions and based on their answer combinations the user is reccomended different products to buy from the Shaneco store.</p><a href="https://www.shaneco.com/engagement-wedding/engagement-rings/style-finder?promo_name=nav&promo_id=engagement&promo_creative=stylefinder" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
+        <FullImage align="left" video={marketVideo} />
         <FullImage
           align="center"
           img={data.screenshot1.childImageSharp.fluid}
