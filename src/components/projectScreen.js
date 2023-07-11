@@ -69,6 +69,13 @@ const ProjectScreen = () => {
           }
         }
       }
+      gamestarScreen: file(relativePath: { eq: "gamestarScreen.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
@@ -269,16 +276,27 @@ const ProjectScreen = () => {
             onIOS={onIOS}
           />
           <ProjectScreenTitleWithImage
-            name={"GAMESTAR"}
+            name={"VERB LABS"}
             tech={"Html Scss Js"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.shanecoScreenImage2.childImageSharp.fluid}
+            img={data.verbScreen2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[2]}
+            link={"verbLabs"}
+            onIOS={onIOS}
+          />
+          <ProjectScreenTitleWithImage
+            name={"GAMESTAR"}
+            tech={"Html Scss Js"}
+            projectScreenHeight={newScreenImageHeight}
+            img={data.gamestarScreen.childImageSharp.fluid}
+            itemHoveredOn={itemHoveredOn}
+            itemHoveredOff={itemHoveredOff}
+            display={displayBoolArray[3]}
             link={"gamestar"}
             onIOS={onIOS}
-            highlight={true}
+            highlight={false}
           />
           <ProjectScreenTitleWithImage
             name={"SHANECO"}
@@ -287,21 +305,10 @@ const ProjectScreen = () => {
             img={data.shanecoScreenImage2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[2]}
+            display={displayBoolArray[4]}
             link={"shaneco"}
             onIOS={onIOS}
             highlight={true}
-          />
-          <ProjectScreenTitleWithImage
-            name={"VERB LABS"}
-            tech={"Html Scss Js"}
-            projectScreenHeight={newScreenImageHeight}
-            img={data.verbScreen2.childImageSharp.fluid}
-            itemHoveredOn={itemHoveredOn}
-            itemHoveredOff={itemHoveredOff}
-            display={displayBoolArray[3]}
-            link={"verbLabs"}
-            onIOS={onIOS}
           />
         </div>
       </div>

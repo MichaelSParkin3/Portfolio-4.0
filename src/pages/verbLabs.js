@@ -88,7 +88,7 @@ const OtherWork = ({ location }) => {
   return (
     <Layout url={location.pathname}>
       <div className="project-page">
-        <FullPageNumber url={location} number="04" />
+        <FullPageNumber url={location} number="03" />
         <ContFiftyFifty
           rightImg={data.verb2.childImageSharp.fluid}
           setImgWidth={"280px"}
@@ -100,12 +100,9 @@ const OtherWork = ({ location }) => {
         <ContFiftyFifty
           leftImg={data.verb3.childImageSharp.fluid}
           setImgWidth={"500px"}
-          right={'<p>Mobile Landscape</p>'}
+          right={"<p>Mobile Landscape</p>"}
         />
-        <FullImage
-          align="center"
-          img={data.verb1.childImageSharp.fluid}
-        />
+        <FullImage align="center" img={data.verb1.childImageSharp.fluid} />
         <ContFiftyFifty
           leftImg={data.verb10.childImageSharp.fluid}
           setImgWidth={"280px"}
@@ -113,10 +110,7 @@ const OtherWork = ({ location }) => {
             '<h1>Phase 2</h1><span className="divider"></span><p>The purpose of this 2nd phase of their website was so the user could check to see if their Crypto address was whitelisted for the upcoming priority sale.</p>'
           }
         />
-        <FullImage
-          align="center"
-          img={data.verb9.childImageSharp.fluid}
-        />
+        <FullImage align="center" img={data.verb9.childImageSharp.fluid} />
         <ContFiftyFifty
           rightImg={data.verb8.childImageSharp.fluid}
           setImgWidth={"280px"}
@@ -124,18 +118,11 @@ const OtherWork = ({ location }) => {
             '<h1>Phase 3</h1><span className="divider"></span><p>Phase 3 is the more complicated and final site. At the top I made a minting UI to connect your crypto wallet to buy the verbs. First you connect your wallet and then depending on the time you would see either a screen to mint the NFTs or a clock ticking down to the next phase phase of the minting process. And below that we have a collection of videos of sample verbs doing their things and then more info.</p>'
           }
         />
-        <FullImage
-          align="center"
-          img={data.verb12.childImageSharp.fluid}
-        />
-        <FullImage
-          align="center"
-          img={data.verb4.childImageSharp.fluid}
-        />
+        <FullImage align="center" img={data.verb12.childImageSharp.fluid} />
+        <FullImage align="center" img={data.verb4.childImageSharp.fluid} />
       </div>
     </Layout>
   )
 }
 
 export default OtherWork
-
