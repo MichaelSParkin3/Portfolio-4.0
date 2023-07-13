@@ -279,6 +279,24 @@
   }
 }
 
+@media (max-height: 380px) {
+  .projectScreen-cont {
+    .title-cont {
+      .projectScreenTitleItem-cont {
+        .title {
+          font-size: 1.3rem;
+
+          .title-tech {
+            display: none;
+          }
+        }
+
+        .tech {}
+      }
+    }
+  }
+}
+
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
 }

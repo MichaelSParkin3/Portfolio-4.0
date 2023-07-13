@@ -69,7 +69,7 @@ const ProjectScreen = () => {
           }
         }
       }
-      gamestarScreen: file(relativePath: { eq: "gamestarScreen.png" }) {
+      gamestarScreen1: file(relativePath: { eq: "gamestarScreen1.png" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
@@ -290,7 +290,7 @@ const ProjectScreen = () => {
             name={"GAMESTAR"}
             tech={"Html Scss Js"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.gamestarScreen.childImageSharp.fluid}
+            img={data.gamestarScreen1.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[3]}
