@@ -76,33 +76,28 @@ const ProjectScreenTitleWithImage = props => {
    * project tech props accordingly.
    */
 
-   useEffect(()=>{
+  useEffect(() => {
+    // Create a condition that targets viewports less than 768px wide
+    const mediaQuery = window.matchMedia("(max-width: 767.98px)")
 
-    console.log('useEffect')
+    function handleTabletChange(e) {
+      // Check if the media query is true
+      if (mediaQuery.matches) {
+        // Then log the following message to the console
 
-  // Create a condition that targets viewports less than 768px wide
-const mediaQuery = window.matchMedia('(max-width: 767.98px)');
+        setShowTech(previousBool => false)
+      } else {
+        setShowTech(previousBool => true)
+      }
+    }
 
-function handleTabletChange(e) {
-  console.log('in handlechange')
-  // Check if the media query is true
-  if (mediaQuery.matches) {
-    // Then log the following message to the console
-    console.log('Media Query Matched!')
-    setShowTech(previousBool => false)
-  } else {
-    setShowTech(previousBool => true)
-  }
-}
+    // Initial check
+    handleTabletChange(mediaQuery)
 
-// Initial check
-handleTabletChange(mediaQuery);
-
-// Register event listener
-window.addEventListener("resize", handleTabletChange);
-return () => window.removeEventListener("resize", handleTabletChange);
-
-});
+    // Register event listener
+    window.addEventListener("resize", handleTabletChange)
+    return () => window.removeEventListener("resize", handleTabletChange)
+  })
 
   return (
     <>
@@ -111,9 +106,7 @@ return () => window.removeEventListener("resize", handleTabletChange);
         onMouseOut={mouseOut}
         onTouchStart={mouseEnter}
         onTouchEnd={mouseOut}
-        onClick={() => {
-          console.log('titleItemclickedon--')
-        }}
+        onClick={() => {}}
         style={isIOS && titleHovered ? { color: "#fff" } : {}}
         ref={titleItemRef}
         // data-screenimagename={props.screenImageName}
@@ -132,9 +125,7 @@ return () => window.removeEventListener("resize", handleTabletChange);
           bg="#e5e5e5"
           to={props.link}
           duration={1.5}
-          onClick={()=>{
-            console.log('anilink clicked on')
-          }}
+          onClick={() => {}}
         >
           <div className="title">
             <motion.span
@@ -164,7 +155,7 @@ return () => window.removeEventListener("resize", handleTabletChange);
             >
               {"<"}
             </motion.span>
-            {showTech ? (', '+props.tech) : ('')}
+            {showTech ? ", " + props.tech : ""}
           </div>
         </AniLink>
       </div>
