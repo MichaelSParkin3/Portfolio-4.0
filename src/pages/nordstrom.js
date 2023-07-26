@@ -129,7 +129,7 @@ const Shaneco = ({ location }) => {
           rightImg={data.nordstrom2.childImageSharp.fluid}
           setImgWidth={"370px"}
           left={
-            '<h1>Home Page</h1><span className="divider"></span><p>The above photo is the original design for the home page. The photos below are from the website I created myself. I tried to make it pretty much the same but sadly I did not have access to the photos or the font. Click the link below to go and interact with my site.</p><a href="https://ecommerce-react-app.herokuapp.com/" target="_blank" class="link link--mneme">Find It Here</a> '
+            '<h1>Home Page</h1><span className="divider"></span><p>The above photo is the original design for the home page. The photos below are from the website I created myself. I tried to make it pretty much the same but sadly I did not have access to the photos or the font. Click the link below to go and interact with my site.</p><a href="https://nordstrom-mock.netlify.app/" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
 
@@ -141,7 +141,7 @@ const Shaneco = ({ location }) => {
           leftImg={data.nordstrom6.childImageSharp.fluid}
           setImgWidth={"370px"}
           right={
-            '<h1>Search By Category</h1><span className="divider"></span><p>This page allows you to either look through all of the gym wear or to filter through the gym wear by type and/or color. I am happy with how it turned out. It works pretty well and it looks good in my opinion.</p><a href="https://ecommerce-react-app.herokuapp.com/products" target="_blank" class="link link--mneme">Find It Here</a> '
+            '<h1>Search By Category</h1><span className="divider"></span><p>This page allows you to either look through all of the gym wear or to filter through the gym wear by type and/or color. I am happy with how it turned out. It works pretty well and it looks good in my opinion.</p><a href="https://nordstrom-mock.netlify.app/products" target="_blank" class="link link--mneme">Find It Here</a> '
           }
         />
 
