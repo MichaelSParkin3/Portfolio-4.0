@@ -81,7 +81,7 @@ const Gamestar = ({ location }) => {
         <FullPageNumber url={location} number="04" />
         <ContFiftyFifty
           right={
-            '<h1>GameStar Exchange</h1><span className="divider"></span><p>I worked with the GameStar Exchange dev team as their ONLY front end developer to update their nextjs mobile site, update their landing page, and to create their entire nextjs desktop site. The purpose of their site is to facilitate P2P exchanges of crypto, giftcards, game items, and fiats. Complete with advertisements, a trading system, a judge system, and Metamask wallet connection. This is only a small sample of my work for GameStar.</p><a href="https://app.gamestar.exchange/" target="_blank" class="link link--mneme">Find Them Here</a>'
+            '<h1>GameStar Exchange</h1><span className="divider"></span><p>I worked with the GameStar Exchange dev team as their front end developer to update their nextjs mobile site, update their landing page, and to create their entire nextjs desktop site. The purpose of their site is to facilitate P2P exchanges of crypto, giftcards, game items, and fiats. Complete with advertisements, a trading system, a judge system, and Metamask wallet connection. This is only a small sample of my work for GameStar.</p><a href="https://app.gamestar.exchange/" target="_blank" class="link link--mneme">Find Them Here</a>'
           }
         />
 
