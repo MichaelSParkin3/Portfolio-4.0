@@ -34,12 +34,12 @@ const ProjectScreen = () => {
           }
         }
       }
-      bikeScreenImage2: file(relativePath: { eq: "bikeScreen.png" }) {
+      lamprosScreen: file(relativePath: { eq: "lamprosScreen3.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
-        }
+        } 
       }
       nordstromScreenImage2: file(relativePath: { eq: "nordstromScreen.png" }) {
         childImageSharp {
@@ -265,15 +265,16 @@ const ProjectScreen = () => {
             onIOS={onIOS}
           />
           <ProjectScreenTitleWithImage
-            name={"LANDING PAGES"}
-            tech={"Html Scss Js"}
+            name={"LAMPROS LABS"}
+            tech={"Svelte Tailwind"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.bikeScreenImage2.childImageSharp.fluid}
+            img={data.lamprosScreen.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[1]}
-            link={"landingPages"}
+            link={"lampros"}
             onIOS={onIOS}
+            highlight={true}
           />
           <ProjectScreenTitleWithImage
             name={"VERB LABS"}
@@ -288,7 +289,7 @@ const ProjectScreen = () => {
           />
           <ProjectScreenTitleWithImage
             name={"GAMESTAR"}
-            tech={"Html Scss Js"}
+            tech={"React NextJS"}
             projectScreenHeight={newScreenImageHeight}
             img={data.gamestarScreen1.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
@@ -308,7 +309,7 @@ const ProjectScreen = () => {
             display={displayBoolArray[4]}
             link={"shaneco"}
             onIOS={onIOS}
-            highlight={true}
+            highlight={false}
           />
         </div>
       </div>
