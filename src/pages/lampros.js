@@ -28,47 +28,24 @@ import adVideo from "../images/videos/gamestarAd.mp4"
 const Gamestar = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
-      gamestar1: file(relativePath: { eq: "gamestar1.png" }) {
+      ocusell1: file(relativePath: { eq: "ocusell1.gif" }) {
+        publicURL
+      }
+      ocusellBig: file(relativePath: { eq: "ocusellBig.png" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      gamestar2: file(relativePath: { eq: "gamestar2.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
+      ocusell2: file(relativePath: { eq: "ocusell2.gif" }) {
+        publicURL
       }
-      gamestar3: file(relativePath: { eq: "gamestar3.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
+      ocusell3: file(relativePath: { eq: "ocusell3.gif" }) {
+        publicURL
       }
-      gamestar4: file(relativePath: { eq: "gamestar4.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      gamestar5: file(relativePath: { eq: "gamestar5.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      gamestar6: file(relativePath: { eq: "gamestar6.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
+      ocusell4: file(relativePath: { eq: "ocusell4.gif" }) {
+        publicURL
       }
     }
   `)
@@ -81,50 +58,50 @@ const Gamestar = ({ location }) => {
         <FullPageNumber url={location} number="02" />
         <ContFiftyFifty
           right={
-            '<h1>Lampros Labs</h1><span className="divider"></span><p>I worked with the GameStar Exchange dev team as their front end developer to update their nextjs mobile site, update their landing page, and to create their entire nextjs desktop site. The purpose of their site is to facilitate P2P exchanges of crypto, giftcards, game items, and fiats. Complete with advertisements, a trading system, a judge system, and Metamask wallet connection. This is only a small sample of my work for GameStar.</p><a href="https://app.gamestar.exchange/" target="_blank" class="link link--mneme">Find Them Here</a>'
+            '<h1>Lampros Labs</h1><span className="divider"></span><p>At Lampros I worked on many different projects for various companies. From headless wordpress sites to cross platform applications. So I will walk you through just a few of my favorite projects.</p><a href="https://www.linkedin.com/company/lampros-labs/" target="_blank" class="link link--mneme">Find Them Here</a>'
           }
         />
 
-        <ContFiftyFifty left={"<h1>NextJs</br>React</br>Figma</h1>"} />
-        <ContFiftyFifty
-          rightImg={data.gamestar1.childImageSharp.fluid}
+<ContFiftyFifty
+          rightImg={data.ocusell1.publicURL}
+          isGif={true}
           setImgWidth={"480px"}
           left={
-            '<h1>The Design</h1><span className="divider"></span><p>Working with the UI designer and the team of product managers we came up with an entire design on figma to guide me through the development process. I had to use the existing code from the mobile site to create a fully functioning desktop version.</p> '
+            '<h1>Ocusell.AI</h1><span className="divider"></span><p>The Ocusell app is AI driven listing input software that enables brokers, agents, and staff to auto-pop data in seconds and seamlessly publish listings across one or multiple MLSs at once. I am not sure what I am allowed to show so I will only show info that is available to the public. If you want to learn more about the app then click the link below.</p><a href="https://www.ocusell.ai/" target="_blank" class="link link--mneme">Find Out More</a>'
           }
         />
+
+        <ContFiftyFifty left={"<h1>Svelte</br>Laravel</br>Javascript</h1>"} />
+
+        <FullImage align="center" img={data.ocusellBig.childImageSharp.fluid} />
+        
         <ContFiftyFifty
-          leftImg={data.gamestar2.childImageSharp.fluid}
+        rightImg={data.ocusell2.publicURL}
+          isGif={true}
+          setImgWidth={"480px"}
+          left={
+            '<h1>Listing Creation Page</h1><span className="divider"></span><p>I mainly worked on the functionality of the most important page, the huge form page to make a listing across multiple mlses at once. I made various fixes to the validations of the MANY fields and worked with my colleague to figure out how to follow all the rules of each MLS.</p>'
+          }
+        />
+
+<ContFiftyFifty
+          leftImg={data.ocusell3.publicURL}
+          isGif={true}
           setImgWidth={"480px"}
           right={
-            '<h1>Home Page</h1><span className="divider"></span><p>We wanted it to be both quick access to trading and provide a basic understanding of how the site works. I used and edited one of the existing modules and created the rest of the page to fit the design.</p><a href="https://app.gamestar.exchange/" target="_blank" class="link link--mneme">Find It Here</a>'
+            '<h1>Error Resolution</h1><span className="divider"></span><p>I also made the entire error resolution page and system. When you attempt to submit a listing the error resolution system will check every single input for every mls and check if there is an error and check if the input is conflicting with an mlses strict rules. It will then direct you to the error resolution page and go through each error with you one by one making sure every input is validated and following the every properly.</p>'
           }
         />
-        <FullImage align="center" img={data.gamestar3.childImageSharp.fluid} />
+        
         <ContFiftyFifty
-          rightImg={data.gamestar4.childImageSharp.fluid}
+          rightImg={data.ocusell4.publicURL}
+          isGif={true}
           setImgWidth={"480px"}
           left={
-            '<h1>Market Page</h1><span className="divider"></span><p>The purpose of this page was to organize and filter through the exchange ads to help the user find the ones they want and then start a trade. I had to redo the existing mobile version then make it display well on desktop. With a complete trading process with a live chat and judge arbitration system.</p>'
+            '<h1>Importing Team Members</h1><span className="divider"></span><p>Another thing I worked on was the UI for importing team members. Whether you wanted to add them manually or from a document. If importing many at once I made a handy modal that allows you to select which team they are sent to and what type of privileges each user gets.</p>'
           }
         />
-        <FullImage align="left" video={marketVideo} />
-        <FullImage align="right" video={marketVideo2} />
-        <ContFiftyFifty
-          setImgWidth={"480px"}
-          right={
-            '<h1>Ad Creation & Management</h1><span className="divider"></span><p>According to the design I created a multiple step ad creation process with lots of info to help the user understand the process. Then I created a page to display and filter ads created by the user and to offer options to edit or delete their ads.</p>'
-          }
-        />
-        <FullImage align="left" img={data.gamestar5.childImageSharp.fluid} />
-        <FullImage align="right" video={adVideo} />
-        <ContFiftyFifty
-          setImgWidth={"480px"}
-          left={
-            '<h1>User Profile & Wallet</h1><span className="divider"></span><p>Following the design I built a profile page to connect your email and phone, a wallet page to connect your crypto wallets. Also a section to stake and unstake funds. Along with a section to show you all the info about the movement of your funds.</p> '
-          }
-        />
-        <FullImage align="center" img={data.gamestar6.childImageSharp.fluid} />
+
       </div>
     </Layout>
   )

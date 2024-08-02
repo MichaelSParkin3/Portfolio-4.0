@@ -72,7 +72,11 @@ const ContFiftyFifty = props => {
               : "inner-html inner-html-2 "
           }
         >
-          <Img fluid={props.leftImg} />
+          {props.isGif ? (
+            <img style={{ width: '100%' }} src={props.leftImg} alt="GIF" />
+          ) : (
+            <Img fluid={props.leftImg} />
+          )}
         </div>
       </motion.div>
       <motion.div
@@ -105,7 +109,11 @@ const ContFiftyFifty = props => {
               : "inner-html inner-html-2 "
           }
         >
-          <Img fluid={props.rightImg} />
+          {props.isGif ? (
+            <img style={{ width: '100%' }} src={props.rightImg} alt="GIF" />
+          ) : (
+            <Img fluid={props.rightImg} />
+          )}
         </div>
       </motion.div>
     </div>
