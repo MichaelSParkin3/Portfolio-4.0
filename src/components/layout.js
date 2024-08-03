@@ -154,7 +154,7 @@ const Layout = ({ children }) => {
             icon: <FaLinkedin />,
           },
           {
-            content: "My BEST contact, TEXT ME",
+            content: "Text me",
             link: "sms:1-323-393-0360",
             key: "3",
             icon: <FaPhone />,
