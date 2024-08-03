@@ -28,7 +28,7 @@ import adVideo from "../images/videos/gamestarAd.mp4"
 const Gamestar = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
-      ocusell1: file(relativePath: { eq: "ocusell1.gif" }) {
+      ocusell1x: file(relativePath: { eq: "ocusell1.gif" }) {
         publicURL
       }
       ocusellBig: file(relativePath: { eq: "ocusellBig.png" }) {
@@ -77,7 +77,7 @@ const Gamestar = ({ location }) => {
         />
 
         <ContFiftyFifty
-          rightImg={data.ocusell1.publicURL}
+          rightImg={data.ocusell1x.publicURL}
           isGif={true}
           setImgWidth={"480px"}
           left={
