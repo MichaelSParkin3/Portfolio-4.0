@@ -34,7 +34,7 @@ const ProjectScreen = () => {
           }
         }
       }
-      lamprosScreen: file(relativePath: { eq: "lamprosScreen3.jpg" }) {
+      lamprosScreen2: file(relativePath: { eq: "lamprosScreen3.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
@@ -268,7 +268,7 @@ const ProjectScreen = () => {
             name={"LAMPROS LABS"}
             tech={"Svelte Tailwind"}
             projectScreenHeight={newScreenImageHeight}
-            img={data.lamprosScreen.childImageSharp.fluid}
+            img={data.lamprosScreen2.childImageSharp.fluid}
             itemHoveredOn={itemHoveredOn}
             itemHoveredOff={itemHoveredOff}
             display={displayBoolArray[1]}
