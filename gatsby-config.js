@@ -19,7 +19,12 @@ module.exports = {
         custom: {},
       },
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        implementation: require('sass'),
+      },
+    },
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-react-helmet`,
     {
