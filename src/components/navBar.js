@@ -75,27 +75,22 @@ const NavBar = props => {
      */
 
     function onScroll() {
-
       if (pageRef.current != undefined && pageRef.current != null) {
+        let yOffset = pageRef.current.getBoundingClientRect().top
 
-      let yOffset = pageRef.current.getBoundingClientRect().top
-
-      if (yOffset >= 0) {
-        setOnTop(true)
-      } else {
-        if (onTop !== false) {
-          setOnTop(false)
+        if (yOffset >= 0) {
+          setOnTop(true)
+        } else {
+          if (onTop !== false) {
+            setOnTop(false)
+          }
         }
       }
     }
-    }
 
-        window.addEventListener("scroll", onScroll, true)
+    window.addEventListener("scroll", onScroll, true)
     return () => window.removeEventListener("scroll", onScroll, true)
-
-  
   }, [props.url])
-
 
   return (
     <>
@@ -120,11 +115,18 @@ const NavBar = props => {
           }
         >
           <motion.div
-            whileTap={{ scale: 0.7 }}
+          whileTap={{
+              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff", // Determine color based on condition
+              transition: { duration: 0.2 },
+              paddingLeft: "8px",
+              paddingRight: "8px",
+              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+            }}
             whileHover={{
               scale: 1.2,
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
+            style={{ padding: 4 }}
           >
             <AniLink
               onClick={props.CloseContact}
@@ -141,7 +143,13 @@ const NavBar = props => {
           <motion.div
             id="nav-logo-id"
             className="nav-logo"
-            whileTap={{ scale: 0.7 }}
+            whileTap={{
+              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff", // Determine color based on condition
+              transition: { duration: 0.2 },
+              paddingLeft: "8px",
+              paddingRight: "8px",
+              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+            }}
             whileHover={{
               scale: 1.2,
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
@@ -159,11 +167,18 @@ const NavBar = props => {
           </motion.div>
           <div className="nav-divider">|</div>
           <motion.div
-            whileTap={{ scale: 0.7 }}
+          whileTap={{
+              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff", // Determine color based on condition
+              transition: { duration: 0.2 },
+              paddingLeft: "8px",
+              paddingRight: "8px",
+              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+            }}
             whileHover={{
               scale: 1.2,
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
+            style={{ padding: 4 }}
           >
             <a onClick={props.ToggleContact}>Contact</a>
           </motion.div>
