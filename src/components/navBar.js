@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router" // Import useLocation
 
 import ScrollToTopButton from "./scrollToTopButton"
 
@@ -20,6 +21,9 @@ import "../scss/navbar.scss"
  */
 
 const NavBar = props => {
+  const location = useLocation(); // Get the current location
+  const currentPath = location.pathname; // Get the current path
+
   const data = useStaticQuery(graphql`
     query {
       contactImage: file(relativePath: { eq: "contact1.JPG" }) {
@@ -53,9 +57,6 @@ const NavBar = props => {
     }
   `)
 
-  /**
-   * onTop: True initally and true if page is scrolled to top. Otherwise it is false.
-   */
   const [onTop, setOnTop] = useState(true)
 
   const variants = {
@@ -66,14 +67,6 @@ const NavBar = props => {
   var pageRef = props.pageRef
 
   useEffect(() => {
-    /**
-     * onScroll:
-     * If the page is not at scrolled to the top then change the onTop state so
-     * the navbar can hide itself and the scrollToTopArrow can appear. If the page
-     * is at the top then update the onTop state to true and hide the scrollToTopArrow
-     * and make the navbar appear.
-     */
-
     function onScroll() {
       if (pageRef.current != undefined && pageRef.current != null) {
         let yOffset = pageRef.current.getBoundingClientRect().top
@@ -115,8 +108,8 @@ const NavBar = props => {
           }
         >
           <motion.div
-          whileTap={{
-              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff", // Determine color based on condition
+            whileTap={{
+              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
               transition: { duration: 0.2 },
               paddingLeft: "8px",
               paddingRight: "8px",
@@ -135,6 +128,7 @@ const NavBar = props => {
               bg="#e5e5e5"
               to="/"
               duration={1.5}
+              style={currentPath === "/" ? { pointerEvents: "none", opacity: 0.5 } : {}}
             >
               Projects
             </AniLink>
@@ -144,7 +138,7 @@ const NavBar = props => {
             id="nav-logo-id"
             className="nav-logo"
             whileTap={{
-              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff", // Determine color based on condition
+              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
               transition: { duration: 0.2 },
               paddingLeft: "8px",
               paddingRight: "8px",
@@ -160,15 +154,16 @@ const NavBar = props => {
               cover
               direction="up"
               duration={1.5}
-              to="/"
+              to="https://www.linkedin.com/in/michaelscottparkin3/"
+              target="_blank"
             >
               MIII
             </AniLink>
           </motion.div>
           <div className="nav-divider">|</div>
           <motion.div
-          whileTap={{
-              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff", // Determine color based on condition
+            whileTap={{
+              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
               transition: { duration: 0.2 },
               paddingLeft: "8px",
               paddingRight: "8px",
