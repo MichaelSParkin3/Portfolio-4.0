@@ -21,8 +21,8 @@ import "../scss/navbar.scss"
  */
 
 const NavBar = props => {
-  const location = useLocation(); // Get the current location
-  const currentPath = location.pathname; // Get the current path
+  const location = useLocation()
+  const currentPath = location.pathname
 
   const data = useStaticQuery(graphql`
     query {
@@ -108,18 +108,26 @@ const NavBar = props => {
           }
         >
           <motion.div
-            whileTap={{
-              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
-              transition: { duration: 0.2 },
-              paddingLeft: "8px",
-              paddingRight: "8px",
-              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
-            }}
-            whileHover={{
-              scale: 1.2,
-              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
-            }}
-            style={{ padding: 4 }}
+            whileTap={
+              currentPath === "/"
+                ? {}
+                : {
+                    backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
+                    transition: { duration: 0.2 },
+                    paddingLeft: "8px",
+                    paddingRight: "8px",
+                    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+                  }
+            }
+            whileHover={
+              currentPath === "/"
+                ? {}
+                : {
+                    scale: 1.2,
+                    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+                  }
+            }
+            style={{ padding: 3.5 }}
           >
             <AniLink
               onClick={props.CloseContact}
@@ -128,7 +136,21 @@ const NavBar = props => {
               bg="#e5e5e5"
               to="/"
               duration={1.5}
-              style={currentPath === "/" ? { pointerEvents: "none", opacity: 0.5 } : {}}
+              style={
+                currentPath === "/"
+                  ? props.makeWhite
+                    ? {
+                        pointerEvents: "none",
+                        backgroundColor: "#e5e5e5",
+                        color: "#0f1010",
+                      }
+                    : {
+                        pointerEvents: "none",
+                        backgroundColor: "#0f1010",
+                        color: "#e5e5e5",
+                      }
+                  : {}
+              }
             >
               Projects
             </AniLink>
@@ -149,33 +171,62 @@ const NavBar = props => {
               transition: { type: "spring", duration: 0.25, bounce: 0.5 },
             }}
           >
-            <AniLink
-              onClick={props.CloseContact}
-              cover
-              direction="up"
-              duration={1.5}
-              to="https://www.linkedin.com/in/michaelscottparkin3/"
+            <a
+              href="https://www.linkedin.com/in/michaelscottparkin3/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               MIII
-            </AniLink>
+            </a>
           </motion.div>
           <div className="nav-divider">|</div>
           <motion.div
-            whileTap={{
-              backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
-              transition: { duration: 0.2 },
-              paddingLeft: "8px",
-              paddingRight: "8px",
-              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
-            }}
-            whileHover={{
-              scale: 1.2,
-              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
-            }}
-            style={{ padding: 4 }}
+            whileTap={
+              currentPath === "/contact"
+                ? {}
+                : {
+                    backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
+                    transition: { duration: 0.2 },
+                    paddingLeft: "8px",
+                    paddingRight: "8px",
+                    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+                  }
+            }
+            whileHover={
+              currentPath === "/contact"
+                ? {}
+                : {
+                    scale: 1.2,
+                    transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+                  }
+            }
+            style={{ padding: 3.5 }}
           >
-            <a onClick={props.ToggleContact}>Contact</a>
+            <AniLink
+              onClick={props.ToggleContact}
+              cover
+              direction="up"
+              bg="#e5e5e5"
+              to="/contact"
+              duration={1.5}
+              style={
+                currentPath === "/contact"
+                  ? props.makeWhite
+                    ? {
+                        pointerEvents: "none",
+                        backgroundColor: "#e5e5e5",
+                        color: "#0f1010",
+                      }
+                    : {
+                        pointerEvents: "none",
+                        backgroundColor: "#0f1010",
+                        color: "#e5e5e5",
+                      }
+                  : {}
+              }
+            >
+              Contact
+            </AniLink>
           </motion.div>
         </div>
       </motion.nav>
