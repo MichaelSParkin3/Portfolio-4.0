@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import NavBar from "./navBar"
-import ContactPopUp from "./contactPopUp"
 import { isIOS, isAndroid } from "react-device-detect"
 
 import { FaGithub, FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa"
@@ -86,6 +85,9 @@ const Layout = ({ children }) => {
     if ((splitUrl == "" || splitUrl == null) && !isContactOpen) {
       setMakeWhite(true)
       setDisableAnim(true)
+    } else if (splitUrl == "contact") {
+      setMakeWhite(false)
+      setDisableAnim(true)
     } else {
       setMakeWhite(false)
       setDisableAnim(false)
@@ -129,38 +131,6 @@ const Layout = ({ children }) => {
         disableAnim={disableAnim}
         CloseContact={CloseContact}
         ToggleContact={ToggleContact}
-        contactIsOpen={isContactOpen}
-      />
-
-      <ContactPopUp
-        key={"1"}
-        items={[
-          {
-            content: "Check out my github",
-            link: "https://github.com/MichaelSParkin3",
-            key: "0",
-            icon: <FaGithub />,
-          },
-          {
-            content: "MichaelSParkin3@gmail.com",
-            link: "mailto:MichaelSParkin3@gmail.com",
-            key: "1",
-            icon: <FaEnvelope />,
-          },
-          {
-            content: "Connect with me",
-            link: "https://www.linkedin.com/in/michael-parkin-702396133/",
-            key: "2",
-            icon: <FaLinkedin />,
-          },
-          {
-            content: "Text me",
-            link: "sms:1-323-393-0360",
-            key: "3",
-            icon: <FaPhone />,
-            clickInit: GetPhoneHref,
-          },
-        ]}
         contactIsOpen={isContactOpen}
       />
 

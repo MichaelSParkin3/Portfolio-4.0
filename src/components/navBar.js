@@ -23,6 +23,8 @@ import "../scss/navbar.scss"
 const NavBar = props => {
   const location = useLocation()
   const currentPath = location.pathname
+  console.log(currentPath);
+  
 
   const data = useStaticQuery(graphql`
     query {
@@ -182,7 +184,7 @@ const NavBar = props => {
           <div className="nav-divider">|</div>
           <motion.div
             whileTap={
-              currentPath === "/contact"
+              currentPath === "/contact/"
                 ? {}
                 : {
                     backgroundColor: props.makeWhite ? "#2b2c2c" : "#fff",
@@ -193,7 +195,7 @@ const NavBar = props => {
                   }
             }
             whileHover={
-              currentPath === "/contact"
+              currentPath === "/contact/"
                 ? {}
                 : {
                     scale: 1.2,
@@ -203,16 +205,16 @@ const NavBar = props => {
             style={{ padding: 3.5 }}
           >
             <AniLink
-              onClick={props.ToggleContact}
               cover
               direction="up"
               bg="#e5e5e5"
               to="/contact"
               duration={1.5}
               style={
-                currentPath === "/contact"
+                currentPath === "/contact/"
                   ? props.makeWhite
-                    ? {
+                    ? 
+                    {
                         pointerEvents: "none",
                         backgroundColor: "#e5e5e5",
                         color: "#0f1010",
