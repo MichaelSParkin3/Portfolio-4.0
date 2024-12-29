@@ -1,28 +1,44 @@
-import React from "react"
-import InfiniteCarousel from "./infiniteCarousel"
-import "../scss/contactBox.scss"
+import React, { useState, useEffect } from "react";
+import anime from "animejs";
+import "../scss/contactBox.scss";
+import cyberCoder from "../images/videos/CyberpunkCoder.mp4";
 
-import cyberCoder from "../images/videos/CyberpunkCoder.mp4"
+const ContactBox = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-const ContactBox = props => {
+  useEffect(() => {
+    const videoElement = document.getElementById("cyberCoderVideo");
+    videoElement.onloadeddata = () => {
+      setVideoLoaded(true);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (videoLoaded) {
+      anime({
+        targets: ".img-cover-1",
+        width: "0%",
+        duration: 1000,
+        easing: "easeInOutCirc",
+      });
+      anime({
+        targets: ".img-cover-2",
+        width: "0%",
+        duration: 1000,
+        easing: "easeInOutCirc",
+      });
+    }
+  }, [videoLoaded]);
+
   return (
-    <>
-      <div className="contact-box">
-        <div></div>
-        <video loop="true" autoplay="autoplay" muted width="100%" height="auto">
-          <source src={cyberCoder} type="video/mp4" />
-        </video>
+    <div className="contactBox">
+      <div className="img-cover-cont">
+        <div className="img-cover-1"></div>
+        <div className="img-cover-2"></div>
       </div>
-      <InfiniteCarousel
-        phraseArray={[
-          "HIRE ME FOR YOUR NEXT PROJECT",
-          "为您的下一个项目雇我",
-          "CONTRATAME PARA TU PRÓXIMO PROYECTO",
-          "次のプロジェクトのために私を雇う",
-        ]}
-      />
-    </>
-  )
-}
+      <video id="cyberCoderVideo" src={cyberCoder} autoPlay muted loop />
+    </div>
+  );
+};
 
-export default ContactBox
+export default ContactBox;
