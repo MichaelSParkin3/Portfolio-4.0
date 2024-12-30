@@ -86,7 +86,7 @@ const Layout = ({ children }) => {
       setMakeWhite(true)
       setDisableAnim(true)
     } else if (splitUrl == "contact") {
-      setMakeWhite(false)
+      setMakeWhite(true)
       setDisableAnim(true)
     } else {
       setMakeWhite(false)
