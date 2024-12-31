@@ -42,7 +42,11 @@
 
   .links-cont {
     position: absolute;
-    .links {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .links,
+    .screen-cont {
       position: relative;
       top: 0;
       left: 0;
@@ -61,7 +65,6 @@
         letter-spacing: 2.5px;
         color: #e5e5e5;
         text-decoration: none;
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -70,6 +73,17 @@
         margin: 3px;
       }
     }
+    .links {
+      display: flex;
+      align-items: end;
+      justify-content: end;
+    }
+  }
+
+  #screen {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .screen {
@@ -79,52 +93,49 @@
     height: 100%;
     //background: #000000;
   }
-  
+
   .terminal_emulator {
     //position: absolute;
     bottom: 0;
     width: 100%;
     min-height: 100%;
-    
-    
+
     padding: 40px;
     font-size: 20px;
     line-heght: 25px;
     box-sizing: border-box;
-    text-align:left;
-    
+    text-align: left;
+
     font-family: monospace;
-    font-weight: 700;  
-    
+    font-weight: 700;
+
     color: #99ff99;
   }
-  
+
   .terminal_emulator__field,
   .terminal_emulator__command {
-    
     position: relative;
-    
+
     padding: 0 1em;
     margin: 0 0 9px 0;
-    
+
     &:before,
     &:after {
       position: absolute;
     }
-    
+
     &:before {
-      left:0;
+      left: 0;
       top: 0;
-      content:">";
+      content: ">";
     }
-    
   }
-  
+
   .terminal_emulator__response,
-  .terminal_emulator__command b{
+  .terminal_emulator__command b {
     padding-bottom: 9px;
   }
-  
+
   .terminal_emulator__field {
     display: inline-block;
     min-width: 1em;
@@ -133,15 +144,15 @@
     &:after {
       right: 0;
       bottom: 0.25em;
-      
-      content:"";
+
+      content: "";
       width: 1em;
       height: 1.5em;
-      background:#99ff99;
-    
+      background: #99ff99;
+
       animation: caretBlink 1s infinite;
     }
-    
+
     &.waiting {
       padding-left: 0;
       padding-right: 0;
@@ -150,23 +161,22 @@
       }
     }
   }
-  
+
   @keyframes caretBlink {
     0% {
       opacity: 0;
     }
-    
+
     50% {
       opacity: 0;
     }
-    
+
     51% {
       opacity: 1;
     }
-    
+
     100% {
       opacity: 1;
     }
   }
-
 }

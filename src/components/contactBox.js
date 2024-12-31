@@ -1,11 +1,18 @@
 import React, { useState, useEffect, useRef } from "react"
 import anime from "animejs"
+import { motion } from "framer-motion"
 import "../scss/contactBox.scss"
 import cyberCoder from "../images/videos/CyberpunkCoder.mp4"
 
+const leftVariants = {
+  on: { opacity: 1, y: 0 },
+  off: { opacity: 0, y: 100 },
+}
+
 const ContactBox = () => {
   const [videoLoaded, setVideoLoaded] = useState(false)
-  const videoRef = useRef(null);
+  const [animateLinks, setAnimateLinks] = useState(false); // State to control animation
+  const videoRef = useRef(null)
 
   var TerminalEmulator = {
     init: function (screen) {
@@ -106,48 +113,48 @@ const ContactBox = () => {
   }
 
   useEffect(() => {
-    const videoElement = videoRef.current;
+    const videoElement = videoRef.current
     if (videoElement) {
       const handleLoadedData = () => {
-        console.log("Video loaded");
-        setVideoLoaded(true);
-      };
-  
+        console.log("Video loaded")
+        setVideoLoaded(true)
+      }
+
       const handleError = () => {
-        console.error("Failed to load video");
-      };
-  
-      videoElement.addEventListener("loadeddata", handleLoadedData);
-      videoElement.addEventListener("error", handleError);
-  
+        console.error("Failed to load video")
+      }
+
+      videoElement.addEventListener("loadeddata", handleLoadedData)
+      videoElement.addEventListener("error", handleError)
+
       // Cleanup event listeners on component unmount
       return () => {
-        videoElement.removeEventListener("loadeddata", handleLoadedData);
-        videoElement.removeEventListener("error", handleError);
-      };
+        videoElement.removeEventListener("loadeddata", handleLoadedData)
+        videoElement.removeEventListener("error", handleError)
+      }
     }
-  }, []);
+  }, [])
 
   const animateImgCovers = () => {
-    console.log('running animate');
-  
-    return new Promise((resolve) => {
+    console.log("running animate")
+
+    return new Promise(resolve => {
       anime({
         targets: ".img-cover-1",
         width: "0%",
         duration: 1000,
         easing: "easeInOutCirc",
         complete: resolve, // Resolve the promise when animation completes
-      });
+      })
       anime({
         targets: ".img-cover-2",
         width: "0%",
         duration: 1000,
         easing: "easeInOutCirc",
         complete: resolve, // Resolve the promise when animation completes
-      });
-    });
-  };
+      })
+    })
+  }
 
   useEffect(() => {
     const screenElement = document.getElementById("screen")
@@ -160,21 +167,24 @@ const ContactBox = () => {
         .then(TE.wait.bind(TE, 600))
         .then(TE.enterResponse.bind(TE, "- remotecontroller v9 installed."))
         .then(TE.wait.bind(TE, 300))
-        .then(
-          TE.enterResponse.bind(TE, "- 10,000 dependencies installed. ")
-        )
+        .then(TE.enterResponse.bind(TE, "- 10,000 dependencies installed. "))
         .then(TE.wait.bind(TE, 600, false))
         .then(TE.enterInput.bind(TE, "node openblinds.js"))
         .then(TE.enterCommand.bind(TE))
         .then(TE.wait.bind(TE, 400))
         .then(TE.enterResponse.bind(TE, "opening blinds..."))
         .then(TE.wait.bind(TE, 600))
-        .then(()=>{animateImgCovers()})
+        .then(() => {
+          animateImgCovers()
+        })
         .then(TE.wait.bind(TE, 1000))
         .then(TE.enterResponse.bind(TE, "blinds opened successfully"))
         .then(TE.wait.bind(TE, 600, false))
         .then(TE.enterInput.bind(TE, "node showcontacts.js"))
         .then(TE.reset.bind(TE))
+        .then(() => {
+          setAnimateLinks(true); // Trigger animation
+        });
     }
   }, [])
 
@@ -185,8 +195,19 @@ const ContactBox = () => {
         <div className="img-cover-2"></div>
       </div>
       <div className="links-cont">
-        <div className="links">
-          {/* <a
+        <div className="screen-cont">
+          <div className="screen">
+            <div id="screen" className="terminal_emulator"></div>
+          </div>
+        </div>
+        <motion.div
+          className="links"
+          initial="off"
+          animate={animateLinks ? "on" : "off"} // Use state to control animation
+          variants={leftVariants}
+          transition={{ type: "spring", duration: 3, bounce: 0 }}
+        >
+          <a
             target="_blank"
             rel="noopener noreferrer"
             href="mailto:MichaelSParkin3@gmail.com"
@@ -203,16 +224,20 @@ const ContactBox = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/michaelscottparkin3/"
+            href="https://www.linkedin.com/in/michaelscottparkin3"
           >
-            linkedin.com/in/michaelscottparkin3/
-          </a> */}
-          <div className="screen">
-            <div id="screen" className="terminal_emulator"></div>
-          </div>
-        </div>
+            linkedin.com/in/michaelscottparkin3
+          </a>
+        </motion.div>
       </div>
-      <video ref={videoRef} id="cyberCoderVideo" src={cyberCoder} autoPlay muted loop />
+      <video
+        ref={videoRef}
+        id="cyberCoderVideo"
+        src={cyberCoder}
+        autoPlay
+        muted
+        loop
+      />
       <div class="dark-overlay"></div>
     </div>
   )
