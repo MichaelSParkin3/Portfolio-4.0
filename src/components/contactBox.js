@@ -173,18 +173,22 @@ const ContactBox = () => {
         .then(TE.enterCommand.bind(TE))
         .then(TE.wait.bind(TE, 400))
         .then(TE.enterResponse.bind(TE, "opening blinds..."))
-        .then(TE.wait.bind(TE, 600))
         .then(() => {
           animateImgCovers()
         })
-        .then(TE.wait.bind(TE, 1000))
-        .then(TE.enterResponse.bind(TE, "blinds opened successfully"))
+        .then(TE.wait.bind(TE, 1500))
+        .then(TE.enterResponse.bind(TE, "- blinds opened successfully."))
         .then(TE.wait.bind(TE, 600, false))
         .then(TE.enterInput.bind(TE, "node showcontacts.js"))
-        .then(TE.reset.bind(TE))
+        .then(TE.enterCommand.bind(TE))
+        .then(TE.enterResponse.bind(TE, "revealing contact info..."))
         .then(() => {
           setAnimateLinks(true); // Trigger animation
-        });
+        })
+        .then(TE.wait.bind(TE, 1500))
+        .then(TE.enterResponse.bind(TE, "- contacts revealed successfully."))
+        .then(TE.wait.bind(TE, 600, false))
+        .then(TE.reset.bind(TE));
     }
   }, [])
 
