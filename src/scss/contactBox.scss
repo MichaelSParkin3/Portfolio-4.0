@@ -190,8 +190,8 @@
     align-items: center;
     padding-left: 0px;
     padding-right: 0px;
-    a{
-    font-size: 0.7rem;
+    a {
+      font-size: 0.7rem;
     }
   }
   .contactBox .links-cont .screen-cont {
@@ -212,7 +212,10 @@
 @media (max-width: 285px) {
 }
 
-@media (max-height: 380px) {
+@media (max-height: 440px) {
+  .contactBox .links-cont .links {
+    align-items: end;
+  }
 }
 
 // Medium devices (tablets, less than 992px)
