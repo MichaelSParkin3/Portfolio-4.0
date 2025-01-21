@@ -25,9 +25,10 @@
 
   video {
     width: 100%;
-    height: auto; // Maintain aspect ratio
+    height: 100%;
     z-index: 1;
     opacity: 0.75;
+    object-fit: cover;
   }
 
   .overlay {
@@ -101,7 +102,7 @@
     min-height: 100%;
 
     padding: 40px;
-    font-size: 20px;
+    font-size: 0.9rem;
     line-heght: 25px;
     box-sizing: border-box;
     text-align: left;
@@ -179,4 +180,45 @@
       opacity: 1;
     }
   }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .contactBox .links-cont .links {
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    a{
+    font-size: 0.7rem;
+    }
+  }
+  .contactBox .links-cont .screen-cont {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+@media (max-width: 575.98px) {
+}
+
+@media (max-width: 390px) {
+}
+
+@media (max-width: 340px) {
+}
+
+@media (max-width: 285px) {
+}
+
+@media (max-height: 380px) {
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
 }

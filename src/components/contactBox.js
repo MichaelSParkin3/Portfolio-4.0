@@ -11,7 +11,7 @@ const leftVariants = {
 
 const ContactBox = () => {
   const [videoLoaded, setVideoLoaded] = useState(false)
-  const [animateLinks, setAnimateLinks] = useState(false); // State to control animation
+  const [animateLinks, setAnimateLinks] = useState(false)
   const videoRef = useRef(null)
 
   var TerminalEmulator = {
@@ -19,6 +19,7 @@ const ContactBox = () => {
       var inst = Object.create(this)
       inst.screen = screen
       inst.createInput()
+      inst.commandCount = 0 // Track the number of commands/responses
 
       return inst
     },
@@ -75,6 +76,8 @@ const ContactBox = () => {
         this.screen.insertBefore(resp, this.fieldwrap)
 
         this.field.innerHTML = ""
+        this.commandCount++
+        this.checkCommandLimit() // Check if command limit is exceeded
         resolve()
       })
     },
@@ -86,8 +89,30 @@ const ContactBox = () => {
         resp.innerHTML = response
         this.screen.insertBefore(resp, this.fieldwrap)
 
+        this.commandCount++
+        this.checkCommandLimit() // Check if command limit is exceeded
         resolve()
       })
+    },
+
+    checkCommandLimit: function () {
+      if (this.commandCount > 3) {
+        const firstCommand = this.screen.firstChild
+        if (firstCommand) {
+          anime({
+            targets: firstCommand,
+            opacity: 0,
+            duration: 500,
+            easing: "easeInOutQuad",
+            complete: () => {
+              if (firstCommand.parentNode === this.screen) {
+                this.screen.removeChild(firstCommand)
+                this.commandCount--
+              }
+            },
+          })
+        }
+      }
     },
 
     wait: function (time, busy) {
@@ -160,7 +185,7 @@ const ContactBox = () => {
     const screenElement = document.getElementById("screen")
     if (screenElement) {
       const TE = TerminalEmulator.init(screenElement)
-      TE.wait(1000, false)
+      TE.wait(500, false)
         .then(TE.enterInput.bind(TE, "npm install websitecontroller"))
         .then(TE.enterCommand.bind(TE))
         .then(TE.enterResponse.bind(TE, "npm installing packages..."))
@@ -183,12 +208,12 @@ const ContactBox = () => {
         .then(TE.enterCommand.bind(TE))
         .then(TE.enterResponse.bind(TE, "revealing contact info..."))
         .then(() => {
-          setAnimateLinks(true); // Trigger animation
+          setAnimateLinks(true) // Trigger animation
         })
         .then(TE.wait.bind(TE, 1500))
         .then(TE.enterResponse.bind(TE, "- contacts revealed successfully."))
         .then(TE.wait.bind(TE, 600, false))
-        .then(TE.reset.bind(TE));
+        .then(TE.reset.bind(TE))
     }
   }, [])
 
@@ -211,27 +236,51 @@ const ContactBox = () => {
           variants={leftVariants}
           transition={{ type: "spring", duration: 3, bounce: 0 }}
         >
-          <a
+          <motion.a
             target="_blank"
             rel="noopener noreferrer"
             href="mailto:MichaelSParkin3@gmail.com"
+            whileTap={{
+              scale: 0.9,
+              transition: { duration: 0.2 },
+            }}
+            whileHover={{
+              scale: 1.075,
+              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+            }}
           >
             MichaelSParkin3@gmail.com
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/MichaelSParkin3"
+            whileTap={{
+              scale: 0.9,
+              transition: { duration: 0.2 },
+            }}
+            whileHover={{
+              scale: 1.075,
+              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+            }}
           >
             github.com/MichaelSParkin3
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/michaelscottparkin3"
+            whileTap={{
+              scale: 0.9,
+              transition: { duration: 0.2 },
+            }}
+            whileHover={{
+              scale: 1.075,
+              transition: { type: "spring", duration: 0.25, bounce: 0.5 },
+            }}
           >
             linkedin.com/in/michaelscottparkin3
-          </a>
+          </motion.a>
         </motion.div>
       </div>
       <video
@@ -242,7 +291,7 @@ const ContactBox = () => {
         muted
         loop
       />
-      <div class="dark-overlay"></div>
+      <div className="dark-overlay"></div>
     </div>
   )
 }
