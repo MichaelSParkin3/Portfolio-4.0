@@ -55,9 +55,9 @@ const ContactBox = () => {
               if (i % 5 === 0) speed = randomSpeed(80, 120)
               type()
             } else {
-              console.log("tick")
+        
               setTimeout(() => {
-                console.log("tock")
+             
                 resolve()
               }, 400)
             }
@@ -141,7 +141,7 @@ const ContactBox = () => {
     const videoElement = videoRef.current
     if (videoElement) {
       const handleLoadedData = () => {
-        console.log("Video loaded")
+   
         setVideoLoaded(true)
       }
 
@@ -161,7 +161,7 @@ const ContactBox = () => {
   }, [])
 
   const animateImgCovers = () => {
-    console.log("running animate")
+
 
     return new Promise(resolve => {
       anime({
